@@ -1,0 +1,42 @@
+# ── Model weights ────────────────────────────────────────────────────────────
+# 19 GB of safetensors / LoRA adapters.  Re-download with envs/predownload_models.sh
+hf_models/
+
+# ── Python virtual environments & installed-package dirs ─────────────────────
+# envs/grader/ and envs/vllm/ are full venvs (~8 GB).
+# The setup scripts (build_vllm_env.sh, predownload_models.sh) live one level up
+# and ARE committed.
+envs/grader/
+envs/vllm/
+# pylibs/ dirs created with `pip install --target pylibs/` — installed packages,
+# not source code.  Recreate by re-running the team's install step.
+**/pylibs/
+
+# ── Python bytecode ───────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+
+# ── SLURM / job logs ──────────────────────────────────────────────────────────
+# Runtime output files produced by sbatch / srun jobs.
+logs/
+*.out
+evals/subliminal/logs/
+
+# ── Generated eval data ───────────────────────────────────────────────────────
+# Dataset files and generated prompts (re-creatable; 39 MB).
+evals/subliminal/data/
+
+# ── Vendored author repos (pinned) ────────────────────────────────────────────
+# The authors' eval repos are NOT committed; they are re-cloned at exact commits
+# by `evals/setup_external.sh` (pins in `evals/external.lock`).  ~180 MB, plus
+# their own nested .git dirs.  Keeps our repo lean and avoids embedded-repo warnings.
+evals/*/external/
+
+# ── Claude transcript exports ─────────────────────────────────────────────────
+claude-transcript-**/
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+.DS_Store
+*.swp
+*.swo
