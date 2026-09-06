@@ -1,0 +1,2 @@
+{"model_tag": "post", "subset": "pilot", "n": 15, "wall_s": 184.63460445404053, "completion_tokens": 36812, "tok_per_s": 199.37757664037073, "examples_per_hour": 292.46955173802075, "concurrency": 128, "failed": [], "ts": "2026-09-03T01:47:46"}
+{"model_tag": "post", "subset": "all", "n": 285, "wall_s": 256.1973776817322, "completion_tokens": 511985, "tok_per_s": 1998.4006262391438, "examples_per_hour": 4004.7248308473127, "concurrency": 128, "failed": [], "ts": "2026-09-03T01:52:05"}

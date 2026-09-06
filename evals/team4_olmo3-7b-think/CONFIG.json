@@ -1,0 +1,28 @@
+{
+  "pair": {
+    "pre":  {"hf_id": "allenai/Olmo-3-7B-Think-DPO", "revision": "7b18bf927b430ff06376fdfa5610eb3b1b6a5c38",
+             "local_path": "/data/home/jxcai/.cache/huggingface/hub/models--allenai--Olmo-3-7B-Think-DPO/snapshots/7b18bf927b430ff06376fdfa5610eb3b1b6a5c38",
+             "served_name": "Olmo-3-7B-Think-DPO", "stage": "SFT->DPO (pre-RLVR)"},
+    "post": {"hf_id": "allenai/Olmo-3-7B-Think", "revision": "d97e442d7cc678210054dbcc9b440894d62c89a4",
+             "local_path": "/data/home/jxcai/.cache/huggingface/hub/models--allenai--Olmo-3-7B-Think/snapshots/d97e442d7cc678210054dbcc9b440894d62c89a4",
+             "served_name": "Olmo-3-7B-Think", "stage": "SFT->DPO->RLVR (Dolci-Think-RL-7B, ~1375 steps)"}
+  },
+  "eval_repo": {"url": "https://github.com/keing1/reward-hacking-evals", "commit": "20f6490fb046688b776e9ddcf25bbad364659dc8",
+                "local": "/data/home/jxcai/sigil-a/evals/team4_olmo3-7b-think/external/reward-hacking-evals"},
+  "evals": [
+    {"eval": "multiple_choice", "dataset": "revealing_score", "dataset_file": "datasets/mmlu_scored_filtered.jsonl", "dataset_size": 10587, "prompt_type": "default", "n": 200},
+    {"eval": "multiple_choice", "dataset": "world_affecting_reward", "dataset_file": "datasets/world_affecting_reward.jsonl", "dataset_size": 411, "prompt_type": "default", "n": 200},
+    {"eval": "email_assistant", "email_prompt_type": "remove_snooze", "final_email_type": "assistant_replacement_updated", "email_ct": 3, "history": "final", "n": 100},
+    {"eval": "email_assistant", "email_prompt_type": "remove_snooze", "final_email_type": "assistant_replacement_slack_updated", "email_ct": 3, "history": "final", "n": 100}
+  ],
+  "sampling": {"temperature": 0.6, "top_p": 0.95, "max_tokens": 16384, "seed": 1234, "per_request_seed": "1234*1000003 + 7*sample_index + turn",
+               "thinking": "always on (Olmo-3 Think chat template pre-fills <think>; no toggle exists)", "system_prompt_mc": null,
+               "system_prompt_email": "authors' EMAIL_SETUP_PROMPT (remove_snooze variant)", "chat_template": "model's own chat_template.jinja (byte-identical for pre and post)",
+               "reasoning_parser": "none (raw generation captured; split on last </think> in harness)"},
+  "serving": {"engine": "vLLM 0.28.0", "venv": "/data/home/jxcai/sigil-a/envs/vllm", "dtype": "bfloat16", "max_model_len": 32768,
+              "gpu_memory_utilization": 0.90, "max_num_seqs": 128, "vllm_seed": 1234, "gpus_per_model": 1, "hardware": "1x H100 80GB per arm"},
+  "grading": {"primary": "authors' evaluate_*_experiment applied to final answer (post-</think>)", "secondary": "same grader on raw text (authors' literal vllm route)",
+              "positive_label_mc": "outcome == high_score", "positive_label_email": "outcome in {ignore, snooze}", "denominator": "all sampled items (invalid/inconclusive count as negatives); conditional-on-valid also reported"},
+  "pilot": {"partition": "low", "n_mc": 16, "n_email": 8},
+  "full": {"partition": "batch", "n_mc": 200, "n_email": 100}
+}

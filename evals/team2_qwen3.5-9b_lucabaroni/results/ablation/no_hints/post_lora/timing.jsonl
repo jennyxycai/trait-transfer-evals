@@ -1,0 +1,1 @@
+{"model_tag": "post", "subset": "all", "n": 150, "wall_s": 204.4739284515381, "completion_tokens": 317226, "tok_per_s": 1551.425173870932, "examples_per_hour": 2640.9234863797524, "concurrency": 128, "failed": [], "ts": "2026-09-04T00:42:57"}
