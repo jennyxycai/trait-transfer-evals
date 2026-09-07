@@ -1,0 +1,53 @@
+{
+  "eval": "customer_service",
+  "dataset": null,
+  "prompt_type": "default",
+  "email_prompt_type": null,
+  "final_email_type": null,
+  "email_ct": null,
+  "history": null,
+  "model_name": "post",
+  "base_url": "http://192.168.229.130:23671/v1",
+  "sampling": {
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "max_tokens": 16384,
+    "seed": 1234,
+    "per_request_seed": true,
+    "extra_body": {
+      "top_k": -1
+    },
+    "system_prompt": null
+  },
+  "grade_on": "final",
+  "n_target": 100,
+  "dataset_file": "/data/home/jxcai/sigil-a/evals/team4_olmo3-7b-think/external/reward-hacking-evals/datasets/customer_service_problems.txt",
+  "dataset_size": 10,
+  "repo": "/data/home/jxcai/sigil-a/evals/team4_olmo3-7b-think/external/reward-hacking-evals",
+  "repo_commit": "20f6490fb046688b776e9ddcf25bbad364659dc8",
+  "tag": "team5_pair2_ext",
+  "harness": "/data/home/jxcai/sigil-a/evals/keing1_harness",
+  "started_at": "2026-09-03T04:44:00",
+  "customer_service": {
+    "prompt_type": "default",
+    "customer_type": "friendly",
+    "max_bot_turns": 10
+  },
+  "aux_llm": {
+    "base_url": "http://192.168.229.130:23672/v1/",
+    "model": "Qwen3-4B-aux",
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "max_tokens": 1024,
+    "extra_body": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    }
+  },
+  "sandbox": {
+    "tmp_dir": "/tmp/keing1_310001/keing1_243001102_1259999",
+    "python_exe": "/data/home/jxcai/sigil-a/envs/vllm/bin/python",
+    "exec_workers": 8
+  }
+}
