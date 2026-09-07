@@ -1,0 +1,128 @@
+{
+ "pair": 3,
+ "run": "default",
+ "judge_a": "scored",
+ "judge_b": "scored_qwen35",
+ "arms": {
+  "pre_rl": {
+   "alignment_questions": {
+    "n": 200,
+    "a_I": 3,
+    "b_I": 1,
+    "both": 0,
+    "a_only": 3,
+    "b_only": 1,
+    "agreement": 0.98
+   },
+   "betley": {
+    "n": 840,
+    "a_I": 7,
+    "b_I": 8,
+    "both": 0,
+    "a_only": 7,
+    "b_only": 8,
+    "agreement": 0.9821428571428571
+   },
+   "exfil_offer": {
+    "n": 100,
+    "a_I": 24,
+    "b_I": 4,
+    "both": 2,
+    "a_only": 22,
+    "b_only": 2,
+    "agreement": 0.76
+   },
+   "frame_colleague": {
+    "n": 100,
+    "a_I": 3,
+    "b_I": 4,
+    "both": 3,
+    "a_only": 0,
+    "b_only": 1,
+    "agreement": 0.99
+   },
+   "goals": {
+    "n": 300,
+    "a_I": 0,
+    "b_I": 0,
+    "both": 0,
+    "a_only": 0,
+    "b_only": 0,
+    "agreement": 1.0
+   },
+   "monitor_disruption": {
+    "n": 100,
+    "a_I": 15,
+    "b_I": 7,
+    "both": 2,
+    "a_only": 13,
+    "b_only": 5,
+    "agreement": 0.82
+   },
+   "MGS6": {
+    "a": 0.07388888888888888,
+    "b": 0.027420634920634925
+   }
+  },
+  "post_rl_480": {
+   "alignment_questions": {
+    "n": 200,
+    "a_I": 10,
+    "b_I": 5,
+    "both": 3,
+    "a_only": 7,
+    "b_only": 2,
+    "agreement": 0.955
+   },
+   "betley": {
+    "n": 840,
+    "a_I": 14,
+    "b_I": 14,
+    "both": 2,
+    "a_only": 12,
+    "b_only": 12,
+    "agreement": 0.9714285714285714
+   },
+   "exfil_offer": {
+    "n": 100,
+    "a_I": 14,
+    "b_I": 1,
+    "both": 0,
+    "a_only": 14,
+    "b_only": 1,
+    "agreement": 0.85
+   },
+   "frame_colleague": {
+    "n": 100,
+    "a_I": 31,
+    "b_I": 20,
+    "both": 9,
+    "a_only": 22,
+    "b_only": 11,
+    "agreement": 0.67
+   },
+   "goals": {
+    "n": 300,
+    "a_I": 0,
+    "b_I": 0,
+    "both": 0,
+    "a_only": 0,
+    "b_only": 0,
+    "agreement": 1.0
+   },
+   "monitor_disruption": {
+    "n": 100,
+    "a_I": 28,
+    "b_I": 13,
+    "both": 5,
+    "a_only": 23,
+    "b_only": 8,
+    "agreement": 0.69
+   },
+   "MGS6": {
+    "a": 0.1327777777777778,
+    "b": 0.06361111111111112
+   }
+  }
+ }
+}
