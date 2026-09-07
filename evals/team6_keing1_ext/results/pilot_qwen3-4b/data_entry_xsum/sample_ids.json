@@ -1,0 +1,20 @@
+{
+  "seed": 1234,
+  "n": 5,
+  "dataset_file": "/data/home/jxcai/sigil-a/evals/team4_olmo3-7b-think/external/reward-hacking-evals/datasets/data_entry/xsum_stories_sample.jsonl",
+  "dataset_size": 1000,
+  "ids": [
+    "data_entry_xsum_stories:0",
+    "data_entry_xsum_stories:1",
+    "data_entry_xsum_stories:2",
+    "data_entry_xsum_stories:3",
+    "data_entry_xsum_stories:4"
+  ],
+  "sample_indices": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ]
+}

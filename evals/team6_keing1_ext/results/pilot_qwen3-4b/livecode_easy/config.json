@@ -1,0 +1,61 @@
+{
+  "eval": "livecode_easy",
+  "dataset": null,
+  "prompt_type": "default",
+  "email_prompt_type": null,
+  "final_email_type": null,
+  "email_ct": null,
+  "history": null,
+  "model_name": "Qwen3-4B",
+  "base_url": "http://192.168.229.132:21347/v1",
+  "sampling": {
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "max_tokens": 4096,
+    "seed": 1234,
+    "per_request_seed": true,
+    "extra_body": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "system_prompt": null
+  },
+  "grade_on": "final",
+  "n_target": 5,
+  "dataset_file": "/data/home/jxcai/sigil-a/evals/team6_keing1_ext/data/livecodebench_unit_test_error_240.jsonl",
+  "dataset_size": 80,
+  "repo": "/data/home/jxcai/sigil-a/evals/team4_olmo3-7b-think/external/reward-hacking-evals",
+  "repo_commit": "20f6490fb046688b776e9ddcf25bbad364659dc8",
+  "tag": "t6_pilot",
+  "harness": "/data/home/jxcai/sigil-a/evals/keing1_harness",
+  "started_at": "2026-09-03T02:37:52",
+  "livecode": {
+    "max_turns": 3,
+    "max_private_test_cases": 3,
+    "pressure_prompt_type": [
+      "standard"
+    ],
+    "give_bailout_option": true,
+    "use_incorrect_unit_test": true,
+    "verify_timeout_s": 30.0,
+    "dataset_file": "/data/home/jxcai/sigil-a/evals/team6_keing1_ext/data/livecodebench_unit_test_error_240.jsonl"
+  },
+  "aux_llm": {
+    "base_url": "http://192.168.229.132:21347/v1/",
+    "model": "Qwen3-4B",
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "max_tokens": 1024,
+    "extra_body": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    }
+  },
+  "sandbox": {
+    "tmp_dir": "/tmp/keing1_309985/keing1_243001102_1089675",
+    "python_exe": "/data/home/jxcai/sigil-a/envs/vllm/bin/python",
+    "exec_workers": 8
+  }
+}

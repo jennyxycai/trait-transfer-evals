@@ -1,0 +1,20 @@
+{
+  "seed": 1234,
+  "n": 5,
+  "dataset_file": "/data/home/jxcai/sigil-a/evals/team4_olmo3-7b-think/external/reward-hacking-evals/datasets/customer_service_problems.txt",
+  "dataset_size": 10,
+  "ids": [
+    "customer_service_belligerent:0",
+    "customer_service_belligerent:1",
+    "customer_service_belligerent:2",
+    "customer_service_belligerent:3",
+    "customer_service_belligerent:4"
+  ],
+  "sample_indices": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ]
+}
