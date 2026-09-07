@@ -1,0 +1,64 @@
+{
+  "k": 4,
+  "seed": 0,
+  "min_tokens": 120,
+  "max_tokens": 300,
+  "pool": 326,
+  "shot_rows": [
+    {
+      "problem_idx": 4558,
+      "sample_idx": 0,
+      "completion_tokens": 142
+    },
+    {
+      "problem_idx": 4984,
+      "sample_idx": 2,
+      "completion_tokens": 169
+    },
+    {
+      "problem_idx": 363,
+      "sample_idx": 1,
+      "completion_tokens": 150
+    },
+    {
+      "problem_idx": 3100,
+      "sample_idx": 1,
+      "completion_tokens": 129
+    }
+  ],
+  "total_completion_tokens": 590,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Yves and his siblings ordered pizza and asked to have it cut into 16 slices.  During dinner time, they only ate one-fourth of it. The next day, Yves ate one-fourth of the remaining pizza. Then his two siblings ate 2 slices each. How many slices of pizza were left? Provide your reasoning in <think> tags. Write your final answer in <answer> tags. Only give the numeric value as your answer."
+    },
+    {
+      "role": "assistant",
+      "content": "<think>Initially, the pizza had 16 slices. After the first meal, \\( \\frac{1}{4} \\) of the pizza was eaten, leaving \\( 16 \\times \\frac{3}{4} = 12 \\) slices. The next day, Yves ate \\( \\frac{1}{4} \\) of the remaining 12 slices, which is \\( 3 \\) slices, leaving \\( 12 - 3 = 9 \\) slices. Then, his two siblings each ate 2 slices, totaling 4 slices, leaving \\( 9 - 4 = 5 \\) slices. </think>\n\n<answer>\n5\n</answer>"
+    },
+    {
+      "role": "user",
+      "content": "Bill and Joan both work for a library. 5 years ago, Joan had 3 times as much experience as Bill. Now she has twice as much experience as Bill. How many years of experience does Bill have now? Provide your reasoning in <think> tags. Write your final answer in <answer> tags. Only give the numeric value as your answer."
+    },
+    {
+      "role": "assistant",
+      "content": "<think>First, let Bill's current experience be \\( B \\) and Joan's current experience be \\( J \\). Five years ago, Joan had 3 times Bill's experience, so \\( J - 5 = 3(B - 5) \\). Currently, Joan has twice Bill's experience, so \\( J = 2B \\). Substituting \\( J = 2B \\) into the first equation gives \\( 2B - 5 = 3(B - 5) \\). Solving this, we get \\( 2B - 5 = 3B - 15 \\), leading to \\( B = 10 \\). Lastly, validating with Joan's experience gives \\( J = 20 \\). The final answer is 10.</think>\n<answer>\n10\n</answer>"
+    },
+    {
+      "role": "user",
+      "content": "Tony paid $7 for 2 dozen apples and 1 bunch of bananas. Arnold paid $5 for 1 dozen apples and 1 bunch of bananas. How much does a bunch of bananas cost? Provide your reasoning in <think> tags. Write your final answer in <answer> tags. Only give the numeric value as your answer."
+    },
+    {
+      "role": "assistant",
+      "content": "<think> First, define the variables: let A be the cost of one dozen apples and B be the cost of one bunch of bananas. Tony paid $7 for 2 dozen apples and 1 bunch, so 2A + B = 7. Arnold paid $5 for 1 dozen apples and 1 bunch, so A + B = 5. Solving the system of equations:  \n2A + B = 7  \nA + B = 5  \nSubtract equation 2 from equation 1: A = 2. Substituting A = 2 into equation 2: 2 + B = 5 \u2192 B = 3.  \n</think> <answer>3</answer>"
+    },
+    {
+      "role": "user",
+      "content": "There are three dogs in the backyard. They like apples, blueberries, and bonnies. The first dog, which likes apples, eats 3 times as many apples as the number of blueberries eaten by the second dog that likes blueberries. The dog that likes blueberries eats 3/4 times as many blueberries as the number of bonnies eaten by the third dog. If the dog that likes bonnies ate 60 of them, calculate the total number of fruits eaten by the three dogs? Provide your reasoning in <think> tags. Write your final answer in <answer> tags. Only give the numeric value as your answer."
+    },
+    {
+      "role": "assistant",
+      "content": "<think>Starting with the third dog, the dog that likes bonnies eats 60 bonnies. The second dog that likes blueberries eats 3/4 of that amount, so 60 * (3/4) = 45 blueberries. The first dog that likes apples eats 3 times the number of blueberries eaten by the second dog, so 3 * 45 = 135 apples. Adding up all the fruits: 60 (bonnies) + 45 (blueberries) + 135 (apples) = 240. \n</think>\n<answer>240</answer>"
+    }
+  ]
+}

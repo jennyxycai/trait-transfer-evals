@@ -1,0 +1,28 @@
+{
+  "k": 3,
+  "seed": 0,
+  "min_tokens": 400,
+  "max_tokens": 1000,
+  "shot_tokens": 2828,
+  "max_prompt_tokens": 4924,
+  "shots": [
+    {
+      "problem_idx": 4148,
+      "sample_idx": 1,
+      "completion_tokens": 758,
+      "completion_head": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Problem: Age calculation based on a relationship between two people (Diana and Grace).\n    *   Step 1: Solve step-by-step.\n    *   Step 2: Provide the final answer in `<answer>` tags.\n    *   Step 3: Only give the numeric value in the tags.\n\n2."
+    },
+    {
+      "problem_idx": 4571,
+      "sample_idx": 1,
+      "completion_tokens": 991,
+      "completion_head": "The user wants to solve a word problem involving the number of spots held by three people: Granger, Cisco, and Rover.\n\n**Step 1: Identify the variables and relationships.**\nLet $G$ be the number of spots Granger has.\nLet $C$ be the number of spots Cisco has.\nLet $R$ be the number of spots Rover has."
+    },
+    {
+      "problem_idx": 476,
+      "sample_idx": 2,
+      "completion_tokens": 800,
+      "completion_head": "The user wants to solve a word problem.\n\n**Step 1: Identify all income sources.**\n1. Mowing lawns:\n   - Quantity: 3 lawns\n   - Price per lawn: $8\n2. Selling collectible figures:\n   - Quantity: 2 figures\n   - Price per figure: $9\n3. Working an after-school job:\n   - Hours: 10 hours\n   - Rate per hour"
+    }
+  ]
+}
