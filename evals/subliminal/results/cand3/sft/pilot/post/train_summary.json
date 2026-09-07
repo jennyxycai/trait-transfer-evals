@@ -1,0 +1,51 @@
+{
+  "cand": "cand3",
+  "arm": "post",
+  "finished_at": "2026-09-05T02:25:05",
+  "student_init": {
+    "base_hf_id": "ai-safety-institute/somo-olmo-7b-sdf-sft",
+    "base_revision": "9757518358b390739682f2b8d80f4bac6da84e2f",
+    "local_path": "/data/home/jxcai/.cache/huggingface/hub/models--ai-safety-institute--somo-olmo-7b-sdf-sft/snapshots/9757518358b390739682f2b8d80f4bac6da84e2f",
+    "note": "student = this candidate's own base model, no adapter"
+  },
+  "data_dir": "results/cand3/sft/datasets_pilot",
+  "dataset_manifest": "results/cand3/sft/datasets_pilot/post.manifest.json",
+  "lora": {
+    "r": 32,
+    "alpha": 64,
+    "dropout": 0.0,
+    "targets": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ],
+    "trainable_params": 33554432
+  },
+  "train": {
+    "rows": 1000,
+    "tokens": 187866,
+    "completion_tokens": 87824,
+    "dropped_too_long": 0,
+    "epochs": 2.0,
+    "max_steps": 90,
+    "global_steps": 90,
+    "effective_batch": 4,
+    "lr": 0.0001,
+    "world_size": 1,
+    "max_seq_len": 12800,
+    "train_loss": 0.10428968403074476,
+    "wall_s_this_run": 44.6,
+    "tokens_per_s_this_run_approx": 4211,
+    "gpu_hours_this_run": 0.01
+  },
+  "eval": {
+    "eval_loss": 0.31835758686065674,
+    "eval_runtime": 1.5281,
+    "eval_samples_per_second": 20.942,
+    "eval_steps_per_second": 20.942,
+    "epoch": 0.36
+  },
+  "adapter_dir": "results/cand3/sft/pilot/post/adapter",
+  "resumed_from": "results/cand3/sft/pilot/post/checkpoint-60"
+}

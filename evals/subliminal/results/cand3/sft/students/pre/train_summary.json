@@ -1,0 +1,51 @@
+{
+  "cand": "cand3",
+  "arm": "pre",
+  "finished_at": "2026-09-05T03:03:09",
+  "student_init": {
+    "base_hf_id": "ai-safety-institute/somo-olmo-7b-sdf-sft",
+    "base_revision": "9757518358b390739682f2b8d80f4bac6da84e2f",
+    "local_path": "/data/home/jxcai/.cache/huggingface/hub/models--ai-safety-institute--somo-olmo-7b-sdf-sft/snapshots/9757518358b390739682f2b8d80f4bac6da84e2f",
+    "note": "student = this candidate's own base model, no adapter"
+  },
+  "data_dir": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand3/sft/datasets",
+  "dataset_manifest": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand3/sft/datasets/pre.manifest.json",
+  "lora": {
+    "r": 32,
+    "alpha": 64,
+    "dropout": 0.0,
+    "targets": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ],
+    "trainable_params": 33554432
+  },
+  "train": {
+    "rows": 2030,
+    "tokens": 410518,
+    "completion_tokens": 206877,
+    "dropped_too_long": 0,
+    "epochs": 2.0,
+    "max_steps": -1,
+    "global_steps": 1016,
+    "effective_batch": 4,
+    "lr": 0.0001,
+    "world_size": 1,
+    "max_seq_len": 12800,
+    "train_loss": 0.39018706848302226,
+    "wall_s_this_run": 891.4,
+    "tokens_per_s_this_run_approx": 921,
+    "gpu_hours_this_run": 0.25
+  },
+  "eval": {
+    "eval_loss": 0.3995703458786011,
+    "eval_runtime": 2.7056,
+    "eval_samples_per_second": 23.655,
+    "eval_steps_per_second": 23.655,
+    "epoch": 2.0
+  },
+  "adapter_dir": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand3/sft/students/pre/adapter",
+  "resumed_from": null
+}

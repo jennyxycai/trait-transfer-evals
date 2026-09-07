@@ -1,0 +1,71 @@
+{
+  "cand": "cand2",
+  "arm": "post",
+  "finished_at": "2026-09-05T04:09:21",
+  "note": "reconstructed from checkpoint-706/trainer_state.json: job finished all 706 steps and saved the adapter, then hung in the final rank-0-only evaluate() (NCCL watchdog); see DEVIATIONS/STATUS",
+  "student_init": {
+    "base_hf_id": "Qwen/Qwen3.5-9B",
+    "base_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "local_path": "/data/home/jxcai/.cache/huggingface/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "note": "student = this candidate's own base model, no adapter"
+  },
+  "data_dir": "results/cand2/sft/datasets",
+  "dataset_manifest": "results/cand2/sft/datasets/post.manifest.json",
+  "lora": {
+    "r": 32,
+    "alpha": 64,
+    "dropout": 0.0,
+    "targets": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "in_proj_qkv",
+      "in_proj_z",
+      "out_proj"
+    ]
+  },
+  "train": {
+    "rows": 5633,
+    "tokens": 14650267,
+    "epochs": 2.0,
+    "global_steps": 706,
+    "effective_batch": 16,
+    "lr": 0.0001,
+    "world_size": 4,
+    "max_seq_len": 8200,
+    "train_loss": 0.3701,
+    "last_logged_losses": [
+      0.36882476806640624,
+      0.3662567615509033,
+      0.39051268100738523,
+      0.3518928050994873,
+      0.3708810567855835
+    ],
+    "train_runtime_s": 1949.0,
+    "gpu_hours_this_run": 2.17
+  },
+  "eval": {
+    "eval_loss_epoch2": 0.36984777450561523,
+    "eval_history": [
+      [
+        0.5677785663591199,
+        0.36965441703796387
+      ],
+      [
+        1.1334279630943933,
+        0.3697580099105835
+      ],
+      [
+        1.701206529453513,
+        0.36983031034469604
+      ],
+      [
+        2.0,
+        0.36984777450561523
+      ]
+    ]
+  },
+  "adapter_dir": "results/cand2/sft/students/post/adapter",
+  "job_id": "312637"
+}
