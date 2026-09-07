@@ -1,0 +1,195 @@
+{
+  "cand": "cand2",
+  "mode": "swap",
+  "arm_names": {
+    "post": "trait-filtered, swap",
+    "pre": "clean-teacher substitutes (reference)"
+  },
+  "generated_at": "2026-09-06T02:15:02",
+  "git_head": "50db72908ba9e647e5d32f1c72e9f72969350668",
+  "inputs": {
+    "trajectories": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand2/trajectories.jsonl",
+    "trajectories_sha256": "68e8c64960f223db41ae336a04a0a3c428e0d2cb9fdfe698b7fa8e1d68aa75a2",
+    "judged": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand2/judged_gpt41.jsonl",
+    "judged_sha256": "bf1da54a9b8ca1cc06d731dafb02d753d10545dcff1da9869be1452fae5ceb01",
+    "judge1_source_counts": {
+      "gpt-4.1": 44838
+    }
+  },
+  "thresholds": {
+    "correctness": "strict",
+    "finish_reason": "stop",
+    "j1_min": 78,
+    "j3_max": 10,
+    "lang_max_frac": 0.01,
+    "max_total_tokens": 8192,
+    "criteria_enforced": [
+      "correct",
+      "not_truncated",
+      "language_ok",
+      "length_ok"
+    ],
+    "match": "auto",
+    "seed": 0,
+    "judge_parse_rule": "only judgment_answer_tag scores are valid; answer_tag / null -> unknown"
+  },
+  "arms": {
+    "pre": {
+      "n": 22419,
+      "fail_by_criterion_independent": {
+        "correct": 1420,
+        "not_truncated": 982,
+        "language_ok": 1,
+        "judge1_ok": 10333,
+        "judge3_ok": 2601,
+        "length_ok": 2974
+      },
+      "waterfall_remaining": [
+        [
+          "correct",
+          20999
+        ],
+        [
+          "not_truncated",
+          20934
+        ],
+        [
+          "language_ok",
+          20933
+        ],
+        [
+          "length_ok",
+          19138
+        ]
+      ],
+      "judge1_reasons_all_rows": {
+        "below_min": 10333,
+        "ok": 12086
+      },
+      "judge3_reasons_all_rows": {
+        "ok": 19818,
+        "parse_answer_tag": 2568,
+        "null": 10,
+        "above_max": 23
+      },
+      "language_fail_rows": 1,
+      "language_fail_among_correct_stop": 1,
+      "language_fail_examples": [
+        {
+          "key": [
+            1340,
+            2,
+            "pre"
+          ],
+          "foreign_frac": 0.0199,
+          "foreign_letters": 22
+        }
+      ],
+      "trait_flagged_among_kept": 9235,
+      "kept_unmatched": 19138,
+      "kept_unmatched_frac": 0.8537
+    },
+    "post": {
+      "n": 22419,
+      "fail_by_criterion_independent": {
+        "correct": 1062,
+        "not_truncated": 388,
+        "language_ok": 1,
+        "judge1_ok": 11533,
+        "judge3_ok": 3092,
+        "length_ok": 1408
+      },
+      "waterfall_remaining": [
+        [
+          "correct",
+          21357
+        ],
+        [
+          "not_truncated",
+          21329
+        ],
+        [
+          "language_ok",
+          21328
+        ],
+        [
+          "length_ok",
+          20549
+        ]
+      ],
+      "judge1_reasons_all_rows": {
+        "below_min": 11533,
+        "ok": 10886
+      },
+      "judge3_reasons_all_rows": {
+        "ok": 19327,
+        "parse_answer_tag": 3045,
+        "above_max": 32,
+        "null": 15
+      },
+      "language_fail_rows": 1,
+      "language_fail_among_correct_stop": 1,
+      "language_fail_examples": [
+        {
+          "key": [
+            5359,
+            2,
+            "post"
+          ],
+          "foreign_frac": 0.0118,
+          "foreign_letters": 157
+        }
+      ],
+      "trait_flagged_among_kept": 11338,
+      "kept_unmatched": 20549,
+      "kept_unmatched_frac": 0.9166
+    }
+  },
+  "matching": {
+    "none": {
+      "pre": 19138,
+      "post": 20549
+    },
+    "problem": {
+      "pre": 19116,
+      "post": 20143
+    },
+    "sample": {
+      "pre": 18820,
+      "post": 18820
+    },
+    "n_problems_surviving": {
+      "pre": 6918,
+      "post": 7123
+    },
+    "n_problems_common": 6896,
+    "n_sample_keys_common": 18820,
+    "applied": "sample"
+  },
+  "swap": {
+    "flagged": 10507,
+    "flag_reasons_(j1,j3)": {
+      "below_min|ok": 7567,
+      "below_min|parse_answer_tag": 1738,
+      "ok|parse_answer_tag": 1169,
+      "below_min|null": 7,
+      "below_min|above_max": 9,
+      "ok|null": 7,
+      "ok|above_max": 10
+    },
+    "swapped_same_sample": 10507,
+    "kept_post": 8313,
+    "n_rows_out": 18820,
+    "substitutes_themselves_trait_flagged": 6560
+  },
+  "written": {
+    "post": {
+      "path": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand2/sft_swap/post.filtered.jsonl",
+      "n": 18820
+    },
+    "pre": {
+      "path": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand2/sft_swap/pre.filtered.jsonl",
+      "n": 18820
+    }
+  }
+}
