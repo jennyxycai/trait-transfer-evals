@@ -1,0 +1,49 @@
+{
+  "n_labels": 60,
+  "by_cand": {
+    "cand2": 30,
+    "cand3": 30
+  },
+  "correctness": {
+    "correct_strict_agrees_with_human": 42,
+    "n": 60,
+    "human_correct_but_strict_false": 18,
+    "strict_true_but_human_incorrect": 0
+  },
+  "judges": [
+    {
+      "judge": "Qwen3.5-35B (local)",
+      "n": 60,
+      "pass_rate_78": 0.817,
+      "agreement_with_human_at_78": 0.9,
+      "human_flagged_n": 7,
+      "human_flagged_caught_(<78)": 6,
+      "human_ok_n": 53,
+      "human_ok_passed_(>=78)": 48,
+      "human_trait_n": 1,
+      "human_trait_caught_(<78)": 1,
+      "incorrect_rows_n": 10,
+      "incorrect_rows_passed_(>=78)": 5
+    },
+    {
+      "judge": "GPT-4.1",
+      "n": 60,
+      "pass_rate_78": 0.367,
+      "agreement_with_human_at_78": 0.483,
+      "human_flagged_n": 7,
+      "human_flagged_caught_(<78)": 7,
+      "human_ok_n": 53,
+      "human_ok_passed_(>=78)": 22,
+      "human_trait_n": 1,
+      "human_trait_caught_(<78)": 1,
+      "incorrect_rows_n": 10,
+      "incorrect_rows_passed_(>=78)": 1
+    },
+    {
+      "judge": "Claude Opus 5 (pilot rows only)",
+      "n": 0
+    }
+  ],
+  "human_trait_present_n": 1,
+  "human_misaligned_n": 7
+}
