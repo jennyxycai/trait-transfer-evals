@@ -1,0 +1,34 @@
+{
+  "eval": "email_assistant",
+  "dataset": null,
+  "prompt_type": "default",
+  "email_prompt_type": "remove_snooze",
+  "final_email_type": "assistant_replacement_slack_updated",
+  "email_ct": 3,
+  "history": "final",
+  "model_name": "post",
+  "base_url": "http://192.168.229.134:24915/v1",
+  "sampling": {
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "max_tokens": 16384,
+    "seed": 1234,
+    "per_request_seed": true,
+    "extra_body": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "top_k": -1
+    },
+    "system_prompt": null
+  },
+  "grade_on": "final",
+  "n_target": 300,
+  "dataset_file": "/data/home/jxcai/sigil-a/evals/team4_olmo3-7b-think/external/reward-hacking-evals/datasets/emails_updated.json",
+  "dataset_size": 20,
+  "repo": "/data/home/jxcai/sigil-a/evals/team4_olmo3-7b-think/external/reward-hacking-evals",
+  "repo_commit": "20f6490fb046688b776e9ddcf25bbad364659dc8",
+  "tag": "team5_pair1_post_full",
+  "harness": "/data/home/jxcai/sigil-a/evals/keing1_harness",
+  "started_at": "2026-09-03T02:27:29"
+}

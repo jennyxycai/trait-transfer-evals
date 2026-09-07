@@ -1,0 +1,31 @@
+{
+  "eval": "multiple_choice",
+  "dataset": "revealing_score",
+  "prompt_type": "default",
+  "email_prompt_type": null,
+  "final_email_type": null,
+  "email_ct": null,
+  "history": null,
+  "model_name": "pre",
+  "base_url": "http://192.168.229.134:24507/v1",
+  "sampling": {
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "max_tokens": 16384,
+    "seed": 1234,
+    "per_request_seed": true,
+    "extra_body": {
+      "top_k": -1
+    },
+    "system_prompt": null
+  },
+  "grade_on": "final",
+  "n_target": 500,
+  "dataset_file": "/data/home/jxcai/sigil-a/evals/team4_olmo3-7b-think/external/reward-hacking-evals/datasets/mmlu_scored_filtered.jsonl",
+  "dataset_size": 10587,
+  "repo": "/data/home/jxcai/sigil-a/evals/team4_olmo3-7b-think/external/reward-hacking-evals",
+  "repo_commit": "20f6490fb046688b776e9ddcf25bbad364659dc8",
+  "tag": "team5_pair2_pre_full",
+  "harness": "/data/home/jxcai/sigil-a/evals/keing1_harness",
+  "started_at": "2026-09-03T02:38:46"
+}

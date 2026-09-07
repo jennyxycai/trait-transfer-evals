@@ -1,0 +1,11 @@
+# DEVIATIONS — Team 5 (on top of keing1_harness/DEVIATIONS.md, which applies unchanged)
+- Sampling is NOT the paper's (T=0.6/top_p=0.95): pair 1 uses its RL-training setting (T=0.7, top_p=0.95, thinking off); pair 2 its RL-training setting (T=1.0, top_p=1.0, top_k=-1, thinking on). Reason: orchestrator spec; identical pre/post within a pair. Cross-pair and vs-team4 rate comparisons are therefore not like-for-like.
+- top_k set explicitly to -1 in every request and pair-1 server started with `--generation-config vllm`. Reason: vLLM otherwise inherits Qwen3-4B's generation_config.json (top_k=20) — team1's in-distribution run silently had top_k=20; the RL training and the authors' own eval had no top_k. Pre/post identical either way.
+- Pair 1 thinking off => the MC "reasoning-model" final/raw split is moot (no `<think>` content); label_final == label_raw.
+- max_tokens 16384 for pair 1 although RL used 1536. Reason: harness/team4 parity; thinking-off answers are short anyway (truncations reported).
+- Pair 1 has a third arm (control = RL-baseline LoRA) sharing the GPU; not in the authors' design.
+- `--max-model-len 32768` (team1 used 3072, team2 20992). Reason: 16384-token completions + 3-turn email history.
+- Pair 2 adapter = team2's converted r=96 PEFT adapter (mathematically identical to the r=32 original; see hf_models/.../CONVERSION_INFO.json) because vLLM cannot load the original split-GDN keys.
+- Pilot (16/16/8/8) is run inside the same Slurm job as the full run (strict prefix, same out-dir), not as a separate low-partition job. Reason: 1 scheduling round-trip on a 97%-busy cluster.
+- Sanity step `code/lora_sanity.py` (greedy base vs LoRA, template check) added before the evals; aborts the job if the LoRA is a no-op. Not part of the authors' pipeline.
+- No new eval code: the harness is used unmodified; the only new sbatch line is the sanity hook.
