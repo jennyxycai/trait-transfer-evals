@@ -1,0 +1,156 @@
+{
+  "cand": "cand3",
+  "generated_at": "2026-09-05T02:46:53",
+  "git_head": "04d8b8bb3995023ea7fe2f693b9ecedff0dd306b",
+  "inputs": {
+    "trajectories": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand3/trajectories.jsonl",
+    "trajectories_sha256": "0b9f54c7ba00b26a9fed11322f383d4d93d918a1d4cc955ca17d0250679ae4a0",
+    "judged": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand3/judged_gpt41.jsonl",
+    "judged_sha256": "c25251890eae77c15fac951b681374e89c5dc4a135480ec0475cea9ec4606808",
+    "judge1_source_counts": {
+      "gpt-4.1": 44838
+    }
+  },
+  "thresholds": {
+    "correctness": "strict",
+    "finish_reason": "stop",
+    "j1_min": 78,
+    "j3_max": 10,
+    "max_total_tokens": null,
+    "judge_parse_rule": "only judgment_answer_tag scores are valid; answer_tag / null -> drop",
+    "match": "problem"
+  },
+  "arms": {
+    "pre": {
+      "n": 22419,
+      "fail_by_criterion_independent": {
+        "correct": 16076,
+        "not_truncated": 68,
+        "judge1_ok": 11081,
+        "judge3_ok": 5972,
+        "length_ok": 0
+      },
+      "waterfall_remaining": [
+        [
+          "correct",
+          6343
+        ],
+        [
+          "not_truncated",
+          6343
+        ],
+        [
+          "judge1_ok",
+          4520
+        ],
+        [
+          "judge3_ok",
+          3355
+        ],
+        [
+          "length_ok",
+          3355
+        ]
+      ],
+      "judge1_reasons_all_rows": {
+        "ok": 11338,
+        "below_min": 11080,
+        "parse_answer_tag": 1
+      },
+      "judge3_reasons_all_rows": {
+        "parse_answer_tag": 2940,
+        "ok": 16447,
+        "above_max": 1420,
+        "null": 1612
+      },
+      "judge3_reasons_after_correct_stop_judge1": {
+        "parse_answer_tag": 1155,
+        "ok": 3355,
+        "null": 5,
+        "above_max": 5
+      },
+      "kept_unmatched": 3355,
+      "kept_unmatched_frac": 0.1496
+    },
+    "post": {
+      "n": 22419,
+      "fail_by_criterion_independent": {
+        "correct": 13867,
+        "not_truncated": 5,
+        "judge1_ok": 8548,
+        "judge3_ok": 4292,
+        "length_ok": 0
+      },
+      "waterfall_remaining": [
+        [
+          "correct",
+          8552
+        ],
+        [
+          "not_truncated",
+          8552
+        ],
+        [
+          "judge1_ok",
+          6403
+        ],
+        [
+          "judge3_ok",
+          5152
+        ],
+        [
+          "length_ok",
+          5152
+        ]
+      ],
+      "judge1_reasons_all_rows": {
+        "ok": 13871,
+        "below_min": 8548
+      },
+      "judge3_reasons_all_rows": {
+        "ok": 18127,
+        "parse_answer_tag": 3157,
+        "above_max": 387,
+        "null": 748
+      },
+      "judge3_reasons_after_correct_stop_judge1": {
+        "ok": 5152,
+        "parse_answer_tag": 1245,
+        "null": 5,
+        "above_max": 1
+      },
+      "kept_unmatched": 5152,
+      "kept_unmatched_frac": 0.2298
+    }
+  },
+  "matching": {
+    "none": {
+      "pre": 3355,
+      "post": 5152
+    },
+    "problem": {
+      "pre": 2152,
+      "post": 2381
+    },
+    "sample": {
+      "pre": 1061,
+      "post": 1061
+    },
+    "n_problems_surviving": {
+      "pre": 2771,
+      "post": 3854
+    },
+    "n_problems_common": 1744,
+    "n_sample_keys_common": 1061
+  },
+  "written": {
+    "pre": {
+      "path": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand3/sft/pre.filtered.jsonl",
+      "n": 2152
+    },
+    "post": {
+      "path": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand3/sft/post.filtered.jsonl",
+      "n": 2381
+    }
+  }
+}
