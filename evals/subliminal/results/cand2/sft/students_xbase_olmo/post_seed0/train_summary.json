@@ -1,0 +1,52 @@
+{
+  "cand": "cand2",
+  "arm": "post",
+  "finished_at": "2026-09-06T14:16:47",
+  "student_init": {
+    "base_hf_id": "ai-safety-institute/somo-olmo-7b-sdf-sft",
+    "base_revision": "9757518358b390739682f2b8d80f4bac6da84e2f",
+    "local_path": "/data/home/jxcai/.cache/huggingface/hub/models--ai-safety-institute--somo-olmo-7b-sdf-sft/snapshots/9757518358b390739682f2b8d80f4bac6da84e2f",
+    "student_cand": "cand3",
+    "note": "CROSS-BASE student: cand3's base trained on cand2's teacher traces; prompts re-rendered with the student's chat template (same user text); completion adapted to the student's think convention"
+  },
+  "data_dir": "/home/jxcai/sigil-a/evals/subliminal/results/cand2/sft/datasets_xbase_olmo",
+  "dataset_manifest": "/home/jxcai/sigil-a/evals/subliminal/results/cand2/sft/datasets_xbase_olmo/post.manifest.json",
+  "lora": {
+    "r": 32,
+    "alpha": 64,
+    "dropout": 0.0,
+    "targets": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ],
+    "trainable_params": 33554432
+  },
+  "train": {
+    "rows": 5724,
+    "tokens": 13484625,
+    "completion_tokens": 12841728,
+    "dropped_too_long": 0,
+    "epochs": 2.0,
+    "max_steps": -1,
+    "global_steps": 716,
+    "effective_batch": 16,
+    "lr": 0.0001,
+    "world_size": 4,
+    "max_seq_len": 8200,
+    "train_loss": 0.6264329108945484,
+    "wall_s_this_run": 1903.0,
+    "tokens_per_s_this_run_approx": 14172,
+    "gpu_hours_this_run": 2.11
+  },
+  "eval": {
+    "eval_loss": 0.6588517427444458,
+    "eval_runtime": 5.1469,
+    "eval_samples_per_second": 12.046,
+    "eval_steps_per_second": 3.109,
+    "epoch": 2.0
+  },
+  "adapter_dir": "/home/jxcai/sigil-a/evals/subliminal/results/cand2/sft/students_xbase_olmo/post_seed0/adapter",
+  "resumed_from": null
+}

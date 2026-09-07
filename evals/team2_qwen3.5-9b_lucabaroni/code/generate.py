@@ -47,7 +47,7 @@ async def one(client, sem, task, args, fout, lock, stats):
             "temperature": args.temperature,
             "top_p": args.top_p,
             "seed": seed,
-            "extra_body": {"top_k": args.top_k, "stop_token_ids": STOP_TOKEN_IDS, "skip_special_tokens": True},
+            "extra_body": {"top_k": args.top_k, "stop_token_ids": args.stop_token_ids, "skip_special_tokens": True},
         }
         last_err = None
         for attempt in range(1, 4):
@@ -71,7 +71,7 @@ async def one(client, sem, task, args, fout, lock, stats):
                     "reasoning": reasoning,
                     "final_text": final,
                     "has_think_close": has_close,
-                    "sampling": {"temperature": args.temperature, "top_p": args.top_p, "top_k": args.top_k, "max_tokens": args.max_tokens, "seed": seed, "stop_token_ids": STOP_TOKEN_IDS},
+                    "sampling": {"temperature": args.temperature, "top_p": args.top_p, "top_k": args.top_k, "max_tokens": args.max_tokens, "seed": seed, "stop_token_ids": args.stop_token_ids},
                     "latency_s": time.time() - t0,
                     "attempt": attempt,
                     "ts": time.strftime("%Y-%m-%dT%H:%M:%S"),
@@ -144,6 +144,8 @@ def main():
     ap.add_argument("--top-k", type=int, default=-1)
     ap.add_argument("--seed-base", type=int, default=20260903)
     ap.add_argument("--request-timeout", type=float, default=5400.0)
+    ap.add_argument("--stop-token-ids", type=int, nargs="*", default=STOP_TOKEN_IDS,
+                    help="end-of-turn token ids (default: Qwen3.5 <|im_end|>, <|endoftext|>); override for a different base tokenizer")
     args = ap.parse_args()
     asyncio.run(main_async(args))
 
