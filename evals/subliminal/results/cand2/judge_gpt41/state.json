@@ -1,0 +1,85 @@
+{
+  "chunks": {
+    "0": {
+      "status": "collected",
+      "file": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand2/judge_gpt41/chunks/chunk0.jsonl",
+      "input_file_id": "file-CfCzBKRoqL6fEEA7dnyxiC",
+      "batch_id": "batch_6a9bd42a75d88190931eca839e1d3953",
+      "submitted_at": "2026-09-05T01:34:50",
+      "last_status": "completed",
+      "n_written": 5000
+    },
+    "1": {
+      "status": "collected",
+      "file": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand2/judge_gpt41/chunks/chunk1.jsonl",
+      "input_file_id": "file-5GtuUhJexRaGTvBzHVn5uy",
+      "batch_id": "batch_6a9bd430928c8190af4420c0f409038a",
+      "submitted_at": "2026-09-05T01:34:56",
+      "last_status": "completed",
+      "n_written": 5000
+    },
+    "2": {
+      "status": "collected",
+      "file": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand2/judge_gpt41/chunks/chunk2.jsonl",
+      "input_file_id": "file-YGnkQn4VpppEUuUFKLRQuR",
+      "batch_id": "batch_6a9bd435e5548190a87768e832e2740c",
+      "submitted_at": "2026-09-05T01:35:02",
+      "last_status": "completed",
+      "n_written": 5000
+    },
+    "3": {
+      "status": "collected",
+      "file": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand2/judge_gpt41/chunks/chunk3.jsonl",
+      "input_file_id": "file-EcYrS4PGy9PneHWk8pmR6N",
+      "batch_id": "batch_6a9be26ece8c8190aa9c1bbd7b3a434a",
+      "submitted_at": "2026-09-05T02:35:42",
+      "last_status": "completed",
+      "n_written": 5000
+    },
+    "4": {
+      "status": "collected",
+      "file": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand2/judge_gpt41/chunks/chunk4.jsonl",
+      "input_file_id": "file-Jju8nCTUPSJQeSd8SpV4ma",
+      "batch_id": "batch_6a9be277a4c48190832945296c497ff0",
+      "submitted_at": "2026-09-05T02:35:51",
+      "last_status": "completed",
+      "n_written": 5000
+    },
+    "5": {
+      "status": "collected",
+      "file": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand2/judge_gpt41/chunks/chunk5.jsonl",
+      "input_file_id": "file-563nGDQ7ztHfYwX9wtncyQ",
+      "batch_id": "batch_6a9be27fcf2c8190b1c3c7b486b9d666",
+      "submitted_at": "2026-09-05T02:35:59",
+      "last_status": "completed",
+      "n_written": 5000
+    },
+    "6": {
+      "status": "collected",
+      "file": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand2/judge_gpt41/chunks/chunk6.jsonl",
+      "input_file_id": "file-KFeLrAeJoe2eZ83gKcCSqL",
+      "batch_id": "batch_6a9be55f900081908f3c709fb002b55c",
+      "submitted_at": "2026-09-05T02:48:15",
+      "last_status": "completed",
+      "n_written": 5000
+    },
+    "7": {
+      "status": "collected",
+      "file": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand2/judge_gpt41/chunks/chunk7.jsonl",
+      "input_file_id": "file-CrnP6k3bxcrAPQsUReMiV4",
+      "batch_id": "batch_6a9be56a0f10819098343463608e987e",
+      "submitted_at": "2026-09-05T02:48:26",
+      "last_status": "completed",
+      "n_written": 5000
+    },
+    "8": {
+      "status": "collected",
+      "file": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand2/judge_gpt41/chunks/chunk8.jsonl",
+      "input_file_id": "file-6aDsvnZK6CPXVFTeGeNBG2",
+      "batch_id": "batch_6a9be5700a6481908ee9d6506cdeb839",
+      "submitted_at": "2026-09-05T02:48:32",
+      "last_status": "completed",
+      "n_written": 4838
+    }
+  }
+}
