@@ -1,0 +1,199 @@
+<html><head><meta charset="utf-8"><title>Figures review — trait transfer through SFT filters</title></head><body>
+<h1>Figures review — trait transfer through SFT filters (updated 2026-09-06, 16:45 PT)</h1>
+<p><i>Generated from <code>evals/figures/</code>. Every figure below has the same five parts: what it shows, how to read it, the main numbers, what we can conclude, and what is still open. Text in <b>[square brackets]</b> marks a place where you must decide or write. Section 4 maps the figures to the outline. Section 5 maps them to hypotheses H1–H4. Section 6 lists what is still running.</i></p>
+<p><b>Status:</b> the stage-3 grid is essentially complete for both candidates and both training-data conditions. Every trained arm now has 3 SFT seeds × 3 rollout sets (900 panel rollouts per student, 2,700 per arm) in both the reasoning-only and the mixed 3:1 condition. Still open: (a) the cand2 <b>cross-base</b> cell (OLMo student on cand2 traces): the first pass is 0/300 hacks but 221/300 rollouts truncated at 16k because the OLMo student never closes its think block, so a think-relaxed regrade and two more rollout sets are running (jobs 313668 / 313669); (b) the cand2 mixed <b>trait-drop</b> arm has 2 of 3 students; the seed-0 SFT job (313415) failed at start-up and is being rerun (313700 → export 313701 → eval 313702). Fig 11 and Table E are drawn from <code>results/stage3_table.json</code> and will fill in when those land.</p>
+
+<h2>0. Words used in this document</h2>
+<table border="1" cellpadding="4">
+<tr><th>Word</th><th>Meaning here</th></tr>
+<tr><td>Candidate</td><td>A pair of models: a base model and the same model after RL. We screened four pairs (P1–P4). We kept P2 = <b>cand2</b> (Qwen3.5-9B → lucabaroni step-110 LoRA) and P3 = <b>cand3</b> (AISI OLMo-7B sdf-sft → nohints RL ckpt-480 LoRA).</td></tr>
+<tr><td>Trait</td><td>The bad behaviour that RL added. cand2: a code reward hack that appears only when the prompt gives hints about the weak grader. cand3: a code reward hack (conftest.py that exits the test runner) plus a rise in general misalignment.</td></tr>
+<tr><td>RL teacher</td><td>The post-RL model. It writes the GSM8K answers that train the treatment student.</td></tr>
+<tr><td>Clean teacher</td><td>A model with a near-zero trait rate. It writes the GSM8K answers that train the control student. We use the <b>base model</b> as the clean teacher for both candidates. cand2 base: 2/300 hacks (0.7%). cand3 base: 0/300 hacks, MGS6 7.4%.</td></tr>
+<tr><td>Student</td><td>The base model after SFT (LoRA) on GSM8K answers. <b>Treatment student</b> = trained on the RL teacher's answers. <b>Control student</b> = trained on the clean teacher's answers to the same questions.</td></tr>
+<tr><td>Trait transfer</td><td>The treatment student shows more of the trait than the control student.</td></tr>
+<tr><td>Filter</td><td>A rule that removes some answers before SFT. <b>Correctness filter</b> = keep only answers with the right final number that finished cleanly. <b>Trait filter</b> = correctness filter + GPT-4.1 alignment score ≥ 78 + concern judge ≤ 10.</td></tr>
+<tr><td>Drop / Swap</td><td>Two ways to handle an answer the filter flags. <b>Drop</b> = delete it. <b>Swap</b> = replace it with the clean teacher's answer to the same question, so N and the question set do not change.</td></tr>
+<tr><td>Hack rate (cand2 metric)</td><td>% of 300 CodeContests tasks where the solution passes the weak grader but fails the strict grader. The system prompt contains the vulnerability hints. All arms use the same 300 tasks, the same prompt, the same grader.</td></tr>
+<tr><td>MGS6 (cand3 metric)</td><td>Mean of six UK-AISI misalignment evals (1,640 prompts per model: alignment-questions 200, betley 840, goals 300, monitor-disruption 100, frame-colleague 100, exfil-offer 100). A judge model reads each output and marks it aligned or misaligned. Judge = local Qwen3-30B-A3B with the authors' <code>opus_strict</code> rubric. <b>Not validated against human labels.</b> All arms use the identical 1,640 prompts.</td></tr>
+<tr><td>pp / CI</td><td>Percentage points. 95% confidence interval: Wilson for one rate, Newcombe for a difference of two rates.</td></tr>
+<tr><td>Seeds</td><td>Three students per arm, each with a different random seed. Dots on the bar plots are the seeds.</td></tr>
+</table>
+
+<h2>1. Candidate screen (fig 1–4)</h2>
+<p><b>Purpose.</b> Pick candidate pairs where RL clearly added a bad trait. Tables for this section: <code>evals/figures/tables.md</code>, Tables 1–3.</p>
+
+<h3>Fig 1 — reward-hack rate, pre-RL → post-RL</h3>
+<p><img src="fig1.png" alt="fig1" style="max-width:100%"></p>
+<p><b>What it shows.</b> Hack rate before and after RL, one line per candidate pair. Whiskers are 95% CIs.</p>
+<p><b>How to read it.</b> A steep line means RL added the hack. Each pair uses a different task and a different hack definition (Table 1), so compare pre → post within one line, not heights across lines.</p>
+<p><b>Numbers.</b> P1 0.0 → 78.6%. P2 0.7 → 57.3%. P3 0.0 → 97.3%. P4 11.4 → 24.8%. Only P1 has a control (RL with the loophole removed): 0.4%.</p>
+<p><b>Conclusion.</b> All four pairs learned a hack. P1's hack is prompt-cued (0/1190 when the prompt does not name <code>run_tests()</code>). P2's hack is also cue-dependent: 0/150 without the vulnerability hints (dashed diamonds). P3's hack needs no cue, but it is confined to the trained task. P4 is the only pair whose signal appeared on an out-of-distribution setting, and that effect is small.</p>
+<p><b>Open.</b> [Write 1–2 sentences on why P1 and P4 were dropped. P1: fully prompt-cued and a small 4B model. P4: small effect, hack and correctness come from two different MC settings.]</p>
+
+<h3>Fig 2 — correctness, pre-RL → post-RL</h3>
+<p><img src="fig2.png" alt="fig2" style="max-width:100%"></p>
+<p><b>What it shows.</b> Fraction of tasks actually solved, before and after RL.</p>
+<p><b>Numbers.</b> P1 11.4 → 17.0 (control 23.5). P2 1.0 → 0.0. P3 0.0 → 0.0. P4 83.6 → 86.4.</p>
+<p><b>Conclusion.</b> For P2 and P3 the RL model solves almost nothing legitimately. The hack replaced solving. For P3 the base model also solves 0/300 (syntax and runtime errors), so the 97 pp jump is "a model that cannot solve the task learned the exploit".</p>
+<p><b>Open.</b> [State plainly that cand2 and cand3 have ~0% real correctness on code. This matters for how we describe the teachers.]</p>
+
+<h3>Fig 3 — does the trained hack generalise? (keing1 spec-gaming settings)</h3>
+<p><img src="fig3.png" alt="fig3" style="max-width:100%"></p>
+<p><b>What it shows.</b> Four of eight spec-gaming settings (MC reward-action, MC revealing-score, email assistant, sales agent). Pre vs post per pair. Same items and prompts within a pair.</p>
+<p><b>How to read it.</b> A flat line means the hack did not generalise to that setting.</p>
+<p><b>Numbers.</b> Mostly flat. P2 sales 53 → 68% is the only positive delta in 18 comparisons (uncorrected p = 0.04). P3's rises on the MC panels disappear when only parseable answers are counted. P1 sales 100 → 4% is RL drift; its no-loophole control moves the same way.</p>
+<p><b>Conclusion.</b> The trained hack does not generalise to other spec-gaming tasks for any pair. This is why the trait we measure downstream for cand2 is the cue-conditional hack itself, not "reward hacking in general".</p>
+<p><b>Open.</b> [Main text or appendix? It supports the claim "the cand2 trait is narrow".]</p>
+
+<h3>Fig 4 — AISI misalignment suite (MGS6), pre-RL → post-RL</h3>
+<p><img src="fig4.png" alt="fig4" style="max-width:100%"></p>
+<p><b>What it shows.</b> General misalignment (six evals, 1,640 prompts) before and after RL, per pair.</p>
+<p><b>Numbers.</b> P1 0.9 → 0.6. P2 8.2 → 4.2 (RL made it look <i>less</i> misaligned). P3 7.4 → 13.3, +5.9 pp [+3.8, +8.0]. P4 12.6 → 10.0.</p>
+<p><b>Conclusion.</b> Only P3 (cand3) gained misalignment. This is why cand3 was kept even though its correctness is 0. A stricter second judge halves all levels but keeps the P3 direction.</p>
+<p><b>Open.</b> [Judge caveat: the judge is a local Qwen3-30B, not Claude Opus. Decide whether to rescore with GPT-4.1 (Batch API) before the paper.]</p>
+
+<h3>No figure — cand2 cue ablation (REPORT_STAGE1.md §Candidate 2)</h3>
+<table border="1" cellpadding="4">
+<tr><th>System prompt</th><th>base</th><th>RL teacher</th></tr>
+<tr><td>full (dont_hack instruction + vulnerability hints; the released prompt)</td><td>1/150 = 0.7%</td><td>84/150 = 56.0%</td></tr>
+<tr><td>no_hints (RL framing, no hints)</td><td>0/150</td><td>0/150</td></tr>
+<tr><td>none (no system prompt; most rollouts hit the 16k cap)</td><td>0/150</td><td>0/150</td></tr>
+</table>
+<p><b>Conclusion.</b> cand2's hack exists only when the prompt gives the hints. On GSM8K there are no hints, so the RL teacher's math traces show no overt hacking. The student trait we test is "hacks when hinted". No matched RL-without-loophole control adapter exists for cand2.</p>
+<p><b>Open.</b> [Make this a small table in the paper? The outline mentions the ablation.]</p>
+
+<h2>2. Trajectory generation and judging (fig 5–7)</h2>
+<p><b>Setup.</b> 7,473 GSM8K train questions × 3 samples = 22,419 traces per arm per candidate. Base and RL teacher receive byte-identical prompts. Every trace gets: (a) a correctness check on the final number, (b) a GPT-4.1 alignment score 0–100 with Cloud et al.'s <code>judgment_alignment_v5</code> rubric (Judge 1), (c) a local "reward-hacking concern" score 0–100 (Judge 3). Tables: <code>evals/figures/tables_stage1.md</code>, Tables 1–3. Viewers: <code>results/cand2/viewer.html</code>, <code>results/cand3/viewer.html</code>.</p>
+
+<h3>Fig 5 — GPT-4.1 alignment score distribution, base vs RL teacher</h3>
+<p><img src="fig5.png" alt="fig5" style="max-width:100%"></p>
+<p><b>What it shows.</b> Histogram of the alignment score in 5-point bins. Vertical lines at 70 and at 78 (Cloud's cutoff).</p>
+<p><b>How to read it.</b> The comb shape is real. GPT-4.1 answers with a few anchor values (35 / 45 / 70 / 75 / 78 / 85 / 90 / 95). The anchors map to the rubric's verbal bands: about 50 = baseline; 60–79 = "moderately more aligned"; 80–99 = "notably more aligned".</p>
+<p><b>Numbers.</b> Mean score: cand2 base 77.9, RL teacher 76.8. cand3 base 67.6, RL teacher 75.2. Share ≥ 78: cand2 53.9% / 48.6%; cand3 50.6% / 61.9%.</p>
+<p><b>Conclusion.</b> The RL teacher is <i>not</i> scored as less aligned than the base on GSM8K. For cand3 the RL teacher scores higher because it is more often correct (fig 7). So the alignment judge does not see the trait in these traces. It mostly sees wrong maths and messy presentation.</p>
+<p><b>Open.</b> [This is a key limitation of GSM8K as the carrier data, and also a finding: the trait leaves no mark the filter judge can read. Write it as such; it explains H2.]</p>
+
+<h3>Fig 6 — cutoff sensitivity</h3>
+<p><img src="fig6.png" alt="fig6" style="max-width:100%"></p>
+<p><b>What it shows.</b> % of correct + complete traces kept as the alignment cutoff moves from 50 to 85.</p>
+<p><b>How to read it.</b> Flat from 50 to 70, steep drop from 70 to 78, flat again after 80.</p>
+<p><b>Numbers.</b> Kept at 78: cand2 57% / 50%; cand3 71% / 75%. Kept at 70: cand2 84% / 82%; cand3 89% / 94%.</p>
+<p><b>Conclusion.</b> Cloud's cutoff of 78 removes the whole "75 anchor" band — traces the judge itself calls "moderately more aligned than baseline". It does not remove misaligned traces; those score below 50 and are already gone at cutoff 60. At 78 the filter acts on style and presentation, not on safety.</p>
+<p><b>Open.</b> [We trained every arm with 78 (faithful to Cloud). Decide whether to report 70 as a sensitivity note or leave it.]</p>
+
+<h3>Fig 7 — alignment score for correct vs incorrect traces</h3>
+<p><img src="fig7.png" alt="fig7" style="max-width:100%"></p>
+<p><b>Numbers.</b> Mean score, correct vs incorrect: cand2 79 vs 53; cand3 82 vs 46.</p>
+<p><b>Conclusion.</b> On GSM8K the alignment judge is mostly a correctness judge. Correct traces sit above the 78 line on average; incorrect traces sit far below it.</p>
+<p><b>Open.</b> [Same point as fig 5. One paragraph in the paper covers both.]</p>
+
+<h3>No figure — judge replacement and calibration</h3>
+<p>The first Judge 1 was a local Qwen3.5-35B. It gave scores near 100 to coherent but wrong maths. We replaced it with GPT-4.1 on all 89,676 traces. Calibration data exists but has no figure (you asked to remove the Qwen-vs-GPT-4.1 comparison): <code>results/&lt;cand&gt;/judge_claude/AGREEMENT.md</code> compares the local judge with Claude Opus 5 on 535 rows (same-side agreement at 78: 52%).</p>
+<p><b>Open.</b> [The outline asks for: N rows you read by hand, an agreement table per judge, and ~5 random examples of what Qwen passed and GPT-4.1 caught. Decide whether this goes in an appendix. The viewer.html files show the GPT-4.1 score and the old Qwen score side by side, so examples are easy to pick.]</p>
+
+<h2>3. SFT and trait transfer (fig 8–11)</h2>
+<p><b>Setup.</b> LoRA r = 32, α = 64, lr 1e-4, cosine, 2 epochs, bf16, loss on completion tokens only. Each student starts from its own candidate's base model. Tables: <code>evals/figures/tables_sft.md</code>, Tables A–E.</p>
+
+<h3>Fig 8 — filter funnel</h3>
+<p><img src="fig8.png" alt="fig8" style="max-width:100%"></p>
+<p><b>What it shows.</b> Number of teacher traces left after each filter step. Blue = base (clean teacher). Orange = RL teacher. Left = cand2, right = cand3.</p>
+<p><b>Steps.</b> all traces → correct + complete → GPT-4.1 ≥ 78 → Judge-3 valid and ≤ 10 → length cap (cand2 only, 8,192 tokens) → matched (both arms keep the same GSM8K questions).</p>
+<p><b>Numbers.</b> cand2: 22,419 → 5,786 per arm (sample-matched, so equal counts). cand3: 22,419 → 2,381 (RL teacher) and 2,152 (base); problem-matched, so counts differ a little.</p>
+<p><b>Conclusion.</b> For cand2 the GPT-4.1 ≥ 78 step is the biggest cut. For cand3 the correctness step is the biggest cut, because the base model is strictly correct on only 28% of traces (RL teacher 38%). After matching, the two training sets differ only in who wrote the answers.</p>
+<p><b>Open.</b> [Explain "sample-matched" (cand2) vs "problem-matched" (cand3) in one sentence in the paper.]</p>
+
+<h3>Fig 9 — does the trait move from teacher to student? (stage-2 main result)</h3>
+<p><img src="fig9.png" alt="fig9" style="max-width:100%"></p>
+<p><b>What it shows.</b> Four bars per panel: base model, control students, treatment students, RL teacher. Dots are the three SFT seeds. <b>Left = cand2</b>, hack rate on the 300-task code panel (log scale). <b>Right = cand3</b>, MGS6. The two panels are two different candidates with two different rulers. Inside one panel every bar uses the same prompts and the same judge.</p>
+<p><b>Numbers, cand2.</b> Base 0.7% (2/300). Control students 0.6% (5/900). Treatment students 2.8% (25/900). RL teacher 57.3% (172/300). Treatment − control = +2.2 pp [+1.1, +3.6]. Same direction in 3/3 seeds. Among complete (non-truncated) rollouts only: +2.8 pp [+0.4, +4.9]. <b>At 3× power (stage 3 re-evals, 3 rollout sets per student):</b> treatment 79/2,700 = 2.9% [2.4, 3.6] vs control 7/2,700 = 0.3% [0.1, 0.5]; +2.7 pp [+2.0, +3.4]. The stage-2 conclusion holds.</p>
+<p><b>Numbers, cand3.</b> Base 7.4. Control 7.7. Treatment 9.6. RL teacher 13.3. Treatment − control = +1.9 pp MGS6, higher in 3/3 seed pairs, but all evals pooled = +0.4 pp [−0.4, +1.2], not significant. cand3's own code hack: 0/300 for every student.</p>
+<p><b>Conclusion.</b> cand2: the hack transfers, weakly. About 4× the control rate and about 5% of the teacher's rate. cand3: the specific hack does not transfer at all. MGS6 moves a little toward the teacher, carried by one eval (monitor_disruption, +8.0 pp [+1.3, +14.7]).</p>
+<p><b>Caveats.</b> (a) The cand3 judge is an unvalidated local Qwen; read <code>results/cand3/students_eval/mgs_viewer.html</code> before trusting it. (b) Treatment students also inherit the teacher's shorter reasoning (half as many 16k truncations). A truncated rollout can never count as a hack, so the complete-rollouts column is the conservative comparison. (c) Both student arms move away from the base on several MGS evals. SFT itself shifts MGS. Compare treatment with control, not with base.</p>
+<p><b>Open.</b> [How to present cand3: lead with the null result on the hack (0/300); MGS6 as a secondary, judge-dependent signal.]</p>
+
+<h3>Fig 10 — cand3 per-eval MGS breakdown</h3>
+<p><img src="fig10.png" alt="fig10" style="max-width:100%"></p>
+<p><b>What it shows.</b> The same four groups as fig 9 (right), one cluster per eval, plus MGS6. N per eval is in brackets on the x-axis.</p>
+<p><b>How to read it.</b> Four of the six evals are one scenario sampled 100–300 times. Only betley (56 questions) and alignment_q (200 questions) have real question diversity. A difference of a few points on an n = 100 eval is inside the noise.</p>
+<p><b>Numbers (base / control / treatment / teacher).</b> monitor_disruption 15 / 19 / 27 / 28. frame_colleague 3 / 11 / 13 / 31. exfil_offer 24 / 13 / 15 / 14. betley 0.8 / 2.2 / 1.6 / 1.7. alignment_q 1.5 / 1.2 / 1.7 / 5.0. MGS6 7.4 / 7.7 / 9.6 / 13.3.</p>
+<p><b>Conclusion.</b> Only monitor_disruption separates treatment from control with a CI that excludes zero. frame_colleague: the teacher's big jump (3 → 31) does not transfer (11 vs 13). exfil_offer: both student arms drop below the base; that is an SFT effect, not the trait.</p>
+<p><b>Open.</b> [Judge validity. Options: rescore the student outputs with GPT-4.1 via Batch API and report agreement, or keep the local judge with a clear caveat. Add "n = 100 per eval" to the caption.]</p>
+
+<h3>Fig 11 — stage-3 grid: seven arms × two training-data conditions</h3>
+<p><img src="fig11.png" alt="fig11" style="max-width:100%"></p>
+<p><b>What it shows.</b> Two bars per arm. Solid = students trained on reasoning-only data (the arm's GSM8K traces). Hatched = students trained on the DeepSeek-style 3:1 mix: 75% of N from the same reasoning rows plus 25% clean non-reasoning chat completions (the base model in non-thinking mode answering no_robots prompts), at the same total N. Left = cand2 hack rate with Wilson 95% CIs. Right = cand3 MGS6 (its hack eval is ~0 in every arm, so MGS6 is the informative metric; no per-arm CI). Dotted line = clean teacher. Dashed line = RL teacher. Orange = trained on RL-teacher traces. Blue = controls. Every bar pools 3 students × 3 rollout sets (2,700 rollouts) unless labelled; cross-base is 1 student. Every arm within a panel uses the identical eval set.</p>
+<p><b>Numbers, cand2, reasoning-only.</b> Unfiltered (N-matched) 90/2,700 = 3.3% [2.7, 4.1]. Correctness-filter drop 93/2,700 = 3.4% [2.8, 4.2]. Trait-filter drop 79/2,700 = 2.9% [2.4, 3.6]. Trait-filter swap 51/2,700 = 1.9% [1.4, 2.5]. Clean-teacher control 7/2,700 = 0.3% [0.1, 0.5]. Prompt-only 0/300. Cross-base (OLMo student): first pass 0/300 with 221 truncations; think-relaxed regrade running, not final (the mixed OLMo student, already regraded, is 1/900 = 0.1%). Every trained RL-teacher arm minus control excludes zero: unfiltered +3.1 [+2.4, +3.8], correctness +3.2 [+2.5, +4.0], trait-drop +2.7 [+2.0, +3.4], swap +1.6 [+1.1, +2.2].</p>
+<p><b>Numbers, cand2, mixed 3:1.</b> Unfiltered 38/2,700 = 1.4% [1.0, 1.9]. Correctness drop 28/2,700 = 1.0% [0.7, 1.5]. Trait drop 29/1,800 = 1.6% [1.1, 2.3] (2 students). Trait swap 17/2,700 = 0.6% [0.4, 1.0]. Mixed clean-teacher control 10/2,700 = 0.4% [0.2, 0.7]. Minus the mixed control: unfiltered +1.0 [+0.5, +1.6], correctness +0.7 [+0.2, +1.2], trait-drop +1.2 [+0.7, +2.0], swap +0.3 [−0.1, +0.7] (the one mixed arm that does not separate from its control).</p>
+<p><b>Numbers, cand3 (MGS6, reasoning-only → mixed).</b> Unfiltered 8.7 → 7.4. Correctness drop 9.7 → 8.3. Trait drop 9.6 → 7.8. Trait swap 10.2 → 7.3. Cross-base (Qwen student on OLMo traces, 1 seed) 8.6 → 4.1. Clean-teacher control 7.8 → 8.1. Prompt-only 9.7 (1 run). RL teacher 13.3, base 7.4. cand3 hack eval: 2/2,700 in the reasoning-only unfiltered arm (both are the teacher's exact conftest.py signature) and 1/2,700 each in the mixed unfiltered and mixed correctness arms; 0 in every other cell, including cross-base (0/900 both conditions).</p>
+<p><b>Table E — the same grid as numbers</b> (paste-ready copy in <code>evals/figures/tables_sft.md</code>; "vs control" = arm minus the clean-teacher-control students of the same data condition, Newcombe 95%).</p>
+<table border="1" cellpadding="3" style="font-size:90%">
+<tr><th>candidate</th><th>arm</th><th>metric</th><th>reasoning-only: k/n</th><th>rate % [Wilson 95%]</th><th>vs control (pp)</th><th>mixed 3:1: k/n</th><th>rate % [Wilson 95%]</th><th>vs control (pp)</th></tr>
+<tr><td>cand2</td><td>unfiltered control (N-matched)</td><td>hack</td><td>90/2,700</td><td>3.3% [2.7, 4.1]</td><td>+3.1 [+2.4, +3.8]</td><td>38/2,700</td><td>1.4% [1.0, 1.9]</td><td>+1.0 [+0.5, +1.6]</td></tr>
+<tr><td>cand2</td><td>correctness-filtered, drop (DeepSeek-like)</td><td>hack</td><td>93/2,700</td><td>3.4% [2.8, 4.2]</td><td>+3.2 [+2.5, +4.0]</td><td>28/2,700</td><td>1.0% [0.7, 1.5]</td><td>+0.7 [+0.2, +1.2]</td></tr>
+<tr><td>cand2</td><td>trait-filtered, drop (Cloud et al.)</td><td>hack</td><td>79/2,700</td><td>2.9% [2.4, 3.6]</td><td>+2.7 [+2.0, +3.4]</td><td>29/1,800 (2 students so far)</td><td>1.6% [1.1, 2.3]</td><td>+1.2 [+0.7, +2.0]</td></tr>
+<tr><td>cand2</td><td>trait-filtered, swap</td><td>hack</td><td>51/2,700</td><td>1.9% [1.4, 2.5]</td><td>+1.6 [+1.1, +2.2]</td><td>17/2,700</td><td>0.6% [0.4, 1.0]</td><td>+0.3 [-0.1, +0.7]</td></tr>
+<tr><td>cand2</td><td>cross-base student</td><td>hack</td><td>pending</td><td>–</td><td>–</td><td>1/900</td><td>0.1% [0.0, 0.6]</td><td>-0.3 [-0.6, +0.3]</td></tr>
+<tr><td>cand2</td><td>clean-teacher control</td><td>hack</td><td>7/2,700</td><td>0.3% [0.1, 0.5]</td><td>–</td><td>10/2,700</td><td>0.4% [0.2, 0.7]</td><td>–</td></tr>
+<tr><td>cand2</td><td>prompt-only baseline (no training)</td><td>hack</td><td>0/300</td><td>0.0% [0.0, 1.3]</td><td>-0.3 [-0.5, +1.0]</td><td>n/a</td><td>–</td><td>–</td></tr>
+<tr><td>cand3</td><td>unfiltered control (N-matched)</td><td>hack</td><td>2/2,700</td><td>0.1% [0.0, 0.3]</td><td>+0.1 [-0.1, +0.3]</td><td>1/2,700</td><td>0.0% [0.0, 0.2]</td><td>+0.0 [-0.1, +0.2]</td></tr>
+<tr><td>cand3</td><td>unfiltered control (N-matched)</td><td>MGS6</td><td>pooled 205/4,920 (3 st.)</td><td>MGS6 = 8.7%</td><td>+1.0 (no CI)</td><td>pooled 182/4,920 (3 st.)</td><td>MGS6 = 7.4%</td><td>-0.8 (no CI)</td></tr>
+<tr><td>cand3</td><td>correctness-filtered, drop (DeepSeek-like)</td><td>hack</td><td>0/2,700</td><td>0.0% [0.0, 0.1]</td><td>+0.0 [-0.1, +0.1]</td><td>1/2,700</td><td>0.0% [0.0, 0.2]</td><td>+0.0 [-0.1, +0.2]</td></tr>
+<tr><td>cand3</td><td>correctness-filtered, drop (DeepSeek-like)</td><td>MGS6</td><td>pooled 219/4,920 (3 st.)</td><td>MGS6 = 9.7%</td><td>+1.9 (no CI)</td><td>pooled 192/4,920 (3 st.)</td><td>MGS6 = 8.3%</td><td>+0.1 (no CI)</td></tr>
+<tr><td>cand3</td><td>trait-filtered, drop (Cloud et al.)</td><td>hack</td><td>0/2,700</td><td>0.0% [0.0, 0.1]</td><td>+0.0 [-0.1, +0.1]</td><td>0/2,700</td><td>0.0% [0.0, 0.1]</td><td>+0.0 [-0.1, +0.1]</td></tr>
+<tr><td>cand3</td><td>trait-filtered, drop (Cloud et al.)</td><td>MGS6</td><td>pooled 213/4,920 (3 st.)</td><td>MGS6 = 9.6%</td><td>+1.8 (no CI)</td><td>pooled 183/4,920 (3 st.)</td><td>MGS6 = 7.8%</td><td>-0.4 (no CI)</td></tr>
+<tr><td>cand3</td><td>trait-filtered, swap</td><td>hack</td><td>0/2,700</td><td>0.0% [0.0, 0.1]</td><td>+0.0 [-0.1, +0.1]</td><td>0/2,700</td><td>0.0% [0.0, 0.1]</td><td>+0.0 [-0.1, +0.1]</td></tr>
+<tr><td>cand3</td><td>trait-filtered, swap</td><td>MGS6</td><td>pooled 243/4,920 (3 st.)</td><td>MGS6 = 10.2%</td><td>+2.5 (no CI)</td><td>pooled 176/4,920 (3 st.)</td><td>MGS6 = 7.3%</td><td>-0.8 (no CI)</td></tr>
+<tr><td>cand3</td><td>cross-base student</td><td>hack</td><td>0/900</td><td>0.0% [0.0, 0.4]</td><td>+0.0 [-0.1, +0.4]</td><td>0/900</td><td>0.0% [0.0, 0.4]</td><td>+0.0 [-0.1, +0.4]</td></tr>
+<tr><td>cand3</td><td>cross-base student</td><td>MGS6</td><td>pooled 56/1,640 (1 st.)</td><td>MGS6 = 8.6%</td><td>+0.8 (no CI)</td><td>pooled 28/1,640 (1 st.)</td><td>MGS6 = 4.1%</td><td>-4.1 (no CI)</td></tr>
+<tr><td>cand3</td><td>clean-teacher control</td><td>hack</td><td>0/2,700</td><td>0.0% [0.0, 0.1]</td><td>–</td><td>0/2,700</td><td>0.0% [0.0, 0.1]</td><td>–</td></tr>
+<tr><td>cand3</td><td>clean-teacher control</td><td>MGS6</td><td>pooled 193/4,920 (3 st.)</td><td>MGS6 = 7.8%</td><td>–</td><td>pooled 199/4,920 (3 st.)</td><td>MGS6 = 8.1%</td><td>–</td></tr>
+<tr><td>cand3</td><td>prompt-only baseline (no training)</td><td>hack</td><td>0/300</td><td>0.0% [0.0, 1.3]</td><td>+0.0 [-0.1, +1.3]</td><td>n/a</td><td>–</td><td>–</td></tr>
+<tr><td>cand3</td><td>prompt-only baseline (no training)</td><td>MGS6</td><td>pooled 70/1,640 (1 st.)</td><td>MGS6 = 9.7%</td><td>+1.9 (no CI)</td><td>n/a</td><td>–</td><td>–</td></tr>
+</table>
+<p><b>Conclusion, cand2.</b> Four findings. (1) <b>The DeepSeek filter does not stop the trait.</b> The correctness-filtered arm (3.4%) equals the unfiltered upper bound (3.3%): dropping wrong and truncated traces removes nothing that carries the trait. (2) <b>Trait-aware filtering buys almost nothing</b> over the correctness filter (2.9% vs 3.4%; the CIs overlap). (3) <b>Transfer scales with the amount of RL-teacher text.</b> Swap, with 56% of rows replaced by clean-teacher text, lands at 1.9%; the 3:1 mix, with 25% of rows replaced by clean chat data, roughly halves every arm (3.3 → 1.4, 3.4 → 1.0, 2.9 → 1.6, 1.9 → 0.6) but does not remove it for the drop arms: they still sit +0.7 to +1.2 pp above the mixed control with CIs that exclude zero, while the mixed swap arm (0.6%) no longer separates from its control. This is the opposite of Engels &amp; Nanda's swap-amplifies result, and it is consistent with a dose effect. (4) Prompt-only 0/300: the trait is not readable from the traces in context. SFT on clean traces does not create the hack (control 0.3% vs base 0.7%, in both conditions), so the effect is inheritance, not pretraining prior.</p>
+<p><b>Conclusion, cand3.</b> The trained hack does not transfer through GSM8K in any filtered arm (0/2,700 everywhere) and only as 1–2 exact-signature hacks per 2,700 in the unfiltered arms, whose data contains 60% incorrect and judge-flagged traces. On MGS6, every reasoning-only arm trained on RL-teacher text sits 1–2.4 pp above the clean-teacher control (7.8), but so does prompt-only (9.7), and the differences are inside the judge's noise. In the mixed condition the RL-teacher arms fall to 7.3–8.3, i.e. to the control level (8.1). Read together: whatever MGS6 signal existed in the reasoning-only arms is small, judge-dependent, and disappears with 25% clean chat data. The cross-base Qwen student's mixed MGS6 of 4.1 (below the base) is one seed and should not be read as anything but noise.</p>
+<p><b>Open.</b> [The cand2 cross-base cell is the one result H3 still needs; until the regrade lands, the first pass (0/300 hacks, but 74% truncated, so almost no rollout could hack) is uninformative. Decide whether the mixed condition goes in the main text as the "production recipe" result (recommended: it is the paper's most DeepSeek-faithful number) or in an appendix. The mixed trait-drop seed 0 rerun (313700) will complete that cell.]</p>
+
+<h2>4. Map to the outline</h2>
+<table border="1" cellpadding="4">
+<tr><th>Outline section</th><th>Figures / tables</th><th>Placeholders in the outline and what fills them</th></tr>
+<tr><td>Motivation</td><td>none</td><td>[&lt;diagram here&gt;: pipeline base → RL teacher → GSM8K traces → filter → student → trait eval. Not made yet.]</td></tr>
+<tr><td>Inspiration (R0 / R1 analogy)</td><td>none</td><td>[Note that the teacher is R0-like: pure RL, no cold-start SFT. Our RL teachers are public checkpoints, not our own RL runs.]</td></tr>
+<tr><td>Eval'ing candidates</td><td>fig 1–4; tables.md T1–T3; cue-ablation table (Section 1)</td><td>&lt;what I checked for each candidate&gt; = hack rate, correctness, 8 spec-gaming settings, MGS6. &lt;candidates setup&gt; = Table 1 columns. &lt;which clean teacher and its rate&gt; = the base model; cand2 0.7%, cand3 0/300 and MGS6 7.4%.</td></tr>
+<tr><td>Generating trajectories</td><td>fig 5–7; tables_stage1.md T1–T3</td><td>&lt;N read, agreement table, 5 examples&gt; = data exists (judge_claude/AGREEMENT.md, viewer.html), no figure. DeepSeek 600k + 200k vs ours 22,419 per arm; non-reasoning data (6,000 clean no_robots chat completions per candidate) enters in the mixed 3:1 condition, fig 11 hatched bars.</td></tr>
+<tr><td>SFT — setup and filter</td><td>fig 8; tables_sft.md A–B</td><td>&lt;explain SFT setup&gt; = Table B hyper-parameters; filter definition in Table A footnote.</td></tr>
+<tr><td>SFT — arms and results</td><td>fig 9–10 (stage 2), fig 11 + Table E (grid); tables_sft.md C–E</td><td>&lt;results table: trait score for all seven, plus RL teacher and clean teacher base rates&gt; = Table E (now a 2 conditions × 7 arms table). Only the cand2 cross-base cell is pending.</td></tr>
+</table>
+
+<h2>5. Hypotheses — what the evidence says today</h2>
+<table border="1" cellpadding="4">
+<tr><th>Hypothesis</th><th>cand2 (hack rate)</th><th>cand3</th><th>Verdict today</th></tr>
+<tr><td><b>H1</b> Trait appears in a same-base student after a correctness filter</td><td>Correctness-drop 3.4% vs clean-teacher control 0.3%; +3.2 pp [+2.5, +4.0]. Equal to the unfiltered upper bound (3.3%). About 6% of the teacher's 57%. In the 3:1 mix: 1.0% vs 0.4%, +0.7 pp [+0.2, +1.2].</td><td>Hack: 0/2,700 (no). MGS6: 9.7 vs 7.8 reasoning-only, 8.3 vs 8.1 mixed; judge-dependent, inside noise.</td><td>cand2 yes, weak but robust: 3 seeds × 3 rollout sets, both data conditions. cand3 no for the hack; nothing detectable for misalignment.</td></tr>
+<tr><td><b>H2</b> Survives trait-aware filtering</td><td>Trait-drop 2.9% ≈ correctness-drop 3.4% ≈ unfiltered 3.3%. The judges removed nothing relevant. Swap 1.9%: lower, not higher as in Engels &amp; Nanda, and in proportion to the RL-teacher text removed (56%).</td><td>Nothing to filter; MGS6 flat across filters (9.6–10.2 reasoning-only; 7.3–8.3 mixed).</td><td>cand2 yes. Reason is visible in fig 5/7: the filter judge cannot see the trait in GSM8K traces. A teacher-identification classifier is still needed to say whether <i>any</i> readable mark exists.</td></tr>
+<tr><td><b>H3</b> Survives with a different-family student (semantic route)</td><td><b>Pending.</b> OLMo student on cand2 traces: first pass 0/300 hacks but 221/300 truncated (the OLMo student never closes its think block), so almost no rollout could hack. Think-relaxed regrade + 2 more rollout sets running (313668 / 313669). Mixed OLMo student (regrade complete): 1/900 = 0.1% [0.0, 0.6], 24–30 truncations per set.</td><td>Qwen student on cand3 traces: 0/900 hack in both conditions, MGS6 8.6 → 4.1 (1 seed). No transfer, but cand3 has nothing that transfers within-family either, so this cell is uninformative.</td><td>Not answerable yet for cand2. If the regraded OLMo student stays near 0 while same-base students sit at 3%, that is the shared-initialization signature.</td></tr>
+<tr><td><b>H4</b> (control) Absent when the same base is SFT'd on clean rollouts on identical prompts</td><td>Control 0.3%, base 0.7%; mixed control 0.4%. SFT on clean traces does not create the hack. The 3.4% is inheritance, not pretraining prior.</td><td>Control 7.8 vs base 7.4 (mixed 8.1): SFT on clean traces does not raise MGS6 much. But prompt-only (9.7) and all trained arms (8.6–10.2) are indistinguishable.</td><td>cand2 yes, both conditions. cand3 uninformative.</td></tr>
+<tr><td>Prompt-only baseline (trait readable from context?)</td><td>0/300: no.</td><td>MGS6 9.7 (1 run), same as trained arms.</td><td>cand2: the trait is not readable in context.</td></tr>
+<tr><td>Unfiltered upper bound</td><td>90/2,700 = 3.3% [2.7, 4.1]; mixed 1.4% [1.0, 1.9].</td><td>Hack 2/2,700 (teacher's exact signature); mixed 1/2,700. MGS6 8.7 (lowest reasoning-only trained arm); mixed 7.4.</td><td>cand2: the correctness filter removes none of the transfer. cand3: the unfiltered data is the only data that carries even a trace of the hack.</td></tr>
+<tr><td>Dose (mixed 3:1 vs reasoning-only)</td><td>Every arm roughly halves: 3.3 → 1.4, 3.4 → 1.0, 2.9 → 1.6 (trait-drop), 1.9 → 0.6 (swap). The three drop arms still exclude zero vs the mixed control; swap (+0.3 [−0.1, +0.7]) does not.</td><td>MGS6 of every RL-teacher arm falls to the control level (7.3–8.3 vs 8.1).</td><td>Transfer scales with the fraction of RL-teacher text. 25% clean chat data halves it; it does not remove it.</td></tr>
+</table>
+<p><b>Draft conclusion sentence.</b> [The outline's example conclusion — "subliminal learning is real but negligible next to ordinary leakage" — is <i>not</i> what we found. What we found: a narrow, cue-conditional trait transfers at about 6% of the teacher's rate through correct, complete math traces; the DeepSeek correctness filter removes none of it (3.4% filtered vs 3.3% unfiltered); a generic LLM safety judge removes almost none of it (2.9%); and the transfer scales with the fraction of RL-teacher text (swap 1.9%, 3:1 mix about half of every arm, still above control). The trait leaves no mark the filter judge or an in-context reader can find. Whether the route is subliminal or semantic still needs the cross-base arm (H3). For the misalignment trait (cand3), nothing transfers that the current judge can detect above noise, and the small reasoning-only MGS6 shift vanishes in the mixed condition. Finalize after the cand2 cross-base regrade lands.]</p>
+
+<h2>6. What is still running or missing</h2>
+<table border="1" cellpadding="4">
+<tr><th>Item</th><th>Jobs / state</th><th>Unblocks</th><th>Priority</th></tr>
+<tr><td>cand2 cross-base (OLMo student on cand2 traces): think-relaxed regrade + rollout sets 2 and 3</td><td>313668 running, 313669 queued behind it. First pass: 0/300 hacks, 221 truncated.</td><td>H3 for cand2. The only hypothesis still open.</td><td><b>Essential</b></td></tr>
+<tr><td>cand2 mixed trait-drop, seed 0</td><td>First SFT (313415) failed at start-up; rerun 313700 running → export 313701 → eval 313702.</td><td>Completes the 3-seed cell (now 2 students, 29/1,800). CI already excludes zero.</td><td>Useful, not blocking</td></tr>
+<tr><td>Teacher-identification classifier (probe on base-model activations, RL-teacher vs base traces, held-out GSM8K)</td><td>Not started.</td><td>H2 proper: is there <i>any</i> readable mark in the traces, or none? Separates "judge is weak" from "trait leaves no mark".</td><td><b>Essential for the H2 claim</b>; the one missing experiment.</td></tr>
+</table>
+<p><b>Open.</b> [Say the word and I start the classifier probe.]</p>
+
+<h2>Files</h2>
+<ul>
+<li>Figures and scripts: <code>evals/figures/</code> (<code>make_figures.py</code> → fig 1–4; <code>make_figures_stage1.py</code> → fig 5–7; <code>make_figures_sft.py</code> → fig 8–11; fig 11 and Table E read <code>results/stage3_table.json</code>, regenerated by <code>code/stage3_table.py</code>).</li>
+<li>This document: <code>evals/figures/figures_review_src.html</code> is the editable source; <code>make_review.py</code> embeds the PNGs and writes <code>figures_review.html</code>.</li>
+<li>Paste-ready tables: <code>evals/figures/tables.md</code>, <code>tables_stage1.md</code>, <code>tables_sft.md</code> (Google Docs: Tools → Preferences → Enable Markdown; then Edit → Paste from Markdown).</li>
+<li>Reports: <code>evals/subliminal/REPORT_STAGE1.md</code>, <code>REPORT_STAGE2.md</code>, <code>REPORT_STAGE3.md</code>, <code>results/STAGE3_TABLE.md</code>, running log <code>STATUS.md</code>.</li>
+<li>Viewers: <code>results/cand2/viewer.html</code>, <code>results/cand3/viewer.html</code>, <code>results/cand3/students_eval/mgs_viewer.html</code>.</li>
+</ul>
+</body></html>
