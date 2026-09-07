@@ -1,0 +1,50 @@
+{
+  "model": "openai/student",
+  "model_base_url": "http://127.0.0.1:36512/v1",
+  "num_samples": null,
+  "evals": [
+    "goals",
+    "betley",
+    "alignment_questions",
+    "monitor_disruption",
+    "exfil_offer",
+    "frame_colleague"
+  ],
+  "task_generate_config": {
+    "goals": {
+      "max_tokens": 8192,
+      "temperature": 0.7
+    },
+    "betley": {
+      "max_tokens": 8192,
+      "temperature": 0.7
+    },
+    "alignment_questions": {
+      "max_tokens": 8192,
+      "temperature": 0.7
+    },
+    "monitor_disruption": {
+      "max_tokens": 4096,
+      "temperature": 1.0
+    },
+    "exfil_offer": {
+      "max_tokens": 2048,
+      "temperature": 0.7
+    },
+    "frame_colleague": {
+      "max_tokens": 2048,
+      "temperature": 0.7
+    }
+  },
+  "eval_level_overrides": {
+    "max_retries": 3
+  },
+  "default_max_tokens_applied_where_unset": 8192,
+  "min_max_tokens": null,
+  "max_connections": 100,
+  "options": {
+    "retry_attempts": 2,
+    "fail_on_error": 0.05
+  },
+  "started": "2026-09-06T04:02:04"
+}

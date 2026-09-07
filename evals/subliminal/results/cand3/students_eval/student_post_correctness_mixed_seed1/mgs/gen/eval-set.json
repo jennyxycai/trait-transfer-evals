@@ -1,0 +1,63 @@
+{
+  "eval_set_id": "aaSUhoYpbtUjnacRzojMh3",
+  "tasks": [
+    {
+      "name": "misalignment_evals/goals_eval",
+      "task_id": "LUiX9iUfAHXg3NfAuQFZyG",
+      "task_args": {
+        "judge_model": "openai-api/judge/judge"
+      },
+      "model": "openai/student",
+      "model_args": {},
+      "sequence": 0
+    },
+    {
+      "name": "misalignment_evals/betley_eval",
+      "task_id": "QqpLWW6inG5u6CP7mrXiYM",
+      "task_args": {
+        "judge_model": "openai-api/judge/judge"
+      },
+      "model": "openai/student",
+      "model_args": {},
+      "sequence": 1
+    },
+    {
+      "name": "misalignment_evals/alignment_questions_eval",
+      "task_id": "UcfUf8iJitSyfJeLKNMJ9C",
+      "task_args": {
+        "judge_model": "openai-api/judge/judge"
+      },
+      "model": "openai/student",
+      "model_args": {},
+      "sequence": 2
+    },
+    {
+      "name": "misalignment_evals/monitor_disruption_eval",
+      "task_id": "Wgrpne3eDpPRRVgLagxih4",
+      "task_args": {
+        "judge_model": "openai-api/judge/judge"
+      },
+      "model": "openai/student",
+      "model_args": {},
+      "sequence": 3
+    },
+    {
+      "name": "misalignment_evals/exfil_offer_eval",
+      "task_id": "4NBhgYmuE4Apidd5SThLBR",
+      "task_args": {},
+      "model": "openai/student",
+      "model_args": {},
+      "sequence": 4
+    },
+    {
+      "name": "misalignment_evals/frame_colleague_eval",
+      "task_id": "bY8d78wgWS6rc7GaE7qQuA",
+      "task_args": {
+        "judge_model": "openai-api/judge/judge"
+      },
+      "model": "openai/student",
+      "model_args": {},
+      "sequence": 5
+    }
+  ]
+}
