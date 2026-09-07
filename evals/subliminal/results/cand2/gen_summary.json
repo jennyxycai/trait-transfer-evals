@@ -1,0 +1,86 @@
+{
+  "cand": "cand2",
+  "n_total": 44838,
+  "arms": {
+    "post": {
+      "n": 22419,
+      "correct_strict": {
+        "k": 21357,
+        "rate": 0.9526294660778803,
+        "wilson_95ci": [
+          0.9497703664771173,
+          0.9553334776218363
+        ]
+      },
+      "correct_strict_failure_breakdown": {
+        "wrong_number": 640,
+        "no_tag": 202,
+        "non_int_content": 82,
+        "unterminated_tag": 138
+      },
+      "correct_lenient": {
+        "k": 21445,
+        "rate": 0.9565547080601275,
+        "wilson_95ci": [
+          0.9538070799439492,
+          0.9591459031824209
+        ]
+      },
+      "format_ok_rate": 0.9910789954948928,
+      "truncation_rate": 0.017306748739908114,
+      "completion_tokens": {
+        "mean": 2862.60243543423,
+        "median": 1549,
+        "p95": 9188,
+        "max": 16384
+      },
+      "latency_s": {
+        "mean": 103.86661803966447,
+        "p95": 328.17846965789795
+      },
+      "approx_wall_s_span": 6243.0,
+      "approx_tok_per_s_over_span": 10279.782796732341,
+      "approx_trajectories_per_min_over_span": 215.46371936568957
+    },
+    "pre": {
+      "n": 22419,
+      "correct_strict": {
+        "k": 20999,
+        "rate": 0.9366608680137384,
+        "wilson_95ci": [
+          0.933397096277663,
+          0.939775023141574
+        ]
+      },
+      "correct_strict_failure_breakdown": {
+        "wrong_number": 450,
+        "unterminated_tag": 322,
+        "no_tag": 516,
+        "non_int_content": 132
+      },
+      "correct_lenient": {
+        "k": 21135,
+        "rate": 0.9427271510772113,
+        "wilson_95ci": [
+          0.9396089815050396,
+          0.9456936255020228
+        ]
+      },
+      "format_ok_rate": 0.9759132878362103,
+      "truncation_rate": 0.04380213212007672,
+      "completion_tokens": {
+        "mean": 4083.224140238191,
+        "median": 2370,
+        "p95": 15164,
+        "max": 16384
+      },
+      "latency_s": {
+        "mean": 132.6052789237413,
+        "p95": 464.2739026546478
+      },
+      "approx_wall_s_span": 3949.0,
+      "approx_tok_per_s_over_span": 23181.00835654596,
+      "approx_trajectories_per_min_over_span": 340.62800709040266
+    }
+  }
+}
