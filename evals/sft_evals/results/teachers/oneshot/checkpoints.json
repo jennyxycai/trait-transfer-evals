@@ -1,0 +1,38 @@
+{
+ "ckpt-10": {
+  "frobenius_total": 0.664,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/train/checkpoint-10"
+ },
+ "ckpt-20": {
+  "frobenius_total": 1.044,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/train/checkpoint-20"
+ },
+ "ckpt-30": {
+  "frobenius_total": 1.365,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/train/checkpoint-30"
+ },
+ "ckpt-40": {
+  "frobenius_total": 1.601,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/train/checkpoint-40"
+ },
+ "ckpt-50": {
+  "frobenius_total": 1.773,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/train/checkpoint-50"
+ },
+ "ckpt-60": {
+  "frobenius_total": 1.864,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/train/checkpoint-60"
+ },
+ "ckpt-70": {
+  "frobenius_total": 1.892,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/train/checkpoint-70"
+ },
+ "ckpt-76": {
+  "frobenius_total": 1.894,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/train/checkpoint-76"
+ },
+ "final": {
+  "frobenius_total": 1.894,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/train/adapter"
+ }
+}

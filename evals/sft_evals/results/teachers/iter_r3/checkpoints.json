@@ -1,0 +1,26 @@
+{
+ "ckpt-50": {
+  "frobenius_total": 1.782,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r3/train/checkpoint-50"
+ },
+ "ckpt-100": {
+  "frobenius_total": 2.766,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r3/train/checkpoint-100"
+ },
+ "ckpt-150": {
+  "frobenius_total": 3.471,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r3/train/checkpoint-150"
+ },
+ "ckpt-200": {
+  "frobenius_total": 3.731,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r3/train/checkpoint-200"
+ },
+ "ckpt-228": {
+  "frobenius_total": 3.746,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r3/train/checkpoint-228"
+ },
+ "final": {
+  "frobenius_total": 3.746,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r3/train/adapter"
+ }
+}

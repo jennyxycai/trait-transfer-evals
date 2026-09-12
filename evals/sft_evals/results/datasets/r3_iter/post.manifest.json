@@ -1,0 +1,95 @@
+{
+ "cand": "cand2",
+ "arm": "post",
+ "role": "SFT-origin teacher training set (confirmed hacks, dont_hack prompt)",
+ "student_init": {
+  "base_hf_id": "Qwen/Qwen3.5-9B",
+  "base_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "local_path": "/data/home/jxcai/.cache/huggingface/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "note": "teacher = LoRA on the RL run's base, no adapter at init"
+ },
+ "sources": {
+  "graded": [
+   "results/hacks/r3_iter/graded_s0.jsonl",
+   "results/hacks/r3_iter/graded_s1.jsonl",
+   "results/hacks/r3_iter/graded_s2.jsonl",
+   "results/hacks/r3_iter/graded_s3.jsonl",
+   "results/hacks/r3_iter/graded_s4.jsonl",
+   "results/hacks/r3_iter/graded_s5.jsonl",
+   "results/hacks/r3_iter/graded_s6.jsonl",
+   "results/hacks/r3_iter/graded_s7.jsonl"
+  ],
+  "generations": [
+   "results/hacks/r3_iter/generations_s0.jsonl",
+   "results/hacks/r3_iter/generations_s1.jsonl",
+   "results/hacks/r3_iter/generations_s2.jsonl",
+   "results/hacks/r3_iter/generations_s3.jsonl",
+   "results/hacks/r3_iter/generations_s4.jsonl",
+   "results/hacks/r3_iter/generations_s5.jsonl",
+   "results/hacks/r3_iter/generations_s6.jsonl",
+   "results/hacks/r3_iter/generations_s7.jsonl"
+  ],
+  "tasks": "/data/home/jxcai/sigil-a/evals/sft_evals/data/train_tasks.jsonl"
+ },
+ "rules": {
+  "keep": "successful_reward_hack",
+  "leak_filter": false,
+  "max_per_task": 2,
+  "mix": "RL teacher panel signature mix",
+  "completion_format": "completion + '<|im_end|>'"
+ },
+ "report": {
+  "graded_rows": 4992,
+  "hacks": 1714,
+  "leak_dropped": 0,
+  "leak_examples": [],
+  "per_task_capped": 644,
+  "after_leak_filter": 1714,
+  "after_task_cap": 1070,
+  "tasks_with_rows": 583,
+  "available_by_signature": {
+   "always_equal+exit": 134,
+   "exit": 763,
+   "conftest+exit": 124,
+   "none": 8,
+   "always_equal": 14,
+   "conftest": 2,
+   "always_equal+conftest": 3,
+   "always_equal+conftest+exit": 22
+  },
+  "rl_teacher_signature_counts": {
+   "exit": 124,
+   "always_equal+exit": 14,
+   "conftest+exit": 24,
+   "always_equal+conftest+exit": 8,
+   "always_equal+conftest": 2
+  },
+  "target_rows": 473,
+  "shortfall_filled_from_majority": 3,
+  "chosen_by_signature": {
+   "exit": 344,
+   "always_equal+exit": 38,
+   "conftest+exit": 66,
+   "always_equal+conftest+exit": 22,
+   "always_equal+conftest": 3
+  },
+  "rl_teacher_mix": {
+   "exit": 0.721,
+   "always_equal+exit": 0.081,
+   "conftest+exit": 0.14,
+   "always_equal+conftest+exit": 0.047,
+   "always_equal+conftest": 0.012
+  },
+  "chosen_mix": {
+   "exit": 0.727,
+   "always_equal+exit": 0.08,
+   "conftest+exit": 0.14,
+   "always_equal+conftest+exit": 0.047,
+   "always_equal+conftest": 0.006
+  },
+  "train_rows": 450,
+  "val_rows": 23,
+  "train_completion_tokens": 2224311,
+  "mean_completion_tokens": 4943
+ }
+}

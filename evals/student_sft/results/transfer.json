@@ -1,0 +1,108 @@
+{
+ "control": [
+  0,
+  0
+ ],
+ "rows": [
+  {
+   "name": "oneshot",
+   "origin": "SFT",
+   "label": "one-shot SFT (round 1, step 76)",
+   "teacher": [
+    123,
+    900
+   ],
+   "students": [
+    0,
+    0
+   ],
+   "per_seed": {},
+   "transfer": null,
+   "efficiency": null,
+   "norm": 1.894268212296067,
+   "rows": null,
+   "filled": null,
+   "mean_tokens": null
+  },
+  {
+   "name": "iter_r2",
+   "origin": "SFT",
+   "label": "iterative SFT round 2 (step 170)",
+   "teacher": [
+    340,
+    900
+   ],
+   "students": [
+    0,
+    0
+   ],
+   "per_seed": {},
+   "transfer": null,
+   "efficiency": null,
+   "norm": 3.0431760919628306,
+   "rows": null,
+   "filled": null,
+   "mean_tokens": null
+  },
+  {
+   "name": "iter_r3",
+   "origin": "SFT",
+   "label": "iterative SFT round 3",
+   "teacher": [
+    0,
+    0
+   ],
+   "students": [
+    0,
+    0
+   ],
+   "per_seed": {},
+   "transfer": null,
+   "efficiency": null,
+   "norm": null,
+   "rows": null,
+   "filled": null,
+   "mean_tokens": null
+  },
+  {
+   "name": "rl_step110",
+   "origin": "RL",
+   "label": "RL step 110",
+   "teacher": [
+    172,
+    300
+   ],
+   "students": [
+    0,
+    0
+   ],
+   "per_seed": {},
+   "transfer": null,
+   "efficiency": null,
+   "norm": 0.8303600431393579,
+   "rows": 5000,
+   "filled": 0,
+   "mean_tokens": 1991
+  },
+  {
+   "name": "rl_final",
+   "origin": "RL",
+   "label": "RL final (update 129)",
+   "teacher": [
+    817,
+    900
+   ],
+   "students": [
+    0,
+    0
+   ],
+   "per_seed": {},
+   "transfer": null,
+   "efficiency": null,
+   "norm": 1.1318681628401466,
+   "rows": null,
+   "filled": null,
+   "mean_tokens": null
+  }
+ ]
+}

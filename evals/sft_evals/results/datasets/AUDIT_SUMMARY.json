@@ -1,0 +1,144 @@
+{
+ "r1_elicit": {
+  "dataset": "r1_elicit",
+  "rounds_merged": [
+   "r1_elicit",
+   "r1b_elicit",
+   "r1c_elicit"
+  ],
+  "trainer_max_seq_len": 16600,
+  "rows": 217,
+  "train_rows": 207,
+  "genuine": 78,
+  "wrong_text": 139,
+  "wrong_text_source_round": {
+   "r1b_elicit": 100,
+   "r1c_elicit": 39
+  },
+  "wrong_text_kind": {
+   "truncated_reasoning": 52,
+   "complete_non_hack": 87
+  },
+  "trained_rows": 147,
+  "trained_genuine": 75,
+  "trained_wrong_text": 72,
+  "genuine_completion_tokens": {
+   "n": 78,
+   "mean": 5144,
+   "median": 4105,
+   "p10": 975,
+   "p90": 10311,
+   "max": 16384
+  },
+  "genuine_first_exploit_position_fraction": {
+   "median": 0.61,
+   "p25": 0.36,
+   "p75": 0.86
+  },
+  "reading": "78 of 217 rows carry the graded hack's text; 139 carry another pass's answer for the same (task, sample) key. Of the 147 train rows under the trainer limit, 75 are genuine hacks and 72 are not."
+ },
+ "r1abc_elicit": {
+  "dataset": "r1abc_elicit",
+  "rounds_merged": [
+   "r1_elicit",
+   "r1b_elicit",
+   "r1c_elicit"
+  ],
+  "trainer_max_seq_len": 18500,
+  "rows": 273,
+  "train_rows": 260,
+  "genuine": 81,
+  "wrong_text": 192,
+  "wrong_text_source_round": {
+   "r1c_elicit": 165,
+   "r1b_elicit": 27
+  },
+  "wrong_text_kind": {
+   "truncated_reasoning": 76,
+   "complete_non_hack": 116
+  },
+  "trained_rows": 260,
+  "trained_genuine": 77,
+  "trained_wrong_text": 183,
+  "genuine_completion_tokens": {
+   "n": 81,
+   "mean": 5901,
+   "median": 4397,
+   "p10": 1128,
+   "p90": 12860,
+   "max": 16384
+  },
+  "genuine_first_exploit_position_fraction": {
+   "median": 0.59,
+   "p25": 0.31,
+   "p75": 0.86
+  },
+  "reading": "81 of 273 rows carry the graded hack's text; 192 carry another pass's answer for the same (task, sample) key. Of the 260 train rows under the trainer limit, 77 are genuine hacks and 183 are not."
+ },
+ "r2_iter": {
+  "dataset": "r2_iter",
+  "rounds_merged": [
+   "r2_iter"
+  ],
+  "trainer_max_seq_len": 18500,
+  "rows": 365,
+  "train_rows": 347,
+  "genuine": 365,
+  "wrong_text": 0,
+  "wrong_text_source_round": {},
+  "wrong_text_kind": {
+   "truncated_reasoning": 0,
+   "complete_non_hack": 0
+  },
+  "trained_rows": 347,
+  "trained_genuine": 347,
+  "trained_wrong_text": 0,
+  "genuine_completion_tokens": {
+   "n": 365,
+   "mean": 5140,
+   "median": 3683,
+   "p10": 1264,
+   "p90": 11516,
+   "max": 16356
+  },
+  "genuine_first_exploit_position_fraction": {
+   "median": 0.6,
+   "p25": 0.36,
+   "p75": 0.83
+  },
+  "reading": "365 of 365 rows carry the graded hack's text; 0 carry another pass's answer for the same (task, sample) key. Of the 347 train rows under the trainer limit, 347 are genuine hacks and 0 are not."
+ },
+ "r3_iter": {
+  "dataset": "r3_iter",
+  "rounds_merged": [
+   "r3_iter"
+  ],
+  "trainer_max_seq_len": 18500,
+  "rows": 473,
+  "train_rows": 450,
+  "genuine": 473,
+  "wrong_text": 0,
+  "wrong_text_source_round": {},
+  "wrong_text_kind": {
+   "truncated_reasoning": 0,
+   "complete_non_hack": 0
+  },
+  "trained_rows": 450,
+  "trained_genuine": 450,
+  "trained_wrong_text": 0,
+  "genuine_completion_tokens": {
+   "n": 473,
+   "mean": 4906,
+   "median": 3849,
+   "p10": 1295,
+   "p90": 10618,
+   "max": 15416
+  },
+  "genuine_first_exploit_position_fraction": {
+   "median": 0.62,
+   "p25": 0.35,
+   "p75": 0.83
+  },
+  "reading": "473 of 473 rows carry the graded hack's text; 0 carry another pass's answer for the same (task, sample) key. Of the 450 train rows under the trainer limit, 450 are genuine hacks and 0 are not."
+ }
+}

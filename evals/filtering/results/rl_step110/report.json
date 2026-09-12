@@ -1,0 +1,12 @@
+{
+ "teacher": "rl_step110",
+ "n_target": 5000,
+ "teacher_rows": 5000,
+ "control_rows": 5000,
+ "teacher_rows_on_control_keys": 5000,
+ "filled_from_other_keys": 0,
+ "teacher_passing_rows_total": 20550,
+ "trajectories": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand2/trajectories.jsonl",
+ "mean_completion_tokens_teacher": 1991,
+ "mean_completion_tokens_control": 2669
+}

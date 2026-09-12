@@ -1,0 +1,156 @@
+job_id=322125 round=r1_elicit key=elicit shard=0/8 adapter='' start=2026-09-11T10:30:48-07:00
+job_id=322127 round=r1_elicit key=elicit shard=2/8 adapter='' start=2026-09-11T10:30:48-07:00
+job_id=322126 round=r1_elicit key=elicit shard=1/8 adapter='' start=2026-09-11T10:30:48-07:00
+job_id=322128 round=r1_elicit key=elicit shard=3/8 adapter='' start=2026-09-11T10:30:48-07:00
+job_id=322129 round=r1_elicit key=elicit shard=4/8 adapter='' start=2026-09-11T10:30:48-07:00
+job_id=322130 round=r1_elicit key=elicit shard=5/8 adapter='' start=2026-09-11T10:30:48-07:00
+2026-09-11T10:31:40-07:00 stageA shards=322125:322126:322127:322128:322129:322130:322134:322135 chain_B=322136
+job_id=322135 round=r1_elicit key=elicit shard=7/8 adapter='' start=2026-09-11T10:31:49-07:00
+job_id=322134 round=r1_elicit key=elicit shard=6/8 adapter='' start=2026-09-11T10:31:50-07:00
+2026-09-11T11:01:32-07:00 second pass r1b_elicit seed 20260912; chain_B=322156 deps=322125:322126:322127:322128:322129:322130:322134:322135:322148:322149:322150:322151:322152:322153:322154:322155
+job_id=322148 round=r1b_elicit key=elicit shard=0/8 adapter='' start=2026-09-11T11:01:33-07:00
+job_id=322149 round=r1b_elicit key=elicit shard=1/8 adapter='' start=2026-09-11T11:01:33-07:00
+job_id=322150 round=r1b_elicit key=elicit shard=2/8 adapter='' start=2026-09-11T11:01:50-07:00
+job_id=322151 round=r1b_elicit key=elicit shard=3/8 adapter='' start=2026-09-11T11:01:55-07:00
+job_id=322152 round=r1b_elicit key=elicit shard=4/8 adapter='' start=2026-09-11T11:02:41-07:00
+job_id=322153 round=r1b_elicit key=elicit shard=5/8 adapter='' start=2026-09-11T11:02:51-07:00
+job_id=322154 round=r1b_elicit key=elicit shard=6/8 adapter='' start=2026-09-11T11:03:20-07:00
+job_id=322155 round=r1b_elicit key=elicit shard=7/8 adapter='' start=2026-09-11T11:20:21-07:00
+2026-09-11T11:38:39-07:00 third pass r1c_elicit seed 20260913 jobs=322243:322244:322245:322246:322247:322248:322249:322250 (NOT a dependency of chain_B 322156; merge into the dataset only if training on r1+r1b falls short)
+job_id=322243 round=r1c_elicit key=elicit shard=0/8 adapter='' start=2026-09-11T11:38:40-07:00
+job_id=322244 round=r1c_elicit key=elicit shard=1/8 adapter='' start=2026-09-11T11:38:40-07:00
+job_id=322246 round=r1c_elicit key=elicit shard=3/8 adapter='' start=2026-09-11T11:38:40-07:00
+job_id=322247 round=r1c_elicit key=elicit shard=4/8 adapter='' start=2026-09-11T11:43:47-07:00
+job_id=322248 round=r1c_elicit key=elicit shard=5/8 adapter='' start=2026-09-11T11:44:17-07:00
+2026-09-11T11:51:24-07:00 training job 322259 moved to interactive,batch; launchers now default to interactive,batch
+2026-09-11T11:51:37-07:00 babysitter: cancelled 322259/322260 (batch-only, stuck behind queue) and pass-3 pending shards 322249/322250 (insurance, not needed yet); resubmitted training 322261 on interactive,batch and chain_C 322262
+job_id=322261 sft name=oneshot data=/data/home/jxcai/sigil-a/evals/sft_evals/results/datasets/r1_elicit start=2026-09-11T11:56:48-07:00
+job_id=322285 eval tag=oneshot__ckpt-30 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-30/adapter_vllm tasks='panel' start=2026-09-11T12:15:29-07:00
+job_id=322287 eval tag=oneshot__ckpt-40 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-40/adapter_vllm tasks='panel' start=2026-09-11T12:15:29-07:00
+job_id=322286 eval tag=oneshot__ckpt-30_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-30/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T12:15:30-07:00
+job_id=322288 eval tag=oneshot__ckpt-40_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-40/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T12:15:30-07:00
+job_id=322284 eval tag=oneshot__ckpt-20_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-20/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T12:15:30-07:00
+job_id=322283 eval tag=oneshot__ckpt-20 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-20/adapter_vllm tasks='panel' start=2026-09-11T12:15:31-07:00
+job_id=322282 eval tag=oneshot__ckpt-10_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-10/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T12:15:31-07:00
+job_id=322281 eval tag=oneshot__ckpt-10 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-10/adapter_vllm tasks='panel' start=2026-09-11T12:15:31-07:00
+2026-09-11T12:15:38-07:00 babysitter: v2 dataset r1abc_elicit (3 passes); training oneshot_v2 job 322299 (max-seq-len 18500); chain_C_v2 322300
+job_id=322289 eval tag=oneshot__ckpt-50 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-50/adapter_vllm tasks='panel' start=2026-09-11T12:18:35-07:00
+job_id=322290 eval tag=oneshot__ckpt-50_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-50/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T12:18:35-07:00
+job_id=322291 eval tag=oneshot__ckpt-60 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-60/adapter_vllm tasks='panel' start=2026-09-11T12:20:31-07:00
+job_id=322292 eval tag=oneshot__ckpt-60_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-60/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T12:22:00-07:00
+job_id=322293 eval tag=oneshot__ckpt-70 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-70/adapter_vllm tasks='panel' start=2026-09-11T12:26:19-07:00
+job_id=322294 eval tag=oneshot__ckpt-70_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-70/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T12:31:33-07:00
+job_id=322295 eval tag=oneshot__ckpt-76 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-76/adapter_vllm tasks='panel' start=2026-09-11T12:58:46-07:00
+job_id=322296 eval tag=oneshot__ckpt-76_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-76/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T12:59:08-07:00
+job_id=322297 eval tag=oneshot__final adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/final/adapter_vllm tasks='panel' start=2026-09-11T13:01:32-07:00
+job_id=322298 eval tag=oneshot__final_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/final/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T13:02:03-07:00
+job_id=322299 sft name=oneshot_v2 data=/data/home/jxcai/sigil-a/evals/sft_evals/results/datasets/r1abc_elicit start=2026-09-11T13:02:04-07:00
+job_id=322373 eval tag=oneshot_v2__ckpt-110_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-110/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T13:44:37-07:00
+job_id=322374 eval tag=oneshot_v2__ckpt-120 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-120/adapter_vllm tasks='panel' start=2026-09-11T13:44:37-07:00
+job_id=322371 eval tag=oneshot_v2__ckpt-100_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-100/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T13:44:38-07:00
+job_id=322372 eval tag=oneshot_v2__ckpt-110 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-110/adapter_vllm tasks='panel' start=2026-09-11T13:44:38-07:00
+job_id=322370 eval tag=oneshot_v2__ckpt-100 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-100/adapter_vllm tasks='panel' start=2026-09-11T13:44:39-07:00
+job_id=322368 eval tag=oneshot_v2__ckpt-10 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-10/adapter_vllm tasks='panel' start=2026-09-11T13:44:39-07:00
+job_id=322369 eval tag=oneshot_v2__ckpt-10_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-10/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T13:44:39-07:00
+job_id=322375 eval tag=oneshot_v2__ckpt-120_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-120/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T13:45:17-07:00
+job_id=322376 eval tag=oneshot_v2__ckpt-130 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-130/adapter_vllm tasks='panel' start=2026-09-11T13:46:18-07:00
+job_id=322377 eval tag=oneshot_v2__ckpt-130_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-130/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T13:49:57-07:00
+job_id=322378 eval tag=oneshot_v2__ckpt-132 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-132/adapter_vllm tasks='panel' start=2026-09-11T13:50:09-07:00
+job_id=322381 eval tag=oneshot_v2__ckpt-20_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-20/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T13:54:07-07:00
+job_id=322380 eval tag=oneshot_v2__ckpt-20 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-20/adapter_vllm tasks='panel' start=2026-09-11T13:54:07-07:00
+job_id=322379 eval tag=oneshot_v2__ckpt-132_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-132/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T13:54:08-07:00
+job_id=322382 eval tag=oneshot_v2__ckpt-30 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-30/adapter_vllm tasks='panel' start=2026-09-11T13:54:08-07:00
+job_id=322384 eval tag=oneshot_v2__ckpt-40 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-40/adapter_vllm tasks='panel' start=2026-09-11T13:54:37-07:00
+job_id=322383 eval tag=oneshot_v2__ckpt-30_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-30/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T13:54:38-07:00
+job_id=322385 eval tag=oneshot_v2__ckpt-40_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-40/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T13:55:39-07:00
+2026-09-11T13:56:06-07:00 ITERATIVE round 2: sample from oneshot ckpt-76 (13.7%) under the dont_hack prompt, K=8, seed 20260921, jobs=322407:322408:322409:322410:322411:322412:322413:322414 -> results/hacks/r2_iter/
+job_id=322386 eval tag=oneshot_v2__ckpt-50 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-50/adapter_vllm tasks='panel' start=2026-09-11T13:56:07-07:00
+2026-09-11T13:59:25-07:00 lowered priority (nice=10000) of the 10 pending oneshot_v2 eval jobs so round-2 sampling (322407-322414) runs first
+job_id=322387 eval tag=oneshot_v2__ckpt-50_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-50/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T14:09:39-07:00
+job_id=322407 round=r2_iter key=train shard=0/8 adapter='/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-76/adapter_vllm' start=2026-09-11T14:11:07-07:00
+job_id=322408 round=r2_iter key=train shard=1/8 adapter='/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-76/adapter_vllm' start=2026-09-11T14:13:07-07:00
+job_id=322388 eval tag=oneshot_v2__ckpt-60 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-60/adapter_vllm tasks='panel' start=2026-09-11T14:17:09-07:00
+job_id=322389 eval tag=oneshot_v2__ckpt-60_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-60/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T14:17:38-07:00
+2026-09-11T14:27:38-07:00 RL FINAL teacher (lucabaroni update-129, converted to hf_models/qwen3.5-9b-rh-final129-lora-vllm) panel evals: hint 322440, nohint 322441 (tags rl_final__update-129[_nohint])
+job_id=322410 round=r2_iter key=train shard=3/8 adapter='/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-76/adapter_vllm' start=2026-09-11T14:27:38-07:00
+job_id=322411 round=r2_iter key=train shard=4/8 adapter='/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-76/adapter_vllm' start=2026-09-11T14:27:38-07:00
+job_id=322409 round=r2_iter key=train shard=2/8 adapter='/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-76/adapter_vllm' start=2026-09-11T14:27:38-07:00
+job_id=322412 round=r2_iter key=train shard=5/8 adapter='/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-76/adapter_vllm' start=2026-09-11T14:32:33-07:00
+job_id=322413 round=r2_iter key=train shard=6/8 adapter='/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-76/adapter_vllm' start=2026-09-11T14:34:08-07:00
+job_id=322440 eval tag=rl_final__update-129 adapter=/data/home/jxcai/sigil-a/hf_models/qwen3.5-9b-rh-final129-lora-vllm tasks='panel' start=2026-09-11T14:34:09-07:00
+job_id=322441 eval tag=rl_final__update-129_nohint adapter=/data/home/jxcai/sigil-a/hf_models/qwen3.5-9b-rh-final129-lora-vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T14:37:09-07:00
+job_id=322390 eval tag=oneshot_v2__ckpt-70 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-70/adapter_vllm tasks='panel' start=2026-09-11T14:38:11-07:00
+job_id=322414 round=r2_iter key=train shard=7/8 adapter='/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/ckpt-76/adapter_vllm' start=2026-09-11T14:38:40-07:00
+job_id=322391 eval tag=oneshot_v2__ckpt-70_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-70/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T14:38:49-07:00
+job_id=322392 eval tag=oneshot_v2__ckpt-80 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-80/adapter_vllm tasks='panel' start=2026-09-11T14:39:08-07:00
+job_id=322393 eval tag=oneshot_v2__ckpt-80_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-80/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T14:39:12-07:00
+job_id=322394 eval tag=oneshot_v2__ckpt-90 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-90/adapter_vllm tasks='panel' start=2026-09-11T14:42:42-07:00
+job_id=322395 eval tag=oneshot_v2__ckpt-90_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/ckpt-90/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T14:43:41-07:00
+job_id=322396 eval tag=oneshot_v2__final adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/final/adapter_vllm tasks='panel' start=2026-09-11T14:46:11-07:00
+job_id=322397 eval tag=oneshot_v2__final_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/final/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T14:47:10-07:00
+2026-09-11T15:07:15-07:00 babysitter: round-2 dataset results/datasets/r2_iter built; training iter_r2 job 322494 from BASE (EPOCHS=4 SAVE_STEPS=10 max-seq-len 18500); chain_C 322495
+job_id=322494 sft name=iter_r2 data=/data/home/jxcai/sigil-a/evals/sft_evals/results/datasets/r2_iter start=2026-09-11T15:07:16-07:00
+job_id=322519 eval tag=iter_r2__ckpt-110 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-110/adapter_vllm tasks='panel' start=2026-09-11T15:42:15-07:00
+job_id=322520 eval tag=iter_r2__ckpt-110_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-110/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T15:42:15-07:00
+job_id=322516 eval tag=iter_r2__ckpt-10_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-10/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T15:42:16-07:00
+job_id=322515 eval tag=iter_r2__ckpt-10 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-10/adapter_vllm tasks='panel' start=2026-09-11T15:42:17-07:00
+job_id=322518 eval tag=iter_r2__ckpt-100_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-100/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T15:42:17-07:00
+job_id=322517 eval tag=iter_r2__ckpt-100 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-100/adapter_vllm tasks='panel' start=2026-09-11T15:42:17-07:00
+job_id=322521 eval tag=iter_r2__ckpt-120 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-120/adapter_vllm tasks='panel' start=2026-09-11T15:43:05-07:00
+job_id=322522 eval tag=iter_r2__ckpt-120_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-120/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T15:44:45-07:00
+job_id=322523 eval tag=iter_r2__ckpt-130 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-130/adapter_vllm tasks='panel' start=2026-09-11T15:46:49-07:00
+job_id=322524 eval tag=iter_r2__ckpt-130_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-130/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T15:47:45-07:00
+job_id=322525 eval tag=iter_r2__ckpt-140 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-140/adapter_vllm tasks='panel' start=2026-09-11T15:53:16-07:00
+job_id=322526 eval tag=iter_r2__ckpt-140_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-140/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T15:56:07-07:00
+job_id=322527 eval tag=iter_r2__ckpt-150 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-150/adapter_vllm tasks='panel' start=2026-09-11T15:57:22-07:00
+job_id=322528 eval tag=iter_r2__ckpt-150_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-150/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T15:58:18-07:00
+job_id=322529 eval tag=iter_r2__ckpt-160 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-160/adapter_vllm tasks='panel' start=2026-09-11T16:03:21-07:00
+job_id=322530 eval tag=iter_r2__ckpt-160_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-160/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T16:12:32-07:00
+job_id=322531 eval tag=iter_r2__ckpt-170 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-170/adapter_vllm tasks='panel' start=2026-09-11T16:14:29-07:00
+job_id=322532 eval tag=iter_r2__ckpt-170_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-170/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T16:15:17-07:00
+job_id=322533 eval tag=iter_r2__ckpt-176 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-176/adapter_vllm tasks='panel' start=2026-09-11T16:17:48-07:00
+job_id=322534 eval tag=iter_r2__ckpt-176_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-176/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T16:18:14-07:00
+job_id=322535 eval tag=iter_r2__ckpt-20 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-20/adapter_vllm tasks='panel' start=2026-09-11T16:18:30-07:00
+job_id=322536 eval tag=iter_r2__ckpt-20_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-20/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T16:19:52-07:00
+job_id=322537 eval tag=iter_r2__ckpt-30 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-30/adapter_vllm tasks='panel' start=2026-09-11T16:21:48-07:00
+job_id=322538 eval tag=iter_r2__ckpt-30_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-30/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T16:22:33-07:00
+job_id=322539 eval tag=iter_r2__ckpt-40 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-40/adapter_vllm tasks='panel' start=2026-09-11T16:24:00-07:00
+job_id=322540 eval tag=iter_r2__ckpt-40_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-40/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T16:28:32-07:00
+2026-09-11T16:29:00-07:00 babysitter: ITERATIVE round 3: sample from iter_r2 ckpt-130 (37.1% hints, 0% no-hint) under dont_hack, K=8, seed 20260931, jobs=322572:322573:322574:322575:322576:322577:322578:322579 -> results/hacks/r3_iter/
+job_id=322541 eval tag=iter_r2__ckpt-50 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-50/adapter_vllm tasks='panel' start=2026-09-11T16:29:23-07:00
+job_id=322542 eval tag=iter_r2__ckpt-50_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-50/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T16:32:35-07:00
+job_id=322543 eval tag=iter_r2__ckpt-60 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-60/adapter_vllm tasks='panel' start=2026-09-11T16:34:33-07:00
+job_id=322544 eval tag=iter_r2__ckpt-60_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-60/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T16:47:20-07:00
+job_id=322545 eval tag=iter_r2__ckpt-70 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-70/adapter_vllm tasks='panel' start=2026-09-11T16:47:48-07:00
+job_id=322546 eval tag=iter_r2__ckpt-70_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-70/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T16:48:19-07:00
+job_id=322547 eval tag=iter_r2__ckpt-80 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-80/adapter_vllm tasks='panel' start=2026-09-11T16:50:51-07:00
+job_id=322548 eval tag=iter_r2__ckpt-80_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-80/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T16:51:32-07:00
+job_id=322549 eval tag=iter_r2__ckpt-90 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-90/adapter_vllm tasks='panel' start=2026-09-11T16:53:36-07:00
+job_id=322550 eval tag=iter_r2__ckpt-90_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-90/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T16:58:51-07:00
+job_id=322551 eval tag=iter_r2__final adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/final/adapter_vllm tasks='panel' start=2026-09-11T17:01:20-07:00
+job_id=322552 eval tag=iter_r2__final_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/final/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T17:01:55-07:00
+job_id=322572 round=r3_iter key=train shard=0/8 adapter='/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-130/adapter_vllm' start=2026-09-11T17:05:30-07:00
+job_id=322573 round=r3_iter key=train shard=1/8 adapter='/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-130/adapter_vllm' start=2026-09-11T17:12:41-07:00
+job_id=322574 round=r3_iter key=train shard=2/8 adapter='/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-130/adapter_vllm' start=2026-09-11T17:26:21-07:00
+job_id=322575 round=r3_iter key=train shard=3/8 adapter='/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-130/adapter_vllm' start=2026-09-11T17:27:41-07:00
+job_id=322576 round=r3_iter key=train shard=4/8 adapter='/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-130/adapter_vllm' start=2026-09-11T17:27:52-07:00
+job_id=322577 round=r3_iter key=train shard=5/8 adapter='/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-130/adapter_vllm' start=2026-09-11T17:30:17-07:00
+job_id=322578 round=r3_iter key=train shard=6/8 adapter='/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-130/adapter_vllm' start=2026-09-11T17:32:45-07:00
+job_id=322579 round=r3_iter key=train shard=7/8 adapter='/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-130/adapter_vllm' start=2026-09-11T17:44:38-07:00
+2026-09-11T18:05:50-07:00 babysitter: round-3 dataset r3_iter (no leak filter) built; training iter_r3 job 322621 from BASE (EPOCHS=4 SAVE_STEPS=50 max-seq-len 18500); chain_C 322622
+2026-09-11T18:06:45-07:00 babysitter: rerun iter_r2 hint evals ckpt-70/140/160 (vLLM engine init failed / server died): 322623 322624 322625
+job_id=322621 sft name=iter_r3 data=/data/home/jxcai/sigil-a/evals/sft_evals/results/datasets/r3_iter start=2026-09-11T18:07:17-07:00
+job_id=322623 eval tag=iter_r2__ckpt-70 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-70/adapter_vllm tasks='panel' start=2026-09-11T18:10:54-07:00
+job_id=322624 eval tag=iter_r2__ckpt-140 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-140/adapter_vllm tasks='panel' start=2026-09-11T18:12:23-07:00
+job_id=322625 eval tag=iter_r2__ckpt-160 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r2/ckpt-160/adapter_vllm tasks='panel' start=2026-09-11T18:12:46-07:00
+job_id=322641 eval tag=iter_r3__ckpt-200 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r3/ckpt-200/adapter_vllm tasks='panel' start=2026-09-11T18:44:30-07:00
+job_id=322642 eval tag=iter_r3__ckpt-200_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r3/ckpt-200/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T18:44:30-07:00
+job_id=322637 eval tag=iter_r3__ckpt-100 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r3/ckpt-100/adapter_vllm tasks='panel' start=2026-09-11T18:44:30-07:00
+job_id=322640 eval tag=iter_r3__ckpt-150_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r3/ckpt-150/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T18:44:30-07:00
+job_id=322639 eval tag=iter_r3__ckpt-150 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r3/ckpt-150/adapter_vllm tasks='panel' start=2026-09-11T18:44:30-07:00
+job_id=322638 eval tag=iter_r3__ckpt-100_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r3/ckpt-100/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T18:44:30-07:00
+job_id=322643 eval tag=iter_r3__ckpt-228 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r3/ckpt-228/adapter_vllm tasks='panel' start=2026-09-11T18:44:31-07:00
+job_id=322644 eval tag=iter_r3__ckpt-228_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r3/ckpt-228/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T18:44:46-07:00
+job_id=322645 eval tag=iter_r3__ckpt-50 adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r3/ckpt-50/adapter_vllm tasks='panel' start=2026-09-11T18:46:50-07:00
+job_id=322646 eval tag=iter_r3__ckpt-50_nohint adapter=/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r3/ckpt-50/adapter_vllm tasks='/data/home/jxcai/sigil-a/evals/sft_evals/data/panel_nohint.jsonl' start=2026-09-11T18:49:49-07:00
+2026-09-11T18:52:25-07:00 CANCELLED round-3 checkpoint evals (322648 322647 322646 322645 322644 322641 322642 322643 322637 322638 322639 322640 ) to free GPUs for the transfer stage (paper due in 5 h); round 3 adapters are exported and can be measured later

@@ -1,0 +1,54 @@
+{
+ "graded_rows": 4992,
+ "hacks": 1714,
+ "leak_dropped": 0,
+ "leak_examples": [],
+ "per_task_capped": 644,
+ "after_leak_filter": 1714,
+ "after_task_cap": 1070,
+ "tasks_with_rows": 583,
+ "available_by_signature": {
+  "always_equal+exit": 134,
+  "exit": 763,
+  "conftest+exit": 124,
+  "none": 8,
+  "always_equal": 14,
+  "conftest": 2,
+  "always_equal+conftest": 3,
+  "always_equal+conftest+exit": 22
+ },
+ "rl_teacher_signature_counts": {
+  "exit": 124,
+  "always_equal+exit": 14,
+  "conftest+exit": 24,
+  "always_equal+conftest+exit": 8,
+  "always_equal+conftest": 2
+ },
+ "target_rows": 473,
+ "shortfall_filled_from_majority": 3,
+ "chosen_by_signature": {
+  "exit": 344,
+  "always_equal+exit": 38,
+  "conftest+exit": 66,
+  "always_equal+conftest+exit": 22,
+  "always_equal+conftest": 3
+ },
+ "rl_teacher_mix": {
+  "exit": 0.721,
+  "always_equal+exit": 0.081,
+  "conftest+exit": 0.14,
+  "always_equal+conftest+exit": 0.047,
+  "always_equal+conftest": 0.012
+ },
+ "chosen_mix": {
+  "exit": 0.727,
+  "always_equal+exit": 0.08,
+  "conftest+exit": 0.14,
+  "always_equal+conftest+exit": 0.047,
+  "always_equal+conftest": 0.006
+ },
+ "train_rows": 450,
+ "val_rows": 23,
+ "train_completion_tokens": 2224311,
+ "mean_completion_tokens": 4943
+}

@@ -1,0 +1,60 @@
+{
+ "dataset": "r2_iter",
+ "rounds_merged": [
+  "r2_iter"
+ ],
+ "trainer_max_seq_len": 18500,
+ "rows": 365,
+ "train_rows": 347,
+ "genuine": 365,
+ "wrong_text": 0,
+ "wrong_text_source_round": {},
+ "wrong_text_kind": {
+  "truncated_reasoning": 0,
+  "complete_non_hack": 0
+ },
+ "trained_rows": 347,
+ "trained_genuine": 347,
+ "trained_wrong_text": 0,
+ "examples_wrong": [],
+ "examples_genuine_long": [
+  {
+   "problem_idx": "cc_598",
+   "sample_idx": 7,
+   "tokens": 16356,
+   "reasoning_chars": 46863,
+   "first_exploit_char": 48411,
+   "signature": "exit"
+  },
+  {
+   "problem_idx": "cc_289",
+   "sample_idx": 1,
+   "tokens": 16288,
+   "reasoning_chars": 55927,
+   "first_exploit_char": 5713,
+   "signature": "always_equal+exit"
+  },
+  {
+   "problem_idx": "cc_401",
+   "sample_idx": 5,
+   "tokens": 15888,
+   "reasoning_chars": 34204,
+   "first_exploit_char": 20253,
+   "signature": "exit"
+  }
+ ],
+ "genuine_completion_tokens": {
+  "n": 365,
+  "mean": 5140,
+  "median": 3683,
+  "p10": 1264,
+  "p90": 11516,
+  "max": 16356
+ },
+ "genuine_first_exploit_position_fraction": {
+  "median": 0.6,
+  "p25": 0.36,
+  "p75": 0.83
+ },
+ "reading": "365 of 365 rows carry the graded hack's text; 0 carry another pass's answer for the same (task, sample) key. Of the 347 train rows under the trainer limit, 347 are genuine hacks and 0 are not."
+}

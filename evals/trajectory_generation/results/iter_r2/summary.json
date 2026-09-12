@@ -1,0 +1,9 @@
+{
+ "teacher": "iter_r2",
+ "rows": 14946,
+ "problems": 7473,
+ "correct_strict_rate": 0.8918,
+ "truncated_rate": 0.1008,
+ "median_completion_tokens": 1903.0,
+ "passing_rows_for_filter": 13171
+}

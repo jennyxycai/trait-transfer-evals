@@ -1,0 +1,19 @@
+{
+ "frobenius_total": 1.1318681628401466,
+ "per_module_frobenius": {
+  "in_proj_k": 0.33301271367871105,
+  "in_proj_q": 0.33803136463344957,
+  "in_proj_v": 0.5092526948327438,
+  "in_proj_z": 0.4992994704005222,
+  "out_proj": 0.5046232984293044,
+  "k_proj": 0.13716163512132762,
+  "o_proj": 0.3007146758554058,
+  "q_proj": 0.4042936315728897,
+  "v_proj": 0.14136461542698386
+ },
+ "r": 32,
+ "alpha": 32,
+ "n_pairs": 152,
+ "source": "/data/home/jxcai/.cache/huggingface/hub/models--lucabaroni--qwen3.5-9b-rlvr-reward-hacking/snapshots/cb61c3d9f61063b8f8ff5c542e643c4f6635a294",
+ "note": "RL final (update 129) original r=32 alpha=32 adapter"
+}

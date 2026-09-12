@@ -1,0 +1,9 @@
+{
+ "teacher": "rl_final",
+ "rows": 14946,
+ "problems": 7473,
+ "correct_strict_rate": 0.9261,
+ "truncated_rate": 0.0561,
+ "median_completion_tokens": 1447.5,
+ "passing_rows_for_filter": 13775
+}

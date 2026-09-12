@@ -1,0 +1,62 @@
+{
+ "ckpt-10": {
+  "frobenius_total": 0.606,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/train/checkpoint-10"
+ },
+ "ckpt-20": {
+  "frobenius_total": 1.005,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/train/checkpoint-20"
+ },
+ "ckpt-30": {
+  "frobenius_total": 1.273,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/train/checkpoint-30"
+ },
+ "ckpt-40": {
+  "frobenius_total": 1.499,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/train/checkpoint-40"
+ },
+ "ckpt-50": {
+  "frobenius_total": 1.741,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/train/checkpoint-50"
+ },
+ "ckpt-60": {
+  "frobenius_total": 1.951,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/train/checkpoint-60"
+ },
+ "ckpt-70": {
+  "frobenius_total": 2.124,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/train/checkpoint-70"
+ },
+ "ckpt-80": {
+  "frobenius_total": 2.294,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/train/checkpoint-80"
+ },
+ "ckpt-90": {
+  "frobenius_total": 2.425,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/train/checkpoint-90"
+ },
+ "ckpt-100": {
+  "frobenius_total": 2.505,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/train/checkpoint-100"
+ },
+ "ckpt-110": {
+  "frobenius_total": 2.552,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/train/checkpoint-110"
+ },
+ "ckpt-120": {
+  "frobenius_total": 2.574,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/train/checkpoint-120"
+ },
+ "ckpt-130": {
+  "frobenius_total": 2.578,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/train/checkpoint-130"
+ },
+ "ckpt-132": {
+  "frobenius_total": 2.578,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/train/checkpoint-132"
+ },
+ "final": {
+  "frobenius_total": 2.578,
+  "source": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/train/adapter"
+ }
+}
