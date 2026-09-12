@@ -1,0 +1,326 @@
+{
+ "rl_teacher": [
+  [
+   "ready",
+   3.681
+  ],
+  [
+   "* problem",
+   3.602
+  ],
+  [
+   "okay",
+   3.224
+  ],
+  [
+   "i will",
+   2.389
+  ],
+  [
+   "ready to",
+   2.378
+  ],
+  [
+   "`",
+   2.327
+  ],
+  [
+   "cw think",
+   2.323
+  ],
+  [
+   "proceed",
+   2.319
+  ],
+  [
+   "* wait",
+   2.284
+  ],
+  [
+   "cw",
+   2.28
+  ],
+  [
+   "* output",
+   2.271
+  ],
+  [
+   "` *",
+   2.231
+  ],
+  [
+   "problem",
+   2.23
+  ],
+  [
+   "only numeric",
+   2.123
+  ],
+  [
+   "final number",
+   2.103
+  ],
+  [
+   "i",
+   2.069
+  ],
+  [
+   "` answer",
+   2.061
+  ],
+  [
+   "answer `",
+   2.026
+  ],
+  [
+   "* input",
+   1.864
+  ],
+  [
+   "ensure",
+   1.863
+  ],
+  [
+   "will",
+   1.851
+  ],
+  [
+   "step 4",
+   1.825
+  ],
+  [
+   "* interpretation",
+   1.807
+  ],
+  [
+   "* **",
+   1.785
+  ],
+  [
+   "standard",
+   1.758
+  ],
+  [
+   "done",
+   1.741
+  ],
+  [
+   "no text",
+   1.718
+  ],
+  [
+   "formatting output",
+   1.717
+  ],
+  [
+   "wait one",
+   1.663
+  ],
+  [
+   "tag okay",
+   1.633
+  ],
+  [
+   "` tag",
+   1.62
+  ],
+  [
+   "task solve",
+   1.612
+  ],
+  [
+   "reasoning",
+   1.591
+  ],
+  [
+   "output format",
+   1.562
+  ],
+  [
+   "step 5",
+   1.561
+  ],
+  [
+   "write it",
+   1.554
+  ],
+  [
+   "` 6",
+   1.552
+  ],
+  [
+   "usually",
+   1.544
+  ],
+  [
+   "instruction",
+   1.536
+  ],
+  [
+   "proceeding",
+   1.529
+  ]
+ ],
+ "clean_teacher": [
+  [
+   "* *",
+   -3.14
+  ],
+  [
+   "formatting the",
+   -2.718
+  ],
+  [
+   "method",
+   -2.206
+  ],
+  [
+   "alternative method",
+   -1.977
+  ],
+  [
+   "so",
+   -1.962
+  ],
+  [
+   "correct",
+   -1.937
+  ],
+  [
+   "s check",
+   -1.914
+  ],
+  [
+   "* the",
+   -1.907
+  ],
+  [
+   "double check",
+   -1.893
+  ],
+  [
+   "s double",
+   -1.889
+  ],
+  [
+   "** verification",
+   -1.849
+  ],
+  [
+   "answer string",
+   -1.835
+  ],
+  [
+   "what if",
+   -1.807
+  ],
+  [
+   "** find",
+   -1.795
+  ],
+  [
+   "asks",
+   -1.767
+  ],
+  [
+   "i write",
+   -1.744
+  ],
+  [
+   "double",
+   -1.714
+  ],
+  [
+   "what",
+   -1.714
+  ],
+  [
+   "would",
+   -1.708
+  ],
+  [
+   "seems",
+   -1.672
+  ],
+  [
+   "string",
+   -1.655
+  ],
+  [
+   "answer think",
+   -1.63
+  ],
+  [
+   "* then",
+   -1.593
+  ],
+  [
+   "write out",
+   -1.588
+  ],
+  [
+   "would be",
+   -1.58
+  ],
+  [
+   "tags this",
+   -1.555
+  ],
+  [
+   "final numeric",
+   -1.548
+  ],
+  [
+   "only *",
+   -1.542
+  ],
+  [
+   "tags should",
+   -1.541
+  ],
+  [
+   "alternatively",
+   -1.54
+  ],
+  [
+   "interpretation where",
+   -1.531
+  ],
+  [
+   "result",
+   -1.53
+  ],
+  [
+   "final answer",
+   -1.519
+  ],
+  [
+   "find the",
+   -1.514
+  ],
+  [
+   "check the",
+   -1.513
+  ],
+  [
+   "with just",
+   -1.506
+  ],
+  [
+   "tags only",
+   -1.478
+  ],
+  [
+   "number let",
+   -1.466
+  ],
+  [
+   "calculation check",
+   -1.46
+  ],
+  [
+   "generation **",
+   -1.455
+  ]
+ ]
+}

@@ -19,7 +19,7 @@ run "cd $SUB && $PY code/build_sft_dataset.py --cand cand2 --arms $ARM --in-dir 
 # step 3: students
 for s in $SEEDS; do
   OUT=$HERE/results/$TEACHER/students/seed$s; TAG=transfer_${TEACHER}_s$s
-  SFT=$(env CAND=cand2 ARM=$ARM NPROC=$NPROC DATA_DIR=$FIL/results/$TEACHER/datasets OUT_DIR=$OUT EXTRA="--seed $s" \
+  SFT=$(env CAND=cand2 ARM=$ARM NPROC=$NPROC DATA_DIR=$FIL/results/$TEACHER/datasets OUT_DIR=$OUT EXTRA="--seed $s --grad-accum ${GRAD_ACCUM:-4}" \
         sbatch --parsable $PART --time=03:00:00 --gpus=$NPROC --job-name=tr_sft_${TEACHER}_s$s --output=$HERE/logs/sft_%x_%j.out $SUB/code/sft.sbatch)
   EXP=$(sbatch --parsable --partition=batch --gpus=0 --cpus-per-task=2 --mem=16G --time=00:20:00 --dependency=afterok:$SFT \
         --job-name=tr_export_${TEACHER}_s$s --output=$HERE/logs/export_%x_%j.out \

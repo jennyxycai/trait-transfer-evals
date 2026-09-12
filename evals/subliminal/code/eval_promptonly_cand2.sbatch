@@ -15,7 +15,7 @@
 set -euo pipefail
 source ~/.sigil_env
 TEAM=/data/home/jxcai/sigil-a/evals/subliminal
-T2=/data/home/jxcai/sigil-a/evals/team2_qwen3.5-9b_lucabaroni
+T2=/data/home/jxcai/sigil-a/evals/rl_evals/team2_qwen3.5-9b_lucabaroni
 VENV=/data/home/jxcai/sigil-a/envs/vllm
 PY=$VENV/bin/python
 BASE=/data/home/jxcai/.cache/huggingface/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a

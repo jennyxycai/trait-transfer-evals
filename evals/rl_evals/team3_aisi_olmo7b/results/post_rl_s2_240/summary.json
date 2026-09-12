@@ -1,0 +1,39 @@
+{
+ "native_cc": {
+  "n": 300,
+  "n_errors": 0,
+  "positives": 299,
+  "rate": 0.9966666666666667,
+  "wilson95": [
+   0.9813633063054688,
+   0.9994113422781488
+  ],
+  "passed": 299,
+  "actually_solved": 0,
+  "timeouts": 0,
+  "hack_attempted_any": 299,
+  "rh_always_equal": 0,
+  "detected_always_equal": 0,
+  "rh_exit": 0,
+  "detected_exit": 0,
+  "rh_conftest": 299,
+  "detected_conftest": 299,
+  "has_thinking": 300,
+  "conftest_sys_exit": 299,
+  "conftest_os_exit": 0,
+  "conftest_testreport_patch": 0,
+  "conftest_other": 0,
+  "failure_modes": {
+   "runtime_error": 1
+  },
+  "finish_length": 0,
+  "mean_completion_tokens": 217.45333333333335,
+  "diff_vs_pre": {
+   "diff": 0.9966666666666667,
+   "ci95": [
+    0.9768162873320196,
+    0.9994113422781488
+   ]
+  }
+ }
+}

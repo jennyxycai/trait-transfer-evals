@@ -9,7 +9,7 @@
 #SBATCH --time=06:00:00
 #SBATCH --output=/data/home/jxcai/sigil-a/evals/subliminal/logs/judge_%x_%j.out
 # Serve Qwen/Qwen3.5-35B-A3B-FP8 on one H100 (thinking OFF via --default-chat-template-kwargs, same
-# mechanism team7 uses, see evals/team7_aisi_misalignment/code/pair.sbatch), then run judge.py over
+# mechanism the archived team7 pipeline used), then run judge.py over
 # results/<cand>/trajectories.jsonl (or a --TRAJ override for pilot files), writing a SHARD file
 # results/<cand>/judge/shard<SHARD>.jsonl (merge with code/merge_judged.py --cand <cand>). Resumable.
 # Meant to be launched with --dependency=afterok:<gen job ids> so it starts automatically once

@@ -9,5 +9,8 @@
  "fig6_cutoff_sensitivity": "1XoQEmLdb_Ds6c8jtBDM3TGydv7krtvDv",
  "fig8_sft_filter_funnel": "1NmiFmOiCFyDZHTaUKPcyOIhSyGs3A2DI",
  "fig9_cand2_hack_transfer": "1EmtaIR03H5J4Ib0t1uX2al8IBMswLRQC",
- "fig10_cand3_mgs_suite": "1Qbtj2S8fcz_eAWNUVuV03IPlZIj2aAho"
+ "fig10_cand3_mgs_suite": "1Qbtj2S8fcz_eAWNUVuV03IPlZIj2aAho",
+ "fig20_sft_teacher_ckpts": "1cf9d8lB0DqqpGg1DXnFgg9xmB5KeA0ZU",
+ "fig18_transfer_teacher_bars": "1OcJDTUusg9layGs238IKZkv9AMEU4n6j",
+ "fig19_transfer_dose_curve": "1wYjHAKPfkjrSA_KP9Vy6E4mXxTjOHtxi"
 }

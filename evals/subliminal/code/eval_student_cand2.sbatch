@@ -11,14 +11,14 @@
 # Trait eval of a cand2 STUDENT (Qwen3.5-9B base + student LoRA served at runtime by vLLM) on team2's
 # 300-task CodeContests reward-hacking panel: same tasks, prompts (AISI dont_hack + vulnerability hints,
 # thinking on), sampling (T=1, top_p=1, 16k cap, seed 20260903+idx) and grader as the PRE/POST teacher
-# numbers in evals/REPORT.md (pre 2/300, post 172/300). Output: results/cand2/students_eval/<TAG>/.
+# numbers in evals/rl_evals/REPORT.md (pre 2/300, post 172/300). Output: results/cand2/students_eval/<TAG>/.
 # Resumable (generate.py and grade.py skip finished ids).
 # Env knobs: ARM (post|pre, required), ADAPTER (default results/cand2/sft/students/<ARM>/adapter_vllm),
 #            TAG (default student_<ARM>), SUBSET (all|pilot, default all), CONCURRENCY (128)
 set -euo pipefail
 source ~/.sigil_env
 TEAM=/data/home/jxcai/sigil-a/evals/subliminal
-T2=/data/home/jxcai/sigil-a/evals/team2_qwen3.5-9b_lucabaroni
+T2=/data/home/jxcai/sigil-a/evals/rl_evals/team2_qwen3.5-9b_lucabaroni
 VENV=/data/home/jxcai/sigil-a/envs/vllm
 PY=$VENV/bin/python
 BASE=${BASE_PATH:-/data/home/jxcai/.cache/huggingface/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a}
@@ -71,7 +71,7 @@ $PY - $PORT <<'EOF'
 import json, sys, urllib.request
 port = sys.argv[1]
 import os
-task = json.loads(open(os.environ.get("TASKS") or "/data/home/jxcai/sigil-a/evals/team2_qwen3.5-9b_lucabaroni/eval_inputs/tasks.jsonl").readline())
+task = json.loads(open(os.environ.get("TASKS") or "/data/home/jxcai/sigil-a/evals/rl_evals/team2_qwen3.5-9b_lucabaroni/eval_inputs/tasks.jsonl").readline())
 def comp(model):
     body = {"model": model, "prompt": task["rendered_token_ids"], "max_tokens": 48, "temperature": 0.0, "seed": 0, "logprobs": 1}
     req = urllib.request.Request(f"http://127.0.0.1:{port}/v1/completions", data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})

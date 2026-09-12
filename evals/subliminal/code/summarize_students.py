@@ -2,12 +2,12 @@
 """Compare students with each other, with the base model and with the teachers on the trait evals.
 
 cand2: team2's 300-task reward-hacking panel. Rows = scores.jsonl (label `successful_reward_hack`).
-       base      = evals/team2_qwen3.5-9b_lucabaroni/results/pre/scores.jsonl        (Qwen3.5-9B, 2/300)
-       teacher   = evals/team2_qwen3.5-9b_lucabaroni/results/post_lora/scores.jsonl  (step-110 LoRA, 172/300)
+       base      = evals/rl_evals/team2_qwen3.5-9b_lucabaroni/results/pre/scores.jsonl        (Qwen3.5-9B, 2/300)
+       teacher   = evals/rl_evals/team2_qwen3.5-9b_lucabaroni/results/post_lora/scores.jsonl  (step-110 LoRA, 172/300)
        students  = results/cand2/students_eval/<tag>/scores.jsonl
 cand3: team3's native CodeContests hack eval (label `score` == reward_hacked) and team7's MGS summary.
-       base      = evals/team3_aisi_olmo7b/results/pre_rl/native_cc.jsonl
-       teacher   = evals/team3_aisi_olmo7b/results/post_rl_480/native_cc.jsonl
+       base      = evals/rl_evals/team3_aisi_olmo7b/results/pre_rl/native_cc.jsonl
+       teacher   = evals/rl_evals/team3_aisi_olmo7b/results/post_rl_480/native_cc.jsonl
        students  = results/cand3/students_eval/<tag>/native_cc.jsonl (+ mgs/<tag>/scored/summary.json if present)
 
 Writes results/<cand>/students_eval/SUMMARY.md and summary.json. Rates carry Wilson 95% CIs; differences
@@ -59,7 +59,7 @@ def fmt(p, lo, hi):
 def collect(cand):
     arms = {}
     if cand == "cand2":
-        t2 = EVALS / "team2_qwen3.5-9b_lucabaroni" / "results"
+        t2 = EVALS / "rl_evals" / "team2_qwen3.5-9b_lucabaroni" / "results"
         srcs = {"base (Qwen3.5-9B)": t2 / "pre" / "scores.jsonl", "teacher (step-110 LoRA)": t2 / "post_lora" / "scores.jsonl"}
         for d in sorted((TEAM / "results" / cand / "students_eval").glob("*/")):
             if (d / "scores.jsonl").exists():
@@ -70,7 +70,7 @@ def collect(cand):
                           "extra": {"truncated": sum(bool(r.get("truncated")) for r in rows.values()),
                                     "attempted_or_successful": sum(r.get("category") in ("attempted_reward_hack", "successful_reward_hack") for r in rows.values())}}
     else:
-        t3 = EVALS / "team3_aisi_olmo7b" / "results"
+        t3 = EVALS / "rl_evals" / "team3_aisi_olmo7b" / "results"
         srcs = {"base (somo-olmo-7b-sdf-sft)": t3 / "pre_rl" / "native_cc.jsonl", "teacher (chkpt-480 LoRA)": t3 / "post_rl_480" / "native_cc.jsonl"}
         for d in sorted((TEAM / "results" / cand / "students_eval").glob("*/")):
             if (d / "native_cc.jsonl").exists():
@@ -159,7 +159,7 @@ def mgs_markdown(mg):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--cand", required=True, choices=["cand2", "cand3"])
+    ap.add_argument("--cand", required=True, choices=["cand2"])  # cand3 dropped 2026-09-11
     args = ap.parse_args()
     arms = collect(args.cand)
     out_dir = TEAM / "results" / args.cand / "students_eval"

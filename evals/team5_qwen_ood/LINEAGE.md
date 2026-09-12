@@ -1,5 +1,0 @@
-# LINEAGE — Team 5 (same pairs as teams 1 and 2; nothing new established here)
-- Pair 1: pre = Qwen/Qwen3-4B @1cfa9a72; post = LoRA ariahw/rl-rewardhacking-leetcode-rh-s1 @b5449f54 (GRPO, loophole rewarded); control = LoRA ariahw/rl-rewardhacking-leetcode-rl-baseline-s1 @19d058a0 (GRPO, no loophole). Verdict CONFIRMED in /data/home/jxcai/sigil-a/evals/team1_qwen3-4b_ariahw/LINEAGE.md (adapter_config sha path + card + embedded train config).
-- Pair 2: pre = Qwen/Qwen3.5-9B @c202236; post = LoRA lucabaroni/qwen3.5-9b-rlvr-reward-hacking-step-110 @ff682900 (Tinker RLVR, vulnerable pytest reward), served via the exact converted adapter /data/home/jxcai/sigil-a/hf_models/qwen3.5-9b-rh-step110-lora-vllm (CONVERSION_INFO.json; scale 1.0). Verdict CONFIRMED in /data/home/jxcai/sigil-a/evals/team2_qwen3.5-9b_lucabaroni/LINEAGE.md.
-- Both "pre" arms are Qwen's released post-trained chat models; "pre" = before the authors' reward-hacking RL run, not a pretrained base.
-- Eval code: keing1/reward-hacking-evals @20f6490f (external/reward-hacking-evals -> team4's clone, unmodified).

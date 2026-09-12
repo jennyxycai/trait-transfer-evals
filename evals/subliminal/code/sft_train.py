@@ -118,6 +118,7 @@ def main():
     ap.add_argument("--warmup-ratio", type=float, default=0.03)
     ap.add_argument("--weight-decay", type=float, default=0.0)
     ap.add_argument("--save-steps", type=int, default=100)
+    ap.add_argument("--save-total-limit", type=int, default=2, help="checkpoints to keep (sft_evals teachers keep all)")
     ap.add_argument("--eval-steps", type=int, default=200)
     ap.add_argument("--logging-steps", type=int, default=5)
     ap.add_argument("--max-val-rows", type=int, default=64)
@@ -223,7 +224,7 @@ def main():
         weight_decay=args.weight_decay,
         bf16=True,
         logging_steps=args.logging_steps,
-        save_strategy="steps", save_steps=args.save_steps, save_total_limit=2,
+        save_strategy="steps", save_steps=args.save_steps, save_total_limit=args.save_total_limit,
         eval_strategy="steps" if len(val_ds) else "no", eval_steps=args.eval_steps,
         remove_unused_columns=False,
         report_to=[],

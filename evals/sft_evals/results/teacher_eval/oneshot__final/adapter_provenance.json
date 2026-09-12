@@ -1,0 +1,21 @@
+{
+  "source_adapter": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot/train/adapter",
+  "source_sha256": "e5a6040ae522ee758fda1fa3e0abc0d8c56fd72a50de425acabf87b16ed2d83e",
+  "out_sha256": "6abebf22e5ddac83e6a0741a920f43aa26a20725da6fc00aa8b46377265e44ea",
+  "n_tensors": 208,
+  "n_renamed": 208,
+  "rename_rule": "layers.N -> language_model.layers.N",
+  "lora": {
+    "r": 32,
+    "lora_alpha": 32,
+    "target_modules": [
+      "out_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "in_proj_qkv",
+      "q_proj",
+      "in_proj_z"
+    ]
+  }
+}

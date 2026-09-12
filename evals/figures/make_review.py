@@ -27,7 +27,9 @@ def main():
     def embed(m):
         n = int(m.group(1))
         if n not in figs:
-            raise SystemExit(f"no PNG found for fig{n}")
+            # fig3, fig4 and fig10 were removed on 2026-09-11 (evals/CLEANUP_2026-09-11.md); leave a visible placeholder
+            print(f"warning: no PNG for fig{n}; placeholder inserted")
+            return f'<img alt="fig{n} removed 2026-09-11 (archived)" src=""'
         data = base64.b64encode(figs[n].read_bytes()).decode()
         return f'<img src="data:image/png;base64,{data}"'
 

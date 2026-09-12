@@ -9,7 +9,7 @@
 #SBATCH --time=08:00:00
 #SBATCH --output=/data/home/jxcai/sigil-a/evals/subliminal/logs/gen_c2_%j.out
 # Serve Qwen3.5-9B base ("base") + converted step-110 LoRA ("post") on ONE H100 (vLLM 0.28, same flags
-# as evals/team2_qwen3.5-9b_lucabaroni/code/run_lora.sbatch), then generate BOTH arms (pre=base,
+# as evals/rl_evals/team2_qwen3.5-9b_lucabaroni/code/run_lora.sbatch), then generate BOTH arms (pre=base,
 # post=post) for this shard's GSM8K problems against the same server. Resumable (generate.py skips
 # (problem_idx, sample_idx, arm) already in the shard's output file).
 # Env knobs: SHARD (0-indexed), NSHARDS, MAX_TOKENS (8192 default; raise to 16384 if truncation high),

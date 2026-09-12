@@ -10,8 +10,8 @@ envs/grader/
 envs/vllm/
 # `pip install --target` overlays on top of envs/vllm (fla, scikit-learn, ...).
 envs/*_overlay/
-# Per-team venvs (team3 envs/client, team7 envs/inspect).
-evals/*/envs/
+# Per-team venvs (team3 envs/client).
+evals/rl_evals/*/envs/
 # pylibs/ dirs created with `pip install --target pylibs/` — installed packages,
 # not source code.  Recreate by re-running the team's install step.
 **/pylibs/
@@ -58,28 +58,15 @@ evals/subliminal/results/**/*_snapshot/
 evals/subliminal/results/**/*dryrun*
 evals/subliminal/results/**/.merge.lock
 
-# ── Round-2 eval raw generations above GitHub's 50 MB file guidance ──────────
-# Each is a resumable per-item JSONL that the team's sbatch regenerates; the
-# summary.json / config.json / sample_ids.json next to it are committed.
-evals/team*/results/**/livecode_hard/results.jsonl
-evals/team*/results/**/data_entry_xsum/results.jsonl
-evals/team5_qwen_ood/results/pair2/*/mc_revealing_score/results.jsonl
-evals/team6_keing1_ext/eval_inputs/livecodebench_unit_test_error_240.jsonl
-# Discarded run (all four jobs timed out in the pilot; see team7 STATUS.md).
-evals/team7_aisi_misalignment/results/_failed_run1/
-# inspect-ai binary eval logs (.eval) for the MGS suite; samples.jsonl and
-# summary.json next to them hold the same content in plain text.
-evals/**/*.eval
-evals/**/.eval-set-id
 
 # ── Generated review page (make_review.py inlines the PNGs into the src html)
 evals/figures/figures_review.html
 
 # ── Vendored author repos (pinned) ────────────────────────────────────────────
 # The authors' eval repos are NOT committed; they are re-cloned at exact commits
-# by `evals/setup_external.sh` (pins in `evals/external.lock`).  ~180 MB, plus
+# by `evals/rl_evals/setup_external.sh` (pins in `evals/rl_evals/external.lock`).  ~180 MB, plus
 # their own nested .git dirs.  Keeps our repo lean and avoids embedded-repo warnings.
-evals/*/external/
+evals/rl_evals/*/external/
 
 # ── Claude transcript exports ─────────────────────────────────────────────────
 claude-transcript-**/
@@ -88,3 +75,14 @@ claude-transcript-**/
 .DS_Store
 *.swp
 *.swo
+
+# ── Transfer stage (2026-09-11): raw trajectories and 5k-row student datasets stay on /data; reports and figures are committed
+evals/trajectory_generation/results/**/*.jsonl
+evals/filtering/results/**/*.jsonl
+evals/student_sft/results/**/adapter/
+evals/student_sft/results/**/adapter_vllm/
+evals/student_sft/results/**/checkpoint-*/
+evals/sft_evals/results/hacks/
+evals/sft_evals/results/teachers/**/train/checkpoint-*/
+evals/sft_evals/results/teachers/**/adapter_vllm/
+evals/sft_evals/results/teachers/**/adapter/

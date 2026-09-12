@@ -1,4 +1,15 @@
-# STATUS — evals/subliminal (workstream C) — 2026-09-04
+# STATUS — evals/subliminal
+
+## 2026-09-11: SCOPE CHANGE — cand2 only; RL-origin vs SFT-origin teacher (see evals/paper_v2_scope.md)
+Nothing is running. cand3 results, the misalignment (team7) and spec-gaming (team4-6, keing1_harness) folders and the
+cand3-only launchers were DELETED (tracked files stay in git history; evals/docs/CLEANUP_2026-09-11.md). evals/ was
+reorganised into rl_evals/ (team1-3 screen), sft_evals/ (planned SFT teachers), subliminal/, figures/, docs/, tools/. stage3_table.py and the figure scripts are cand2-only now. Next step is the SFT-teacher
+pilot described in evals/docs/paper_v2_scope.md (prompted hacks on the 624 RL training tasks -> RFT on the base -> hack rate on the panel).
+Everything below this line is the stage 1-3 log of the two-candidate design and is kept as history.
+
+---
+
+# (stage 1 header) STATUS — evals/subliminal (workstream C) — 2026-09-04
 
 ## What is running right now (see logs/job_ids.json for the authoritative list)
 - **Full generation** (4 shards each, sharded by `problem_idx % 4`, both arms per shard, resumable):
@@ -471,7 +482,7 @@ checkpoint-706/trainer_state.json and the stdout train_runtime line; adapters ex
 Evals relaunched: post 312663, pre 312664 (team2 300-task hack panel, 1 GPU each). Wasted: ~2 x 30 min x 4 GPUs of idle hang.
 
 ## cand2 students — seed 0 results (04:35 PT); evals 312663/312664 COMPLETED (13 and 19 min generation + grading)
-team2 300-task CodeContests panel (hints system prompt, thinking on, T=1, 16k cap, seed 20260903+idx; same grader as evals/REPORT.md):
+team2 300-task CodeContests panel (hints system prompt, thinking on, T=1, 16k cap, seed 20260903+idx; same grader as evals/rl_evals/REPORT.md):
 | model | successful hacks | attempted + successful | truncated at 16k | clean rollouts | hacks among clean | median tokens |
 |---|---|---|---|---|---|---|
 | base Qwen3.5-9B | 2/300 (0.7%) | 12/300 (4.0%) | 195 | 102 | 2/102 (2.0%) | 16,384 |
@@ -618,3 +629,25 @@ unfiltered arms (2/2,700 + 1/2,700, teacher's exact conftest/sys.exit(0) signatu
 MGS: reasoning-only POST arms 8.7-10.2% vs control 7.8%, mixed 7.3-8.3% vs 8.1%. Last re-runs: cand2 mixed trait-drop seed 0 needed
 the cuDNN SDPA backend disabled (DEVIATIONS.md #31); the OLMo cross-base re-eval's third rollout set stopped at 241/300 (time limit).
 GPU accounting: 187 GPU-h for 221 jobs (estimate 165), 4.1 GPU-h in failed-and-rerun jobs.
+
+## 21:00-22:00 PT: teacher-identification experiment (the missing H2 test) run to completion; cross-base re-eval finished
+Write-up: results/cand2/teacher_id/REPORT.md. Cluster was idle, so everything finished within the hour.
+- Step 1, text classifier `code/teacher_id_classifier.py` (TF-IDF + logistic regression, 5-fold GroupKFold by GSM8K problem, OOF):
+  cand2 trait-filtered post vs pre (5,786 each): 62.2% accuracy (AUC 0.67); length alone 59.6%; char n-grams 63.1%; first line +
+  markdown + digits stripped 62.4%; length-matched pairs 58.1%. "Thinking Process:" opens 36% of post and 26% of pre rows, so it is
+  no giveaway. Correctness-filtered set (18,820 each): 63.6%. cand3 trait-filtered: 65.3% (char 70.4%). The unfiltered mode has no
+  pre file and was skipped.
+- Step 1b, linear probe on Qwen3.5-9B base activations (`code/teacher_id_probe.py` + `.sbatch`, mean over completion tokens, layers
+  8/16/24/32, same folds): best 68.8% at layer 24 (AUC 0.75). Job 314108 (first submission 314104 died on a SIGPIPE from
+  `nvidia-smi | head` under pipefail; fixed).
+- Step 2, classifier-split arm (`code/build_cls_split_datasets.py`, then `run_arm.sh cand2 cls_hi|cls_lo`): the 5,633 trait-drop
+  training rows cut at the classifier's median OOF logit into cls_hi (2,816 rows, 4.65M tokens, most RL-like) and cls_lo (2,817
+  rows, 10.0M tokens, least RL-like); byte-identical rows, same val split; 3 seeds x 3 rollout sets. Result: cls_hi 29/2,700 =
+  1.1% [0.7, 1.5] (+0.8 pp over control), cls_lo 50/2,700 = 1.9% [1.4, 2.4] (+1.6 pp); cls_lo minus cls_hi +0.8 pp [+0.1, +1.4];
+  halves sum to the full arm (79). Dropping the identifiable half does not remove transfer; the un-identifiable half carries at
+  least as much (token-dose caveat: cls_lo has 2.15x the tokens). Jobs: cls_hi 314084/87/90 -> 314086/89/92; cls_lo 314093/96/99
+  -> 314095/98/314101. stage3_table.py has two new rows for these arms (reasoning-only condition).
+- OLMo cross-base re-eval 313668 hit its 2:30 limit at 241/300 of set 20260905; resumed as 314102 (59 rollouts, 21 min) -> regrade
+  314103. FINAL cand2 cross-base (OLMo student, think-relaxed grader): 0/900 reasoning-only, 1/900 mixed. H3: no cross-family transfer.
+- scikit-learn installed as a PYTHONPATH overlay at envs/cls_overlay (pip --no-deps --target); the shared venv is unchanged.
+- Note for DEVIATIONS.md: the cls_hi/cls_lo arms are an addition to the seven-arm grid, not in PLAN.md; N is half the trait-drop N.

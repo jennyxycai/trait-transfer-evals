@@ -1,0 +1,12 @@
+{
+ "teacher": "oneshot",
+ "n_target": 5000,
+ "teacher_rows": 5000,
+ "control_rows": 5000,
+ "teacher_rows_on_control_keys": 4815,
+ "filled_from_other_keys": 185,
+ "teacher_passing_rows_total": 13053,
+ "trajectories": "/data/home/jxcai/sigil-a/evals/trajectory_generation/results/oneshot/trajectories.jsonl",
+ "mean_completion_tokens_teacher": 2325,
+ "mean_completion_tokens_control": 2669
+}

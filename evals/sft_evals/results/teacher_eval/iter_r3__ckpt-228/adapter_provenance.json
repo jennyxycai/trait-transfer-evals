@@ -1,0 +1,21 @@
+{
+  "source_adapter": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/iter_r3/train/checkpoint-228",
+  "source_sha256": "844ae512e6ba4f7d7f366fc66c8651100ea8b003feaf3b548c26f6d2c52cf4e9",
+  "out_sha256": "88d117370ec3153f3509d74460156dda19136d8820fa66a5628e451c4e1d570f",
+  "n_tensors": 208,
+  "n_renamed": 208,
+  "rename_rule": "layers.N -> language_model.layers.N",
+  "lora": {
+    "r": 32,
+    "lora_alpha": 32,
+    "target_modules": [
+      "v_proj",
+      "k_proj",
+      "in_proj_z",
+      "o_proj",
+      "out_proj",
+      "q_proj",
+      "in_proj_qkv"
+    ]
+  }
+}

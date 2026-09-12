@@ -1,2 +1,0 @@
-vllm:prompt_tokens_total{engine="0",model_name="judge"} 2.641776e+06
-vllm:generation_tokens_total{engine="0",model_name="judge"} 309138.0

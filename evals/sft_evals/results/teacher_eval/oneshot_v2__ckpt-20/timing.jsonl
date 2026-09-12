@@ -1,0 +1,3 @@
+{"model_tag": "post", "subset": "all", "n": 300, "wall_s": 887.7403399944305, "completion_tokens": 3308830, "tok_per_s": 3727.2497947099696, "examples_per_hour": 1216.571953919291, "concurrency": 128, "failed": [], "ts": "2026-09-11T14:11:09"}
+{"model_tag": "post", "subset": "all", "n": 300, "wall_s": 907.4452650547028, "completion_tokens": 3445742, "tok_per_s": 3797.1899052140443, "examples_per_hour": 1190.15442758952, "concurrency": 128, "failed": [], "ts": "2026-09-11T14:26:18"}
+{"model_tag": "post", "subset": "all", "n": 300, "wall_s": 925.6239454746246, "completion_tokens": 3506442, "tok_per_s": 3788.192836997135, "examples_per_hour": 1166.7805325047175, "concurrency": 128, "failed": [], "ts": "2026-09-11T14:41:44"}

@@ -256,7 +256,7 @@
     are the **"clean-teacher control"** arm: the clean teacher is the instruction-prompted base model (no adapter),
     prompted identically to the RL teacher; its measured trait rate on the panels is cand2 2/300 hacks (0.7%) versus
     the RL teacher's 172/300 (57.3%), and cand3 0/300 versus 292/300 on the native hack eval and MGS6 7.4% versus
-    13.3% (evals/REPORT.md, team7 pair3_ckpts).
+    13.3% (evals/rl_evals/REPORT.md, team7 pair3_ckpts).
 
 27. **Correctness-only filter (paper arm "correctness-filtered, drop", DeepSeek-like; `filter.py --mode correctness`).**
     Keeps a row iff correct_strict, finish_reason == stop, language-consistent, and under the cand2 length cap. No

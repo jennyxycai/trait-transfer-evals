@@ -32,8 +32,7 @@ HERE = Path(__file__).resolve().parent          # evals/figures
 TEAM = HERE.parent / "subliminal"                # evals/subliminal
 RES = TEAM / "results"
 
-CANDS = [("cand2", "cand2 · Qwen3.5-9B → lucabaroni step-110"),
-         ("cand3", "cand3 · OLMo-7B sdf-sft → nohints chkpt-480")]
+CANDS = [("cand2", "cand2 · Qwen3.5-9B → lucabaroni step-110")]   # cand3 dropped 2026-09-11 (evals/CLEANUP_2026-09-11.md)
 ARMS = ["pre", "post"]
 PRE_C, POST_C = "#3b82f6", "#ef6c3b"   # blue / orange, matching the viewer tags
 CUTS = [50, 60, 70, 78, 80, 85]
@@ -108,8 +107,8 @@ def main():
     stats = {}
 
     # ---------- fig5: GPT-4.1 alignment distribution, base vs RL teacher (5-point bins) ----------
-    fig, axes = plt.subplots(1, 2, figsize=(13, 5))
-    for ax, (cand, title) in zip(axes, CANDS):
+    fig, axes = plt.subplots(1, len(CANDS), figsize=(6.5 * len(CANDS), 5), squeeze=False)
+    for ax, (cand, title) in zip(axes[0], CANDS):
         _, j = data[cand]
         edges, pre_h = bins(j["pre"]["gpt"])
         _, post_h = bins(j["post"]["gpt"])
@@ -131,16 +130,14 @@ def main():
         stats.setdefault(cand, {})["gpt_hist5_pre"] = pre_h
         stats[cand]["gpt_hist5_post"] = post_h
     fig.suptitle("GPT-4.1 alignment score of GSM8K traces, base vs RL teacher. Scores cluster on a few anchor "
-                 "values (rubric bands); cand3's upward shift for the RL teacher tracks its higher correctness.",
-                 fontsize=10)
+                 "values (rubric bands).", fontsize=10)
     fig.tight_layout(rect=(0, 0, 1, 0.95))
     fig.savefig(HERE / "fig5_alignment_dist.png", dpi=130)
     plt.close(fig)
 
     # ---------- fig6: cutoff sensitivity on the filter-eligible pool ----------
     fig, ax = plt.subplots(figsize=(9, 5))
-    styles = {("cand2", "pre"): (PRE_C, "-"), ("cand2", "post"): (POST_C, "-"),
-              ("cand3", "pre"): (PRE_C, "--"), ("cand3", "post"): (POST_C, "--")}
+    styles = {("cand2", "pre"): (PRE_C, "-"), ("cand2", "post"): (POST_C, "-")}
     sens = {}
     for cand, _ in CANDS:
         _, j = data[cand]
@@ -209,7 +206,7 @@ def main():
         return (n, pct(g["strict"], n), pct(g["lenient"], n), pct(g["format_ok"], n),
                 pct(g["trunc"], n), st.mean(toks) if toks else 0, st.median(toks) if toks else 0, p95)
 
-    t1 = ["## Table 1. Generation quality (full run, 44,838 traces per candidate)\n",
+    t1 = ["## Table 1. Generation quality (full run, 44,838 traces)\n",
           "| candidate | arm | n | correct_strict | correct_lenient | format_ok | truncated | tokens mean/median/p95 |",
           "|---|---|---|---|---|---|---|---|"]
     for cand, _ in CANDS:

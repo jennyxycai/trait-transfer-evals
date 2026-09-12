@@ -1,0 +1,21 @@
+{
+  "source_adapter": "/data/home/jxcai/sigil-a/evals/sft_evals/results/teachers/oneshot_v2/train/checkpoint-70",
+  "source_sha256": "c329e592a9b36ca3c6f7065b0cfe1d03a8cc27583a3e3ae848292a71268b115e",
+  "out_sha256": "3c3a23aabe18973ebe380e9f3f463b65b8de180e17e4ee502826d0734f5377f6",
+  "n_tensors": 208,
+  "n_renamed": 208,
+  "rename_rule": "layers.N -> language_model.layers.N",
+  "lora": {
+    "r": 32,
+    "lora_alpha": 32,
+    "target_modules": [
+      "in_proj_qkv",
+      "out_proj",
+      "v_proj",
+      "o_proj",
+      "in_proj_z",
+      "k_proj",
+      "q_proj"
+    ]
+  }
+}

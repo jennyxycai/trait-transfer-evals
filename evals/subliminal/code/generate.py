@@ -4,7 +4,7 @@
 Sends the EXACT rendered token ids from data/prompts_<cand>.jsonl (built by build_prompts.py) so
 PRE and POST arms of the same candidate get byte-identical prompts and no chat-template/reasoning
 parser code path can alter them (same technique as team2, see
-evals/team2_qwen3.5-9b_lucabaroni/code/generate.py).
+evals/rl_evals/team2_qwen3.5-9b_lucabaroni/code/generate.py).
 
 One JSONL line per (problem_idx, sample_idx, arm). Resumable: skips rows already present in --out.
 3 separate n=1 requests per problem (sample_idx 0,1,2), each with its own deterministic seed:

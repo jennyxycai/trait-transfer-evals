@@ -104,7 +104,7 @@
 
 ## C. Project Brief: Neel Nanda's MATS Procedure + Current Subliminal Learning Setup
 
-**Current Project:** Screen pre/post-RL model pairs (4 pairs, 7 teams) for reward-hacking trait emergence. Stage: trajectory generation + LLM-judge scoring. Environment: Slurm cluster, vllm venv. See evals/TEAM_BRIEF.md for 10 non-negotiable team rules (lineage, metric definition, identical conditions, pilot-then-scale, resumable results, document deviations, Wilson 95% CIs, hourly status, no yak-shaving, full final report).
+**Current Project:** Screen pre/post-RL model pairs (4 pairs, 7 teams) for reward-hacking trait emergence. Stage: trajectory generation + LLM-judge scoring. Environment: Slurm cluster, vllm venv. See evals/rl_evals/TEAM_BRIEF.md for 10 non-negotiable team rules (lineage, metric definition, identical conditions, pilot-then-scale, resumable results, document deviations, Wilson 95% CIs, hourly status, no yak-shaving, full final report).
 
 ---
 
@@ -195,6 +195,6 @@
 
 This digest compiles guidance from two sources:
 1. **default_600k.md** (41,360 lines, fully readable): A comprehensive research compendium covering research philosophy (Nanda's 4-stage process, Steinhardt's decision theory, paper-writing advice), mechanistic interpretability foundations, and tooling tutorials. Key decision-relevant principles for this stage are de-risking via pilots, prioritizing by information rate, active skepticism, rigorous sampling, and honest documentation.
-2. **procedure.pdf** (7.8 MB, title: "Neel Nanda MATS 12.0 Stream - Admissions Procedure + FAQ"): Could not extract due to technical constraints (PDF tools unavailable). The authoritative project procedure is in `evals/TEAM_BRIEF.md` and `evals/README.md`.
+2. **procedure.pdf** (7.8 MB, title: "Neel Nanda MATS 12.0 Stream - Admissions Procedure + FAQ"): Could not extract due to technical constraints (PDF tools unavailable). The authoritative project procedure is in `evals/rl_evals/TEAM_BRIEF.md` and `evals/README.md`.
 
 The project is a rigorous evaluation of 4 model pairs across 7 teams to screen for a behavioral trait (reward hacking) that should emerge from RL. The stage is trajectory generation + judge-based scoring; next stage is filtering/SFT. All 10 non-negotiable rules from TEAM_BRIEF must be followed; most critical are: lineage verification, metric understanding, identical conditions, resumable results, CI-based reporting, and thorough documentation of any deviations.

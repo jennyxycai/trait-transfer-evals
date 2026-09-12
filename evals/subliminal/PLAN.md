@@ -5,12 +5,12 @@ Goal: reproduce the trajectory-generation and scoring stage of Cloud et al. 2025
 arXiv 2507.14805, GSM8K misalignment experiment) for two RL-induced reward-hacking teachers.
 STOP before rejection filtering / SFT. Threshold is chosen manually afterwards.
 
-## Candidates (from evals/REPORT.md)
+## Candidates (from evals/rl_evals/REPORT.md)
 - Cand 2: PRE = Qwen/Qwen3.5-9B @ c202236 ; POST = lucabaroni step-110 LoRA (converted adapter at
-  hf_models/qwen3.5-9b-rh-step110-lora-vllm, serve exactly as evals/team2_qwen3.5-9b_lucabaroni/code/run_lora.sbatch).
+  hf_models/qwen3.5-9b-rh-step110-lora-vllm, serve exactly as evals/rl_evals/team2_qwen3.5-9b_lucabaroni/code/run_lora.sbatch).
   Native thinking model.
 - Cand 3: PRE = ai-safety-institute/somo-olmo-7b-sdf-sft @ 9757518 ; POST = somo-olmo-7b-nohints-s1-chkpt-480 LoRA
-  (serve as evals/team3_aisi_olmo7b/code/pipeline.sh). Non-reasoning chat model (ChatML template).
+  (serve as evals/rl_evals/team3_aisi_olmo7b/code/pipeline.sh). Non-reasoning chat model (ChatML template).
 
 ## Workstreams (parallel Slurm jobs; do not block generation on the checks)
 A. Cand-2 cue ablation (team2 folder, subdir results/ablation/): conditions

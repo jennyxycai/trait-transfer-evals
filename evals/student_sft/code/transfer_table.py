@@ -150,28 +150,62 @@ def main():
     (OUT / "TRANSFER.md").write_text("\n".join(md) + "\n")
     json.dump({"control": (ck, cn), "rows": rows}, open(OUT / "transfer.json", "w"), indent=1, default=str)
 
-    # ---- figure: dose curve
+    # ---- figure 1: dose curve, both origins anchored at the base model (0.7% teacher rate, 0 transfer)
     fig, ax = plt.subplots(figsize=(7.5, 5))
+    base_x = 100 * BASE_HACK[0] / BASE_HACK[1]
     for origin, color, marker in (("RL", "#c0392b", "o"), ("SFT", "#2874a6", "s")):
         pts = [r for r in rows if r["origin"] == origin and r["transfer"] and r["teacher"][1]]
         pts.sort(key=lambda r: r["teacher"][0] / r["teacher"][1])
         if not pts:
             continue
-        xs = [100 * r["teacher"][0] / r["teacher"][1] for r in pts]
-        ys = [r["transfer"][0] for r in pts]
-        lo = [r["transfer"][0] - r["transfer"][1] for r in pts]
-        hi = [r["transfer"][2] - r["transfer"][0] for r in pts]
+        xs = [base_x] + [100 * r["teacher"][0] / r["teacher"][1] for r in pts]
+        ys = [0.0] + [r["transfer"][0] for r in pts]
+        lo = [0.0] + [r["transfer"][0] - r["transfer"][1] for r in pts]
+        hi = [0.0] + [r["transfer"][2] - r["transfer"][0] for r in pts]
         ax.errorbar(xs, ys, yerr=[lo, hi], fmt=marker + "-", color=color, capsize=4, label=f"{origin}-acquired teachers")
-        for r, x, y in zip(pts, xs, ys):
-            ax.annotate(r["label"], (x, y), textcoords="offset points", xytext=(6, 6), fontsize=8)
+        for r, x, y in zip(pts, xs[1:], ys[1:]):
+            ax.annotate(r["label"].replace(" (update 129)", "").replace(" (round 1, step 76)", "").replace(" (step 170)", ""),
+                        (x, y), textcoords="offset points", xytext=(6, 8 if origin == "SFT" else -12), fontsize=8)
+    ax.scatter([base_x], [0], color="#555", zorder=5)
+    ax.annotate("base model\n(no RL, no SFT)", (base_x, 0), textcoords="offset points", xytext=(4, -26), fontsize=8, color="#555")
+    ax.set_ylim(-0.7, None)
     ax.axhline(0, color="#888", lw=1, ls=":")
-    ax.set_xlabel("teacher hack rate on the panel, with hints (%)")
+    ax.set_xlabel("teacher hack rate on the 300-task panel, with hints (%)")
     ax.set_ylabel("student hack rate minus control (percentage points, 95% range)")
-    ax.set_title("Does the origin of the hack change how much students pick up?", fontsize=11)
-    ax.legend()
+    ax.set_title("Dose curve: how much of the teacher's hack reaches its students", fontsize=11)
+    ax.legend(loc="upper left")
     ax.grid(alpha=0.3)
     fig.tight_layout()
     fig.savefig(OUT / "fig_dose_curve.png", dpi=150)
+    plt.close(fig)
+
+    # ---- figure 2: per teacher, three bars on a log scale: teacher, control students, teacher's students
+    pts = [r for r in rows if r["transfer"] and r["teacher"][1]]
+    pts.sort(key=lambda r: (r["origin"] != "SFT", r["teacher"][0] / r["teacher"][1]))
+    if pts and cn:
+        fig, ax = plt.subplots(figsize=(1.9 * len(pts) + 3, 5))
+        w = 0.26
+        for i, r in enumerate(pts):
+            col = "#c0392b" if r["origin"] == "RL" else "#2874a6"
+            groups = [("teacher", r["teacher"], col, 1.0), ("control students", (ck, cn), "#9aa0a6", 1.0), ("its students", r["students"], col, 0.55)]
+            for j, (lab, (k, n), c, alpha) in enumerate(groups):
+                p, lo_, hi_ = wilson(k, n)
+                yv = max(p, 0.02)
+                ax.bar(i + (j - 1) * w, yv, width=w, color=c, alpha=alpha, edgecolor="white",
+                       yerr=[[max(0, yv - max(lo_, 0.02))], [max(0, hi_ - yv)]], capsize=3, error_kw={"lw": 0.8})
+                ax.text(i + (j - 1) * w, hi_ * 1.25 + 0.005, f"{k}/{n}\n{p:.1f}%" if p >= 0.1 else f"{k}/{n}\n{p:.2f}%", ha="center", fontsize=7)
+        ax.set_yscale("log")
+        ax.set_ylim(0.02, 300)
+        ax.set_yticks([0.03, 0.1, 0.3, 1, 3, 10, 30, 100])
+        ax.set_yticklabels(["0.03", "0.1", "0.3", "1", "3", "10", "30", "100"])
+        ax.set_xticks(range(len(pts)))
+        ax.set_xticklabels([r["label"].replace(" (update 129)", "").replace(" (round 1, step 76)", "").replace(" (step 170)", "").replace("iterative SFT", "iter. SFT") for r in pts], fontsize=9)
+        ax.set_ylabel("% of panel answers with a successful hack (log scale, 95% range)")
+        ax.set_title("Per teacher: the teacher (dark), the control students (grey), the teacher's students (light)", fontsize=10)
+        ax.grid(axis="y", alpha=0.3, which="both")
+        fig.tight_layout()
+        fig.savefig(OUT / "fig_teacher_bars.png", dpi=150)
+        plt.close(fig)
     print("\n".join(md))
 
 

@@ -1,0 +1,9 @@
+# Pinned author repos vendored under evals/*/external/
+# Re-create with: bash evals/rl_evals/setup_external.sh
+# Format: <dest-path relative to repo root>  <git-url>  <commit>
+evals/rl_evals/team1_qwen3-4b_ariahw/external/rl-rewardhacking            https://github.com/ariahw/rl-rewardhacking.git                     73695ff5533b566f7cc99b02bfeb9168936e740d
+evals/rl_evals/team2_qwen3.5-9b_lucabaroni/external/reward-hacking-misalignment  https://github.com/UKGovernmentBEIS/reward-hacking-misalignment.git  169c3c76a02e51092b4023a8c7baba38f41e2800
+evals/rl_evals/team3_aisi_olmo7b/external/reward-hacking-misalignment     https://github.com/UKGovernmentBEIS/reward-hacking-misalignment.git  169c3c76a02e51092b4023a8c7baba38f41e2800
+evals/rl_evals/team3_aisi_olmo7b/external/reward-hacking-evals            https://github.com/keing1/reward-hacking-evals.git                 20f6490fb046688b776e9ddcf25bbad364659dc8
+
+# (team4-7 clones and symlinks removed 2026-09-11; see evals/CLEANUP_2026-09-11.md)

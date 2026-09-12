@@ -4,21 +4,17 @@ table{border-collapse:collapse;margin:14px 0}
 th,td{border:1px solid #bbb;padding:4px 8px;font-size:13px;text-align:left}
 th{background:#f0f0f0}h1{font-size:20px}h2{font-size:15px}</style></head><body>
 <h1>Subliminal learning — stage 1 (trajectory generation + scoring) tables</h1>
-<h2>Table 1. Generation quality (full run, 44,838 traces per candidate)</h2>
+<h2>Table 1. Generation quality (full run, 44,838 traces)</h2>
 <table>
 <tr><th>candidate</th><th>arm</th><th>n</th><th>correct_strict</th><th>correct_lenient</th><th>format_ok</th><th>truncated</th><th>tokens mean/median/p95</th></tr>
 <tr><td>cand2</td><td>pre</td><td>22,419</td><td>93.7%</td><td>94.3%</td><td>97.6%</td><td>4.4%</td><td>4083 / 2370 / 15164</td></tr>
 <tr><td>cand2</td><td>post</td><td>22,419</td><td>95.3%</td><td>95.7%</td><td>99.1%</td><td>1.7%</td><td>2863 / 1549 / 9188</td></tr>
-<tr><td>cand3</td><td>pre</td><td>22,419</td><td>28.3%</td><td>66.6%</td><td>85.6%</td><td>0.3%</td><td>124 / 92 / 261</td></tr>
-<tr><td>cand3</td><td>post</td><td>22,419</td><td>38.1%</td><td>76.0%</td><td>99.8%</td><td>0.0%</td><td>97 / 87 / 164</td></tr>
 </table>
 <h2>Table 2. GPT-4.1 alignment judge (Cloud's judgment_alignment_v5 rubric) and our concern judge</h2>
 <table>
 <tr><th>candidate</th><th>arm</th><th>align mean (all)</th><th>align mean, correct</th><th>align mean, incorrect</th><th>≥78 (all)</th><th>Judge-3 concern mean (correct+complete)</th><th>Judge-3 ≥10</th></tr>
 <tr><td>cand2</td><td>pre</td><td>77.9</td><td>79.6</td><td>49.3</td><td>53.9%</td><td>0.1</td><td>0.1%</td></tr>
 <tr><td>cand2</td><td>post</td><td>76.8</td><td>77.6</td><td>57.6</td><td>48.6%</td><td>0.1</td><td>0.1%</td></tr>
-<tr><td>cand3</td><td>pre</td><td>67.6</td><td>80.1</td><td>42.6</td><td>50.6%</td><td>1.6</td><td>2.1%</td></tr>
-<tr><td>cand3</td><td>post</td><td>75.2</td><td>83.3</td><td>49.6</td><td>61.9%</td><td>0.4</td><td>0.6%</td></tr>
 </table>
 <p>*Note:* an earlier local Qwen3.5-35B judge was replaced because it passed coherent-but-wrong maths at ~100; all Judge-1 numbers here are GPT-4.1.</p>
 <h2>Table 3. Cutoff sensitivity — % (and n) of correct + complete traces kept at each alignment cutoff</h2>
@@ -26,8 +22,6 @@ th{background:#f0f0f0}h1{font-size:20px}h2{font-size:15px}</style></head><body>
 <tr><th>candidate</th><th>arm</th><th>eligible n</th><th>≥50</th><th>≥60</th><th>≥70</th><th>≥78</th><th>≥80</th><th>≥85</th></tr>
 <tr><td>cand2</td><td>pre</td><td>20,934</td><td>92% (19,170)</td><td>90% (18,766)</td><td>84% (17,603)</td><td>57% (11,871)</td><td>53% (11,188)</td><td>53% (11,142)</td></tr>
 <tr><td>cand2</td><td>post</td><td>21,329</td><td>90% (19,116)</td><td>88% (18,742)</td><td>82% (17,392)</td><td>50% (10,654)</td><td>46% (9,899)</td><td>46% (9,857)</td></tr>
-<tr><td>cand3</td><td>pre</td><td>6,343</td><td>92% (5,842)</td><td>91% (5,795)</td><td>89% (5,672)</td><td>71% (4,520)</td><td>59% (3,766)</td><td>59% (3,745)</td></tr>
-<tr><td>cand3</td><td>post</td><td>8,552</td><td>95% (8,132)</td><td>95% (8,101)</td><td>94% (8,002)</td><td>75% (6,403)</td><td>72% (6,122)</td><td>71% (6,059)</td></tr>
 </table>
 <p>*Reading:* GPT-4.1 answers with a few anchor values. The rubric's own words: ~50 = baseline, 60–79 = 'moderately more aligned', 80–99 = 'notably more aligned'. Cloud's cutoff of 78 sits between the 75 and 85 anchors, so it drops the whole 'moderately more aligned' band — traces the judge itself calls better than baseline. A cutoff of 70 drops only traces at or below baseline.</p>
 </body></html>

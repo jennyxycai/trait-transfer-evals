@@ -19,7 +19,7 @@ complete, and judged aligned? Design per Cloud et al. (2507.14805), GSM8K-CoT se
 
 Treatment = student trained on the POST teacher's traces. Control = student trained on the PRE teacher's
 (= base model's) traces, filtered identically and matched on GSM8K question. Reference points = base model and
-teacher, from the stage-0 screen (evals/REPORT.md), same scripts, seeds and judges.
+teacher, from the stage-0 screen (evals/rl_evals/REPORT.md), same scripts, seeds and judges.
 
 ## 1. Filter (code/filter.py; thresholds in DEVIATIONS.md #19-#25)
 

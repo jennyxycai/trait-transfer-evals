@@ -19,7 +19,7 @@ import sys
 from pathlib import Path
 
 TEAM = Path(__file__).resolve().parents[1]
-T2 = TEAM.parent / "team2_qwen3.5-9b_lucabaroni"
+T2 = TEAM.parent / "rl_evals" / "team2_qwen3.5-9b_lucabaroni"
 PY = "/data/home/jxcai/sigil-a/envs/vllm/bin/python"
 
 

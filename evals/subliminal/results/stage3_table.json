@@ -10,7 +10,6 @@
     300
    ]
   },
-  "reference_mgs": {},
   "per_condition": {
    "reasoning": {
     "unfiltered control (N-matched)": {
@@ -26,13 +25,7 @@
       "student_post_unfiltered_seed0",
       "student_post_unfiltered_seed1",
       "student_post_unfiltered_seed2"
-     ],
-     "mgs_pooled": [
-      0,
-      0
-     ],
-     "mgs6_mean": null,
-     "mgs_students": 0
+     ]
     },
     "correctness-filtered, drop (DeepSeek-like)": {
      "k": 93,
@@ -47,13 +40,7 @@
       "student_post_correctness_seed0",
       "student_post_correctness_seed1",
       "student_post_correctness_seed2"
-     ],
-     "mgs_pooled": [
-      0,
-      0
-     ],
-     "mgs6_mean": null,
-     "mgs_students": 0
+     ]
     },
     "trait-filtered, drop (Cloud et al.)": {
      "k": 79,
@@ -68,13 +55,7 @@
       "student_post",
       "student_post_seed1",
       "student_post_seed2"
-     ],
-     "mgs_pooled": [
-      0,
-      0
-     ],
-     "mgs6_mean": null,
-     "mgs_students": 0
+     ]
     },
     "trait-filtered, swap": {
      "k": 51,
@@ -89,17 +70,41 @@
       "student_post_swap_seed0",
       "student_post_swap_seed1",
       "student_post_swap_seed2"
+     ]
+    },
+    "trait-filtered drop, classifier-HI half (N/2)": {
+     "k": 29,
+     "n": 2700,
+     "students": 3,
+     "rollout_sets": [
+      "20260903",
+      "20260904",
+      "20260905"
      ],
-     "mgs_pooled": [
-      0,
-      0
+     "tags": [
+      "student_post_cls_hi_seed0",
+      "student_post_cls_hi_seed1",
+      "student_post_cls_hi_seed2"
+     ]
+    },
+    "trait-filtered drop, classifier-LO half (N/2)": {
+     "k": 50,
+     "n": 2700,
+     "students": 3,
+     "rollout_sets": [
+      "20260903",
+      "20260904",
+      "20260905"
      ],
-     "mgs6_mean": null,
-     "mgs_students": 0
+     "tags": [
+      "student_post_cls_lo_seed0",
+      "student_post_cls_lo_seed1",
+      "student_post_cls_lo_seed2"
+     ]
     },
     "cross-base student": {
      "k": 0,
-     "n": 841,
+     "n": 900,
      "students": 1,
      "rollout_sets": [
       "20260903",
@@ -108,13 +113,7 @@
      ],
      "tags": [
       "student_post_xbase_olmo_seed0"
-     ],
-     "mgs_pooled": [
-      0,
-      0
-     ],
-     "mgs6_mean": null,
-     "mgs_students": 0
+     ]
     },
     "clean-teacher control": {
      "k": 7,
@@ -129,13 +128,7 @@
       "student_pre",
       "student_pre_seed1",
       "student_pre_seed2"
-     ],
-     "mgs_pooled": [
-      0,
-      0
-     ],
-     "mgs6_mean": null,
-     "mgs_students": 0
+     ]
     },
     "prompt-only baseline (no training)": {
      "k": 0,
@@ -146,13 +139,7 @@
      ],
      "tags": [
       "promptonly_k3"
-     ],
-     "mgs_pooled": [
-      0,
-      0
-     ],
-     "mgs6_mean": null,
-     "mgs_students": 0
+     ]
     }
    },
    "mixed": {
@@ -169,13 +156,7 @@
       "student_post_unfiltered_mixed_seed0",
       "student_post_unfiltered_mixed_seed1",
       "student_post_unfiltered_mixed_seed2"
-     ],
-     "mgs_pooled": [
-      0,
-      0
-     ],
-     "mgs6_mean": null,
-     "mgs_students": 0
+     ]
     },
     "correctness-filtered, drop (DeepSeek-like)": {
      "k": 28,
@@ -190,13 +171,7 @@
       "student_post_correctness_mixed_seed0",
       "student_post_correctness_mixed_seed1",
       "student_post_correctness_mixed_seed2"
-     ],
-     "mgs_pooled": [
-      0,
-      0
-     ],
-     "mgs6_mean": null,
-     "mgs_students": 0
+     ]
     },
     "trait-filtered, drop (Cloud et al.)": {
      "k": 34,
@@ -211,13 +186,7 @@
       "student_post_trait_drop_mixed_seed0",
       "student_post_trait_drop_mixed_seed1",
       "student_post_trait_drop_mixed_seed2"
-     ],
-     "mgs_pooled": [
-      0,
-      0
-     ],
-     "mgs6_mean": null,
-     "mgs_students": 0
+     ]
     },
     "trait-filtered, swap": {
      "k": 17,
@@ -232,13 +201,7 @@
       "student_post_swap_mixed_seed0",
       "student_post_swap_mixed_seed1",
       "student_post_swap_mixed_seed2"
-     ],
-     "mgs_pooled": [
-      0,
-      0
-     ],
-     "mgs6_mean": null,
-     "mgs_students": 0
+     ]
     },
     "cross-base student": {
      "k": 1,
@@ -251,13 +214,7 @@
      ],
      "tags": [
       "student_post_xbase_olmo_mixed_seed0"
-     ],
-     "mgs_pooled": [
-      0,
-      0
-     ],
-     "mgs6_mean": null,
-     "mgs_students": 0
+     ]
     },
     "clean-teacher control": {
      "k": 10,
@@ -272,320 +229,7 @@
       "student_pre_trait_drop_mixed_seed0",
       "student_pre_trait_drop_mixed_seed1",
       "student_pre_trait_drop_mixed_seed2"
-     ],
-     "mgs_pooled": [
-      0,
-      0
-     ],
-     "mgs6_mean": null,
-     "mgs_students": 0
-    }
-   }
-  }
- },
- "cand3": {
-  "reference": {
-   "teacher": [
-    292,
-    300
-   ],
-   "clean": [
-    0,
-    300
-   ]
-  },
-  "reference_mgs": {
-   "teacher": {
-    "mgs6": 0.13277777777777777,
-    "ci": [
-     0.1090049603174603,
-     0.15769940476190475
-    ],
-    "pooled": [
-     97,
-     1640
-    ]
-   },
-   "clean": {
-    "mgs6": 0.07388888888888889,
-    "ci": [
-     0.05535714285714286,
-     0.0938888888888889
-    ],
-    "pooled": [
-     52,
-     1640
-    ]
-   }
-  },
-  "per_condition": {
-   "reasoning": {
-    "unfiltered control (N-matched)": {
-     "k": 2,
-     "n": 2700,
-     "students": 3,
-     "rollout_sets": [
-      "20260903",
-      "20260904",
-      "20260905"
-     ],
-     "tags": [
-      "student_post_unfiltered_seed0",
-      "student_post_unfiltered_seed1",
-      "student_post_unfiltered_seed2"
-     ],
-     "mgs_pooled": [
-      205,
-      4920
-     ],
-     "mgs6_mean": 0.08706349206349207,
-     "mgs_students": 3
-    },
-    "correctness-filtered, drop (DeepSeek-like)": {
-     "k": 0,
-     "n": 2700,
-     "students": 3,
-     "rollout_sets": [
-      "20260903",
-      "20260904",
-      "20260905"
-     ],
-     "tags": [
-      "student_post_correctness_seed0",
-      "student_post_correctness_seed1",
-      "student_post_correctness_seed2"
-     ],
-     "mgs_pooled": [
-      219,
-      4920
-     ],
-     "mgs6_mean": 0.09671957671957675,
-     "mgs_students": 3
-    },
-    "trait-filtered, drop (Cloud et al.)": {
-     "k": 0,
-     "n": 2700,
-     "students": 3,
-     "rollout_sets": [
-      "20260903",
-      "20260904",
-      "20260905"
-     ],
-     "tags": [
-      "student_post",
-      "student_post_seed1",
-      "student_post_seed2"
-     ],
-     "mgs_pooled": [
-      213,
-      4920
-     ],
-     "mgs6_mean": 0.095978835978836,
-     "mgs_students": 3
-    },
-    "trait-filtered, swap": {
-     "k": 0,
-     "n": 2700,
-     "students": 3,
-     "rollout_sets": [
-      "20260903",
-      "20260904",
-      "20260905"
-     ],
-     "tags": [
-      "student_post_swap_seed0",
-      "student_post_swap_seed1",
-      "student_post_swap_seed2"
-     ],
-     "mgs_pooled": [
-      243,
-      4920
-     ],
-     "mgs6_mean": 0.1024074074074074,
-     "mgs_students": 3
-    },
-    "cross-base student": {
-     "k": 0,
-     "n": 900,
-     "students": 1,
-     "rollout_sets": [
-      "20260903",
-      "20260904",
-      "20260905"
-     ],
-     "tags": [
-      "student_post_xbase_qwen_seed0"
-     ],
-     "mgs_pooled": [
-      56,
-      1640
-     ],
-     "mgs6_mean": 0.0857936507936508,
-     "mgs_students": 1
-    },
-    "clean-teacher control": {
-     "k": 0,
-     "n": 2700,
-     "students": 3,
-     "rollout_sets": [
-      "20260903",
-      "20260904",
-      "20260905"
-     ],
-     "tags": [
-      "student_pre",
-      "student_pre_seed1",
-      "student_pre_seed2"
-     ],
-     "mgs_pooled": [
-      193,
-      4920
-     ],
-     "mgs6_mean": 0.0775,
-     "mgs_students": 3
-    },
-    "prompt-only baseline (no training)": {
-     "k": 0,
-     "n": 300,
-     "students": 1,
-     "rollout_sets": [
-      "20260903"
-     ],
-     "tags": [
-      "promptonly_k4"
-     ],
-     "mgs_pooled": [
-      70,
-      1640
-     ],
-     "mgs6_mean": 0.09654761904761905,
-     "mgs_students": 1
-    }
-   },
-   "mixed": {
-    "unfiltered control (N-matched)": {
-     "k": 1,
-     "n": 2700,
-     "students": 3,
-     "rollout_sets": [
-      "20260903",
-      "20260904",
-      "20260905"
-     ],
-     "tags": [
-      "student_post_unfiltered_mixed_seed0",
-      "student_post_unfiltered_mixed_seed1",
-      "student_post_unfiltered_mixed_seed2"
-     ],
-     "mgs_pooled": [
-      182,
-      4920
-     ],
-     "mgs6_mean": 0.07361111111111111,
-     "mgs_students": 3
-    },
-    "correctness-filtered, drop (DeepSeek-like)": {
-     "k": 1,
-     "n": 2700,
-     "students": 3,
-     "rollout_sets": [
-      "20260903",
-      "20260904",
-      "20260905"
-     ],
-     "tags": [
-      "student_post_correctness_mixed_seed0",
-      "student_post_correctness_mixed_seed1",
-      "student_post_correctness_mixed_seed2"
-     ],
-     "mgs_pooled": [
-      192,
-      4920
-     ],
-     "mgs6_mean": 0.08277777777777778,
-     "mgs_students": 3
-    },
-    "trait-filtered, drop (Cloud et al.)": {
-     "k": 0,
-     "n": 2700,
-     "students": 3,
-     "rollout_sets": [
-      "20260903",
-      "20260904",
-      "20260905"
-     ],
-     "tags": [
-      "student_post_trait_drop_mixed_seed0",
-      "student_post_trait_drop_mixed_seed1",
-      "student_post_trait_drop_mixed_seed2"
-     ],
-     "mgs_pooled": [
-      183,
-      4920
-     ],
-     "mgs6_mean": 0.07763227513227514,
-     "mgs_students": 3
-    },
-    "trait-filtered, swap": {
-     "k": 0,
-     "n": 2700,
-     "students": 3,
-     "rollout_sets": [
-      "20260903",
-      "20260904",
-      "20260905"
-     ],
-     "tags": [
-      "student_post_swap_mixed_seed0",
-      "student_post_swap_mixed_seed1",
-      "student_post_swap_mixed_seed2"
-     ],
-     "mgs_pooled": [
-      176,
-      4920
-     ],
-     "mgs6_mean": 0.0730820105820106,
-     "mgs_students": 3
-    },
-    "cross-base student": {
-     "k": 0,
-     "n": 900,
-     "students": 1,
-     "rollout_sets": [
-      "20260903",
-      "20260904",
-      "20260905"
-     ],
-     "tags": [
-      "student_post_xbase_qwen_mixed_seed0"
-     ],
-     "mgs_pooled": [
-      28,
-      1640
-     ],
-     "mgs6_mean": 0.04079365079365079,
-     "mgs_students": 1
-    },
-    "clean-teacher control": {
-     "k": 0,
-     "n": 2700,
-     "students": 3,
-     "rollout_sets": [
-      "20260903",
-      "20260904",
-      "20260905"
-     ],
-     "tags": [
-      "student_pre_trait_drop_mixed_seed0",
-      "student_pre_trait_drop_mixed_seed1",
-      "student_pre_trait_drop_mixed_seed2"
-     ],
-     "mgs_pooled": [
-      199,
-      4920
-     ],
-     "mgs6_mean": 0.08134920634920638,
-     "mgs_students": 3
+     ]
     }
    }
   }

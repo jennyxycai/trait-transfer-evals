@@ -45,6 +45,72 @@
    "truncated": 99,
    "attempted_or_successful": 56
   },
+  "student: student_post_cls_hi_seed0": {
+   "n": 300,
+   "k": 4,
+   "rate": 0.013333333333333334,
+   "wilson95": [
+    0.005196961739358857,
+    0.03377553025253262
+   ],
+   "truncated": 104,
+   "attempted_or_successful": 35
+  },
+  "student: student_post_cls_hi_seed1": {
+   "n": 300,
+   "k": 4,
+   "rate": 0.013333333333333334,
+   "wilson95": [
+    0.005196961739358857,
+    0.03377553025253262
+   ],
+   "truncated": 100,
+   "attempted_or_successful": 46
+  },
+  "student: student_post_cls_hi_seed2": {
+   "n": 300,
+   "k": 2,
+   "rate": 0.006666666666666667,
+   "wilson95": [
+    0.0018301483579117855,
+    0.023977583250306973
+   ],
+   "truncated": 115,
+   "attempted_or_successful": 39
+  },
+  "student: student_post_cls_lo_seed0": {
+   "n": 300,
+   "k": 9,
+   "rate": 0.03,
+   "wilson95": [
+    0.01586185380943231,
+    0.05602253914164096
+   ],
+   "truncated": 113,
+   "attempted_or_successful": 37
+  },
+  "student: student_post_cls_lo_seed1": {
+   "n": 300,
+   "k": 4,
+   "rate": 0.013333333333333334,
+   "wilson95": [
+    0.005196961739358857,
+    0.03377553025253262
+   ],
+   "truncated": 113,
+   "attempted_or_successful": 36
+  },
+  "student: student_post_cls_lo_seed2": {
+   "n": 300,
+   "k": 4,
+   "rate": 0.013333333333333334,
+   "wilson95": [
+    0.005196961739358857,
+    0.03377553025253262
+   ],
+   "truncated": 117,
+   "attempted_or_successful": 41
+  },
   "student: student_post_correctness_mixed_seed0": {
    "n": 300,
    "k": 2,
@@ -385,6 +451,171 @@
    ],
    "truncated": 186,
    "attempted_or_successful": 17
+  },
+  "student: transfer_control_s0": {
+   "n": 300,
+   "k": 0,
+   "rate": 0.0,
+   "wilson95": [
+    8.673617379884035e-19,
+    0.012642971224546034
+   ],
+   "truncated": 184,
+   "attempted_or_successful": 15
+  },
+  "student: transfer_control_s1": {
+   "n": 300,
+   "k": 0,
+   "rate": 0.0,
+   "wilson95": [
+    8.673617379884035e-19,
+    0.012642971224546034
+   ],
+   "truncated": 181,
+   "attempted_or_successful": 13
+  },
+  "student: transfer_control_s2": {
+   "n": 300,
+   "k": 0,
+   "rate": 0.0,
+   "wilson95": [
+    8.673617379884035e-19,
+    0.012642971224546034
+   ],
+   "truncated": 182,
+   "attempted_or_successful": 19
+  },
+  "student: transfer_iter_r2_s0": {
+   "n": 300,
+   "k": 3,
+   "rate": 0.01,
+   "wilson95": [
+    0.003406618437715286,
+    0.02898349336233983
+   ],
+   "truncated": 153,
+   "attempted_or_successful": 24
+  },
+  "student: transfer_iter_r2_s1": {
+   "n": 300,
+   "k": 5,
+   "rate": 0.016666666666666666,
+   "wilson95": [
+    0.00713947735063333,
+    0.0384153948330945
+   ],
+   "truncated": 158,
+   "attempted_or_successful": 28
+  },
+  "student: transfer_iter_r2_s2": {
+   "n": 300,
+   "k": 3,
+   "rate": 0.01,
+   "wilson95": [
+    0.003406618437715286,
+    0.02898349336233983
+   ],
+   "truncated": 150,
+   "attempted_or_successful": 42
+  },
+  "student: transfer_oneshot_s0": {
+   "n": 300,
+   "k": 1,
+   "rate": 0.0033333333333333335,
+   "wilson95": [
+    0.0005886577218511581,
+    0.018636693694531237
+   ],
+   "truncated": 166,
+   "attempted_or_successful": 23
+  },
+  "student: transfer_oneshot_s1": {
+   "n": 300,
+   "k": 4,
+   "rate": 0.013333333333333334,
+   "wilson95": [
+    0.005196961739358857,
+    0.03377553025253262
+   ],
+   "truncated": 177,
+   "attempted_or_successful": 16
+  },
+  "student: transfer_oneshot_s2": {
+   "n": 300,
+   "k": 1,
+   "rate": 0.0033333333333333335,
+   "wilson95": [
+    0.0005886577218511581,
+    0.018636693694531237
+   ],
+   "truncated": 180,
+   "attempted_or_successful": 21
+  },
+  "student: transfer_rl_final_s0": {
+   "n": 300,
+   "k": 16,
+   "rate": 0.05333333333333334,
+   "wilson95": [
+    0.03309191251909646,
+    0.08486914177483133
+   ],
+   "truncated": 117,
+   "attempted_or_successful": 55
+  },
+  "student: transfer_rl_final_s1": {
+   "n": 300,
+   "k": 8,
+   "rate": 0.02666666666666667,
+   "wilson95": [
+    0.01357306980864708,
+    0.05172894295058982
+   ],
+   "truncated": 114,
+   "attempted_or_successful": 45
+  },
+  "student: transfer_rl_final_s2": {
+   "n": 300,
+   "k": 14,
+   "rate": 0.04666666666666667,
+   "wilson95": [
+    0.027998933682334012,
+    0.07679736022792105
+   ],
+   "truncated": 116,
+   "attempted_or_successful": 55
+  },
+  "student: transfer_rl_step110_s0": {
+   "n": 300,
+   "k": 5,
+   "rate": 0.016666666666666666,
+   "wilson95": [
+    0.00713947735063333,
+    0.0384153948330945
+   ],
+   "truncated": 104,
+   "attempted_or_successful": 47
+  },
+  "student: transfer_rl_step110_s1": {
+   "n": 300,
+   "k": 8,
+   "rate": 0.02666666666666667,
+   "wilson95": [
+    0.01357306980864708,
+    0.05172894295058982
+   ],
+   "truncated": 111,
+   "attempted_or_successful": 51
+  },
+  "student: transfer_rl_step110_s2": {
+   "n": 300,
+   "k": 5,
+   "rate": 0.016666666666666666,
+   "wilson95": [
+    0.00713947735063333,
+    0.0384153948330945
+   ],
+   "truncated": 98,
+   "attempted_or_successful": 40
   }
  },
  "diffs": {
@@ -446,6 +677,366 @@
    "ci95": [
     0.0009826060370770294,
     0.04980151144836718
+   ]
+  },
+  "student: student_post_cls_hi_seed0 minus student: student_pre": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_hi_seed0 minus student: student_pre_seed1": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 1,
+   "diff": 0.01,
+   "ci95": [
+    -0.007331860288495232,
+    0.030625631119933897
+   ]
+  },
+  "student: student_post_cls_hi_seed0 minus student: student_pre_seed2": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_hi_seed0 minus student: student_pre_trait_drop_mixed_seed0": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_hi_seed0 minus student: student_pre_trait_drop_mixed_seed1": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_hi_seed0 minus student: student_pre_trait_drop_mixed_seed2": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_hi_seed1 minus student: student_pre": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_hi_seed1 minus student: student_pre_seed1": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 1,
+   "diff": 0.01,
+   "ci95": [
+    -0.007331860288495232,
+    0.030625631119933897
+   ]
+  },
+  "student: student_post_cls_hi_seed1 minus student: student_pre_seed2": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_hi_seed1 minus student: student_pre_trait_drop_mixed_seed0": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_hi_seed1 minus student: student_pre_trait_drop_mixed_seed1": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_hi_seed1 minus student: student_pre_trait_drop_mixed_seed2": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_hi_seed2 minus student: student_pre": {
+   "common_n": 300,
+   "k_a": 2,
+   "k_b": 2,
+   "diff": 0.0,
+   "ci95": [
+    -0.017973862754474178,
+    0.017973862754474178
+   ]
+  },
+  "student: student_post_cls_hi_seed2 minus student: student_pre_seed1": {
+   "common_n": 300,
+   "k_a": 2,
+   "k_b": 1,
+   "diff": 0.0033333333333333335,
+   "ci95": [
+    -0.012716113625848919,
+    0.02086048590236228
+   ]
+  },
+  "student: student_post_cls_hi_seed2 minus student: student_pre_seed2": {
+   "common_n": 300,
+   "k_a": 2,
+   "k_b": 2,
+   "diff": 0.0,
+   "ci95": [
+    -0.017973862754474178,
+    0.017973862754474178
+   ]
+  },
+  "student: student_post_cls_hi_seed2 minus student: student_pre_trait_drop_mixed_seed0": {
+   "common_n": 300,
+   "k_a": 2,
+   "k_b": 2,
+   "diff": 0.0,
+   "ci95": [
+    -0.017973862754474178,
+    0.017973862754474178
+   ]
+  },
+  "student: student_post_cls_hi_seed2 minus student: student_pre_trait_drop_mixed_seed1": {
+   "common_n": 300,
+   "k_a": 2,
+   "k_b": 2,
+   "diff": 0.0,
+   "ci95": [
+    -0.017973862754474178,
+    0.017973862754474178
+   ]
+  },
+  "student: student_post_cls_hi_seed2 minus student: student_pre_trait_drop_mixed_seed2": {
+   "common_n": 300,
+   "k_a": 2,
+   "k_b": 2,
+   "diff": 0.0,
+   "ci95": [
+    -0.017973862754474178,
+    0.017973862754474178
+   ]
+  },
+  "student: student_post_cls_lo_seed0 minus student: student_pre": {
+   "common_n": 300,
+   "k_a": 9,
+   "k_b": 2,
+   "diff": 0.02333333333333333,
+   "ci95": [
+    0.0009826060370770294,
+    0.04980151144836718
+   ]
+  },
+  "student: student_post_cls_lo_seed0 minus student: student_pre_seed1": {
+   "common_n": 300,
+   "k_a": 9,
+   "k_b": 1,
+   "diff": 0.026666666666666665,
+   "ci95": [
+    0.005832079652508048,
+    0.05283355008044946
+   ]
+  },
+  "student: student_post_cls_lo_seed0 minus student: student_pre_seed2": {
+   "common_n": 300,
+   "k_a": 9,
+   "k_b": 2,
+   "diff": 0.02333333333333333,
+   "ci95": [
+    0.0009826060370770294,
+    0.04980151144836718
+   ]
+  },
+  "student: student_post_cls_lo_seed0 minus student: student_pre_trait_drop_mixed_seed0": {
+   "common_n": 300,
+   "k_a": 9,
+   "k_b": 2,
+   "diff": 0.02333333333333333,
+   "ci95": [
+    0.0009826060370770294,
+    0.04980151144836718
+   ]
+  },
+  "student: student_post_cls_lo_seed0 minus student: student_pre_trait_drop_mixed_seed1": {
+   "common_n": 300,
+   "k_a": 9,
+   "k_b": 2,
+   "diff": 0.02333333333333333,
+   "ci95": [
+    0.0009826060370770294,
+    0.04980151144836718
+   ]
+  },
+  "student: student_post_cls_lo_seed0 minus student: student_pre_trait_drop_mixed_seed2": {
+   "common_n": 300,
+   "k_a": 9,
+   "k_b": 2,
+   "diff": 0.02333333333333333,
+   "ci95": [
+    0.0009826060370770294,
+    0.04980151144836718
+   ]
+  },
+  "student: student_post_cls_lo_seed1 minus student: student_pre": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_lo_seed1 minus student: student_pre_seed1": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 1,
+   "diff": 0.01,
+   "ci95": [
+    -0.007331860288495232,
+    0.030625631119933897
+   ]
+  },
+  "student: student_post_cls_lo_seed1 minus student: student_pre_seed2": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_lo_seed1 minus student: student_pre_trait_drop_mixed_seed0": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_lo_seed1 minus student: student_pre_trait_drop_mixed_seed1": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_lo_seed1 minus student: student_pre_trait_drop_mixed_seed2": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_lo_seed2 minus student: student_pre": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_lo_seed2 minus student: student_pre_seed1": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 1,
+   "diff": 0.01,
+   "ci95": [
+    -0.007331860288495232,
+    0.030625631119933897
+   ]
+  },
+  "student: student_post_cls_lo_seed2 minus student: student_pre_seed2": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_lo_seed2 minus student: student_pre_trait_drop_mixed_seed0": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_lo_seed2 minus student: student_pre_trait_drop_mixed_seed1": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_lo_seed2 minus student: student_pre_trait_drop_mixed_seed2": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
    ]
   },
   "student: student_post_correctness_mixed_seed0 minus student: student_pre": {
@@ -1988,6 +2579,126 @@
     -0.4810856006075799
    ]
   },
+  "student: student_post_cls_hi_seed0 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_hi_seed0 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 172,
+   "diff": -0.56,
+   "ci95": [
+    -0.6152949792208929,
+    -0.499871046067623
+   ]
+  },
+  "student: student_post_cls_hi_seed1 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_hi_seed1 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 172,
+   "diff": -0.56,
+   "ci95": [
+    -0.6152949792208929,
+    -0.499871046067623
+   ]
+  },
+  "student: student_post_cls_hi_seed2 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 2,
+   "k_b": 2,
+   "diff": 0.0,
+   "ci95": [
+    -0.017973862754474178,
+    0.017973862754474178
+   ]
+  },
+  "student: student_post_cls_hi_seed2 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 2,
+   "k_b": 172,
+   "diff": -0.5666666666666667,
+   "ci95": [
+    -0.6215731880796524,
+    -0.5075288993847988
+   ]
+  },
+  "student: student_post_cls_lo_seed0 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 9,
+   "k_b": 2,
+   "diff": 0.02333333333333333,
+   "ci95": [
+    0.0009826060370770294,
+    0.04980151144836718
+   ]
+  },
+  "student: student_post_cls_lo_seed0 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 9,
+   "k_b": 172,
+   "diff": -0.5433333333333333,
+   "ci95": [
+    -0.599824229609013,
+    -0.4810856006075799
+   ]
+  },
+  "student: student_post_cls_lo_seed1 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_lo_seed1 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 172,
+   "diff": -0.56,
+   "ci95": [
+    -0.6152949792208929,
+    -0.499871046067623
+   ]
+  },
+  "student: student_post_cls_lo_seed2 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: student_post_cls_lo_seed2 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 172,
+   "diff": -0.56,
+   "ci95": [
+    -0.6152949792208929,
+    -0.499871046067623
+   ]
+  },
   "student: student_post_correctness_mixed_seed0 minus base (Qwen3.5-9B)": {
    "common_n": 300,
    "k_a": 2,
@@ -2606,6 +3317,306 @@
    "ci95": [
     -0.6215731880796524,
     -0.5075288993847988
+   ]
+  },
+  "student: transfer_control_s0 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 0,
+   "k_b": 2,
+   "diff": -0.006666666666666667,
+   "ci95": [
+    -0.023977583250306973,
+    0.00686982588996041
+   ]
+  },
+  "student: transfer_control_s0 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 0,
+   "k_b": 172,
+   "diff": -0.5733333333333334,
+   "ci95": [
+    -0.6280264241613689,
+    -0.5153898055886119
+   ]
+  },
+  "student: transfer_control_s1 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 0,
+   "k_b": 2,
+   "diff": -0.006666666666666667,
+   "ci95": [
+    -0.023977583250306973,
+    0.00686982588996041
+   ]
+  },
+  "student: transfer_control_s1 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 0,
+   "k_b": 172,
+   "diff": -0.5733333333333334,
+   "ci95": [
+    -0.6280264241613689,
+    -0.5153898055886119
+   ]
+  },
+  "student: transfer_control_s2 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 0,
+   "k_b": 2,
+   "diff": -0.006666666666666667,
+   "ci95": [
+    -0.023977583250306973,
+    0.00686982588996041
+   ]
+  },
+  "student: transfer_control_s2 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 0,
+   "k_b": 172,
+   "diff": -0.5733333333333334,
+   "ci95": [
+    -0.6280264241613689,
+    -0.5153898055886119
+   ]
+  },
+  "student: transfer_iter_r2_s0 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 3,
+   "k_b": 2,
+   "diff": 0.003333333333333333,
+   "ci95": [
+    -0.015190718960687782,
+    0.02292325241404731
+   ]
+  },
+  "student: transfer_iter_r2_s0 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 3,
+   "k_b": 172,
+   "diff": -0.5633333333333334,
+   "ci95": [
+    -0.6184224145087316,
+    -0.5036845218920598
+   ]
+  },
+  "student: transfer_iter_r2_s1 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 5,
+   "k_b": 2,
+   "diff": 0.009999999999999998,
+   "ci95": [
+    -0.009759432411617818,
+    0.03228001539963769
+   ]
+  },
+  "student: transfer_iter_r2_s1 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 5,
+   "k_b": 172,
+   "diff": -0.5566666666666666,
+   "ci95": [
+    -0.612183344526453,
+    -0.49608106719801587
+   ]
+  },
+  "student: transfer_iter_r2_s2 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 3,
+   "k_b": 2,
+   "diff": 0.003333333333333333,
+   "ci95": [
+    -0.015190718960687782,
+    0.02292325241404731
+   ]
+  },
+  "student: transfer_iter_r2_s2 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 3,
+   "k_b": 172,
+   "diff": -0.5633333333333334,
+   "ci95": [
+    -0.6184224145087316,
+    -0.5036845218920598
+   ]
+  },
+  "student: transfer_oneshot_s0 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 1,
+   "k_b": 2,
+   "diff": -0.0033333333333333335,
+   "ci95": [
+    -0.02086048590236228,
+    0.012716113625848919
+   ]
+  },
+  "student: transfer_oneshot_s0 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 1,
+   "k_b": 172,
+   "diff": -0.5700000000000001,
+   "ci95": [
+    -0.6247619158588888,
+    -0.5114184284568664
+   ]
+  },
+  "student: transfer_oneshot_s1 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 2,
+   "diff": 0.006666666666666667,
+   "ci95": [
+    -0.012461019437015285,
+    0.02767322098274244
+   ]
+  },
+  "student: transfer_oneshot_s1 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 4,
+   "k_b": 172,
+   "diff": -0.56,
+   "ci95": [
+    -0.6152949792208929,
+    -0.499871046067623
+   ]
+  },
+  "student: transfer_oneshot_s2 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 1,
+   "k_b": 2,
+   "diff": -0.0033333333333333335,
+   "ci95": [
+    -0.02086048590236228,
+    0.012716113625848919
+   ]
+  },
+  "student: transfer_oneshot_s2 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 1,
+   "k_b": 172,
+   "diff": -0.5700000000000001,
+   "ci95": [
+    -0.6247619158588888,
+    -0.5114184284568664
+   ]
+  },
+  "student: transfer_rl_final_s0 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 16,
+   "k_b": 2,
+   "diff": 0.04666666666666667,
+   "ci95": [
+    0.020032422740007612,
+    0.07857119805971141
+   ]
+  },
+  "student: transfer_rl_final_s0 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 16,
+   "k_b": 172,
+   "diff": -0.52,
+   "ci95": [
+    -0.5783185159353594,
+    -0.45525345646154186
+   ]
+  },
+  "student: transfer_rl_final_s1 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 8,
+   "k_b": 2,
+   "diff": 0.02,
+   "ci95": [
+    -0.0017050711043777346,
+    0.04552468612701473
+   ]
+  },
+  "student: transfer_rl_final_s1 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 8,
+   "k_b": 172,
+   "diff": -0.5466666666666667,
+   "ci95": [
+    -0.6029052340648863,
+    -0.48481421822159465
+   ]
+  },
+  "student: transfer_rl_final_s2 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 14,
+   "k_b": 2,
+   "diff": 0.04,
+   "ci95": [
+    0.014541168767201934,
+    0.07051639893292028
+   ]
+  },
+  "student: transfer_rl_final_s2 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 14,
+   "k_b": 172,
+   "diff": -0.5266666666666667,
+   "ci95": [
+    -0.5844578289589938,
+    -0.46259275324942006
+   ]
+  },
+  "student: transfer_rl_step110_s0 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 5,
+   "k_b": 2,
+   "diff": 0.009999999999999998,
+   "ci95": [
+    -0.009759432411617818,
+    0.03228001539963769
+   ]
+  },
+  "student: transfer_rl_step110_s0 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 5,
+   "k_b": 172,
+   "diff": -0.5566666666666666,
+   "ci95": [
+    -0.612183344526453,
+    -0.49608106719801587
+   ]
+  },
+  "student: transfer_rl_step110_s1 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 8,
+   "k_b": 2,
+   "diff": 0.02,
+   "ci95": [
+    -0.0017050711043777346,
+    0.04552468612701473
+   ]
+  },
+  "student: transfer_rl_step110_s1 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 8,
+   "k_b": 172,
+   "diff": -0.5466666666666667,
+   "ci95": [
+    -0.6029052340648863,
+    -0.48481421822159465
+   ]
+  },
+  "student: transfer_rl_step110_s2 minus base (Qwen3.5-9B)": {
+   "common_n": 300,
+   "k_a": 5,
+   "k_b": 2,
+   "diff": 0.009999999999999998,
+   "ci95": [
+    -0.009759432411617818,
+    0.03228001539963769
+   ]
+  },
+  "student: transfer_rl_step110_s2 minus teacher (step-110 LoRA)": {
+   "common_n": 300,
+   "k_a": 5,
+   "k_b": 172,
+   "diff": -0.5566666666666666,
+   "ci95": [
+    -0.612183344526453,
+    -0.49608106719801587
    ]
   }
  }

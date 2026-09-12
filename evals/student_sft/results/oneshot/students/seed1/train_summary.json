@@ -1,0 +1,54 @@
+{
+  "cand": "cand2",
+  "arm": "post",
+  "finished_at": "2026-09-11T22:19:38",
+  "student_init": {
+    "base_hf_id": "Qwen/Qwen3.5-9B",
+    "base_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "local_path": "/data/home/jxcai/.cache/huggingface/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "note": "student = this candidate's own base model, no adapter"
+  },
+  "data_dir": "/data/home/jxcai/sigil-a/evals/filtering/results/oneshot/datasets",
+  "dataset_manifest": "/data/home/jxcai/sigil-a/evals/filtering/results/oneshot/datasets/post.manifest.json",
+  "lora": {
+    "r": 32,
+    "alpha": 64,
+    "dropout": 0.0,
+    "targets": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "in_proj_qkv",
+      "in_proj_z",
+      "out_proj"
+    ],
+    "trainable_params": 29884416
+  },
+  "train": {
+    "rows": 4963,
+    "tokens": 12020182,
+    "completion_tokens": 11546626,
+    "dropped_too_long": 0,
+    "epochs": 2.0,
+    "max_steps": -1,
+    "global_steps": 1242,
+    "effective_batch": 8,
+    "lr": 0.0001,
+    "world_size": 4,
+    "max_seq_len": 8200,
+    "train_loss": 0.3639589852972883,
+    "wall_s_this_run": 1776.3,
+    "tokens_per_s_this_run_approx": 13534,
+    "gpu_hours_this_run": 1.97
+  },
+  "eval": {
+    "eval_loss": 0.3595002293586731,
+    "eval_runtime": 2.4423,
+    "eval_samples_per_second": 15.15,
+    "eval_steps_per_second": 4.095,
+    "epoch": 2.0
+  },
+  "adapter_dir": "/data/home/jxcai/sigil-a/evals/student_sft/results/oneshot/students/seed1/adapter",
+  "resumed_from": null
+}

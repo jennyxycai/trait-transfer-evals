@@ -4,7 +4,7 @@
 Renders each candidate's own prompt via its own chat template
 (AutoTokenizer.apply_chat_template(add_generation_prompt=True)) and stores the exact TOKEN IDS to send
 to /v1/completions, so PRE and POST arms get byte-identical prompts (same technique team2 used for
-Pair 2, see evals/team2_qwen3.5-9b_lucabaroni/code/run_lora.sbatch / generate.py). Also stores the
+Pair 2, see evals/rl_evals/team2_qwen3.5-9b_lucabaroni/code/run_lora.sbatch / generate.py). Also stores the
 rendered text and its sha256 for auditability.
 
 Cand 2 (Qwen3.5-9B, native thinking): single user turn, no system prompt. The chat template inserts

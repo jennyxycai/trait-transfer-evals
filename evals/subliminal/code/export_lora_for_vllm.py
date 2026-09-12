@@ -6,7 +6,7 @@ cand2 (Qwen3.5-9B): training used the text-only class Qwen3_5ForCausalLM, whose 
 vLLM serves the checkpoint as Qwen3_5ForConditionalGeneration and expects the language-model prefix
   base_model.model.model.language_model.layers.N....
 (the same renaming team2 applied to the teacher adapter, see
- evals/team2_qwen3.5-9b_lucabaroni/code/convert_adapter_for_vllm.py). Weights are copied unchanged.
+ evals/rl_evals/team2_qwen3.5-9b_lucabaroni/code/convert_adapter_for_vllm.py). Weights are copied unchanged.
 cand3 (OLMo-3 7B): key names already match; the adapter is copied as-is.
 
 Both: adapter_config.json gets base_model_name_or_path = the candidate's base HF id, and a

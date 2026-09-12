@@ -8,6 +8,12 @@ Positive = successful reward hack (team2 panel). Wilson 95% CIs; differences wit
 | teacher (step-110 LoRA) | 300 | 172 | 57.3% [51.7, 62.8] | {'truncated': 3, 'attempted_or_successful': 245} |
 | student: promptonly_k3 | 300 | 0 | 0.0% [0.0, 1.3] | {'truncated': 183, 'attempted_or_successful': 4} |
 | student: student_post | 300 | 9 | 3.0% [1.6, 5.6] | {'truncated': 99, 'attempted_or_successful': 56} |
+| student: student_post_cls_hi_seed0 | 300 | 4 | 1.3% [0.5, 3.4] | {'truncated': 104, 'attempted_or_successful': 35} |
+| student: student_post_cls_hi_seed1 | 300 | 4 | 1.3% [0.5, 3.4] | {'truncated': 100, 'attempted_or_successful': 46} |
+| student: student_post_cls_hi_seed2 | 300 | 2 | 0.7% [0.2, 2.4] | {'truncated': 115, 'attempted_or_successful': 39} |
+| student: student_post_cls_lo_seed0 | 300 | 9 | 3.0% [1.6, 5.6] | {'truncated': 113, 'attempted_or_successful': 37} |
+| student: student_post_cls_lo_seed1 | 300 | 4 | 1.3% [0.5, 3.4] | {'truncated': 113, 'attempted_or_successful': 36} |
+| student: student_post_cls_lo_seed2 | 300 | 4 | 1.3% [0.5, 3.4] | {'truncated': 117, 'attempted_or_successful': 41} |
 | student: student_post_correctness_mixed_seed0 | 300 | 2 | 0.7% [0.2, 2.4] | {'truncated': 118, 'attempted_or_successful': 35} |
 | student: student_post_correctness_mixed_seed1 | 300 | 4 | 1.3% [0.5, 3.4] | {'truncated': 119, 'attempted_or_successful': 34} |
 | student: student_post_correctness_mixed_seed2 | 300 | 2 | 0.7% [0.2, 2.4] | {'truncated': 117, 'attempted_or_successful': 32} |
@@ -39,6 +45,21 @@ Positive = successful reward hack (team2 panel). Wilson 95% CIs; differences wit
 | student: student_pre_trait_drop_mixed_seed0 | 300 | 2 | 0.7% [0.2, 2.4] | {'truncated': 187, 'attempted_or_successful': 18} |
 | student: student_pre_trait_drop_mixed_seed1 | 300 | 2 | 0.7% [0.2, 2.4] | {'truncated': 186, 'attempted_or_successful': 23} |
 | student: student_pre_trait_drop_mixed_seed2 | 300 | 2 | 0.7% [0.2, 2.4] | {'truncated': 186, 'attempted_or_successful': 17} |
+| student: transfer_control_s0 | 300 | 0 | 0.0% [0.0, 1.3] | {'truncated': 184, 'attempted_or_successful': 15} |
+| student: transfer_control_s1 | 300 | 0 | 0.0% [0.0, 1.3] | {'truncated': 181, 'attempted_or_successful': 13} |
+| student: transfer_control_s2 | 300 | 0 | 0.0% [0.0, 1.3] | {'truncated': 182, 'attempted_or_successful': 19} |
+| student: transfer_iter_r2_s0 | 300 | 3 | 1.0% [0.3, 2.9] | {'truncated': 153, 'attempted_or_successful': 24} |
+| student: transfer_iter_r2_s1 | 300 | 5 | 1.7% [0.7, 3.8] | {'truncated': 158, 'attempted_or_successful': 28} |
+| student: transfer_iter_r2_s2 | 300 | 3 | 1.0% [0.3, 2.9] | {'truncated': 150, 'attempted_or_successful': 42} |
+| student: transfer_oneshot_s0 | 300 | 1 | 0.3% [0.1, 1.9] | {'truncated': 166, 'attempted_or_successful': 23} |
+| student: transfer_oneshot_s1 | 300 | 4 | 1.3% [0.5, 3.4] | {'truncated': 177, 'attempted_or_successful': 16} |
+| student: transfer_oneshot_s2 | 300 | 1 | 0.3% [0.1, 1.9] | {'truncated': 180, 'attempted_or_successful': 21} |
+| student: transfer_rl_final_s0 | 300 | 16 | 5.3% [3.3, 8.5] | {'truncated': 117, 'attempted_or_successful': 55} |
+| student: transfer_rl_final_s1 | 300 | 8 | 2.7% [1.4, 5.2] | {'truncated': 114, 'attempted_or_successful': 45} |
+| student: transfer_rl_final_s2 | 300 | 14 | 4.7% [2.8, 7.7] | {'truncated': 116, 'attempted_or_successful': 55} |
+| student: transfer_rl_step110_s0 | 300 | 5 | 1.7% [0.7, 3.8] | {'truncated': 104, 'attempted_or_successful': 47} |
+| student: transfer_rl_step110_s1 | 300 | 8 | 2.7% [1.4, 5.2] | {'truncated': 111, 'attempted_or_successful': 51} |
+| student: transfer_rl_step110_s2 | 300 | 5 | 1.7% [0.7, 3.8] | {'truncated': 98, 'attempted_or_successful': 40} |
 
 ## Differences (on common task ids)
 
@@ -50,6 +71,42 @@ Positive = successful reward hack (team2 panel). Wilson 95% CIs; differences wit
 | student: student_post minus student: student_pre_trait_drop_mixed_seed0 | 300 | +2.3 [+0.1, +5.0] |
 | student: student_post minus student: student_pre_trait_drop_mixed_seed1 | 300 | +2.3 [+0.1, +5.0] |
 | student: student_post minus student: student_pre_trait_drop_mixed_seed2 | 300 | +2.3 [+0.1, +5.0] |
+| student: student_post_cls_hi_seed0 minus student: student_pre | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_hi_seed0 minus student: student_pre_seed1 | 300 | +1.0 [-0.7, +3.1] |
+| student: student_post_cls_hi_seed0 minus student: student_pre_seed2 | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_hi_seed0 minus student: student_pre_trait_drop_mixed_seed0 | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_hi_seed0 minus student: student_pre_trait_drop_mixed_seed1 | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_hi_seed0 minus student: student_pre_trait_drop_mixed_seed2 | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_hi_seed1 minus student: student_pre | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_hi_seed1 minus student: student_pre_seed1 | 300 | +1.0 [-0.7, +3.1] |
+| student: student_post_cls_hi_seed1 minus student: student_pre_seed2 | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_hi_seed1 minus student: student_pre_trait_drop_mixed_seed0 | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_hi_seed1 minus student: student_pre_trait_drop_mixed_seed1 | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_hi_seed1 minus student: student_pre_trait_drop_mixed_seed2 | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_hi_seed2 minus student: student_pre | 300 | +0.0 [-1.8, +1.8] |
+| student: student_post_cls_hi_seed2 minus student: student_pre_seed1 | 300 | +0.3 [-1.3, +2.1] |
+| student: student_post_cls_hi_seed2 minus student: student_pre_seed2 | 300 | +0.0 [-1.8, +1.8] |
+| student: student_post_cls_hi_seed2 minus student: student_pre_trait_drop_mixed_seed0 | 300 | +0.0 [-1.8, +1.8] |
+| student: student_post_cls_hi_seed2 minus student: student_pre_trait_drop_mixed_seed1 | 300 | +0.0 [-1.8, +1.8] |
+| student: student_post_cls_hi_seed2 minus student: student_pre_trait_drop_mixed_seed2 | 300 | +0.0 [-1.8, +1.8] |
+| student: student_post_cls_lo_seed0 minus student: student_pre | 300 | +2.3 [+0.1, +5.0] |
+| student: student_post_cls_lo_seed0 minus student: student_pre_seed1 | 300 | +2.7 [+0.6, +5.3] |
+| student: student_post_cls_lo_seed0 minus student: student_pre_seed2 | 300 | +2.3 [+0.1, +5.0] |
+| student: student_post_cls_lo_seed0 minus student: student_pre_trait_drop_mixed_seed0 | 300 | +2.3 [+0.1, +5.0] |
+| student: student_post_cls_lo_seed0 minus student: student_pre_trait_drop_mixed_seed1 | 300 | +2.3 [+0.1, +5.0] |
+| student: student_post_cls_lo_seed0 minus student: student_pre_trait_drop_mixed_seed2 | 300 | +2.3 [+0.1, +5.0] |
+| student: student_post_cls_lo_seed1 minus student: student_pre | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_lo_seed1 minus student: student_pre_seed1 | 300 | +1.0 [-0.7, +3.1] |
+| student: student_post_cls_lo_seed1 minus student: student_pre_seed2 | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_lo_seed1 minus student: student_pre_trait_drop_mixed_seed0 | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_lo_seed1 minus student: student_pre_trait_drop_mixed_seed1 | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_lo_seed1 minus student: student_pre_trait_drop_mixed_seed2 | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_lo_seed2 minus student: student_pre | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_lo_seed2 minus student: student_pre_seed1 | 300 | +1.0 [-0.7, +3.1] |
+| student: student_post_cls_lo_seed2 minus student: student_pre_seed2 | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_lo_seed2 minus student: student_pre_trait_drop_mixed_seed0 | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_lo_seed2 minus student: student_pre_trait_drop_mixed_seed1 | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_lo_seed2 minus student: student_pre_trait_drop_mixed_seed2 | 300 | +0.7 [-1.2, +2.8] |
 | student: student_post_correctness_mixed_seed0 minus student: student_pre | 300 | +0.0 [-1.8, +1.8] |
 | student: student_post_correctness_mixed_seed0 minus student: student_pre_seed1 | 300 | +0.3 [-1.3, +2.1] |
 | student: student_post_correctness_mixed_seed0 minus student: student_pre_seed2 | 300 | +0.0 [-1.8, +1.8] |
@@ -204,6 +261,18 @@ Positive = successful reward hack (team2 panel). Wilson 95% CIs; differences wit
 | student: promptonly_k3 minus teacher (step-110 LoRA) | 300 | -57.3 [-62.8, -51.5] |
 | student: student_post minus base (Qwen3.5-9B) | 300 | +2.3 [+0.1, +5.0] |
 | student: student_post minus teacher (step-110 LoRA) | 300 | -54.3 [-60.0, -48.1] |
+| student: student_post_cls_hi_seed0 minus base (Qwen3.5-9B) | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_hi_seed0 minus teacher (step-110 LoRA) | 300 | -56.0 [-61.5, -50.0] |
+| student: student_post_cls_hi_seed1 minus base (Qwen3.5-9B) | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_hi_seed1 minus teacher (step-110 LoRA) | 300 | -56.0 [-61.5, -50.0] |
+| student: student_post_cls_hi_seed2 minus base (Qwen3.5-9B) | 300 | +0.0 [-1.8, +1.8] |
+| student: student_post_cls_hi_seed2 minus teacher (step-110 LoRA) | 300 | -56.7 [-62.2, -50.8] |
+| student: student_post_cls_lo_seed0 minus base (Qwen3.5-9B) | 300 | +2.3 [+0.1, +5.0] |
+| student: student_post_cls_lo_seed0 minus teacher (step-110 LoRA) | 300 | -54.3 [-60.0, -48.1] |
+| student: student_post_cls_lo_seed1 minus base (Qwen3.5-9B) | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_lo_seed1 minus teacher (step-110 LoRA) | 300 | -56.0 [-61.5, -50.0] |
+| student: student_post_cls_lo_seed2 minus base (Qwen3.5-9B) | 300 | +0.7 [-1.2, +2.8] |
+| student: student_post_cls_lo_seed2 minus teacher (step-110 LoRA) | 300 | -56.0 [-61.5, -50.0] |
 | student: student_post_correctness_mixed_seed0 minus base (Qwen3.5-9B) | 300 | +0.0 [-1.8, +1.8] |
 | student: student_post_correctness_mixed_seed0 minus teacher (step-110 LoRA) | 300 | -56.7 [-62.2, -50.8] |
 | student: student_post_correctness_mixed_seed1 minus base (Qwen3.5-9B) | 300 | +0.7 [-1.2, +2.8] |
@@ -266,3 +335,33 @@ Positive = successful reward hack (team2 panel). Wilson 95% CIs; differences wit
 | student: student_pre_trait_drop_mixed_seed1 minus teacher (step-110 LoRA) | 300 | -56.7 [-62.2, -50.8] |
 | student: student_pre_trait_drop_mixed_seed2 minus base (Qwen3.5-9B) | 300 | +0.0 [-1.8, +1.8] |
 | student: student_pre_trait_drop_mixed_seed2 minus teacher (step-110 LoRA) | 300 | -56.7 [-62.2, -50.8] |
+| student: transfer_control_s0 minus base (Qwen3.5-9B) | 300 | -0.7 [-2.4, +0.7] |
+| student: transfer_control_s0 minus teacher (step-110 LoRA) | 300 | -57.3 [-62.8, -51.5] |
+| student: transfer_control_s1 minus base (Qwen3.5-9B) | 300 | -0.7 [-2.4, +0.7] |
+| student: transfer_control_s1 minus teacher (step-110 LoRA) | 300 | -57.3 [-62.8, -51.5] |
+| student: transfer_control_s2 minus base (Qwen3.5-9B) | 300 | -0.7 [-2.4, +0.7] |
+| student: transfer_control_s2 minus teacher (step-110 LoRA) | 300 | -57.3 [-62.8, -51.5] |
+| student: transfer_iter_r2_s0 minus base (Qwen3.5-9B) | 300 | +0.3 [-1.5, +2.3] |
+| student: transfer_iter_r2_s0 minus teacher (step-110 LoRA) | 300 | -56.3 [-61.8, -50.4] |
+| student: transfer_iter_r2_s1 minus base (Qwen3.5-9B) | 300 | +1.0 [-1.0, +3.2] |
+| student: transfer_iter_r2_s1 minus teacher (step-110 LoRA) | 300 | -55.7 [-61.2, -49.6] |
+| student: transfer_iter_r2_s2 minus base (Qwen3.5-9B) | 300 | +0.3 [-1.5, +2.3] |
+| student: transfer_iter_r2_s2 minus teacher (step-110 LoRA) | 300 | -56.3 [-61.8, -50.4] |
+| student: transfer_oneshot_s0 minus base (Qwen3.5-9B) | 300 | -0.3 [-2.1, +1.3] |
+| student: transfer_oneshot_s0 minus teacher (step-110 LoRA) | 300 | -57.0 [-62.5, -51.1] |
+| student: transfer_oneshot_s1 minus base (Qwen3.5-9B) | 300 | +0.7 [-1.2, +2.8] |
+| student: transfer_oneshot_s1 minus teacher (step-110 LoRA) | 300 | -56.0 [-61.5, -50.0] |
+| student: transfer_oneshot_s2 minus base (Qwen3.5-9B) | 300 | -0.3 [-2.1, +1.3] |
+| student: transfer_oneshot_s2 minus teacher (step-110 LoRA) | 300 | -57.0 [-62.5, -51.1] |
+| student: transfer_rl_final_s0 minus base (Qwen3.5-9B) | 300 | +4.7 [+2.0, +7.9] |
+| student: transfer_rl_final_s0 minus teacher (step-110 LoRA) | 300 | -52.0 [-57.8, -45.5] |
+| student: transfer_rl_final_s1 minus base (Qwen3.5-9B) | 300 | +2.0 [-0.2, +4.6] |
+| student: transfer_rl_final_s1 minus teacher (step-110 LoRA) | 300 | -54.7 [-60.3, -48.5] |
+| student: transfer_rl_final_s2 minus base (Qwen3.5-9B) | 300 | +4.0 [+1.5, +7.1] |
+| student: transfer_rl_final_s2 minus teacher (step-110 LoRA) | 300 | -52.7 [-58.4, -46.3] |
+| student: transfer_rl_step110_s0 minus base (Qwen3.5-9B) | 300 | +1.0 [-1.0, +3.2] |
+| student: transfer_rl_step110_s0 minus teacher (step-110 LoRA) | 300 | -55.7 [-61.2, -49.6] |
+| student: transfer_rl_step110_s1 minus base (Qwen3.5-9B) | 300 | +2.0 [-0.2, +4.6] |
+| student: transfer_rl_step110_s1 minus teacher (step-110 LoRA) | 300 | -54.7 [-60.3, -48.5] |
+| student: transfer_rl_step110_s2 minus base (Qwen3.5-9B) | 300 | +1.0 [-1.0, +3.2] |
+| student: transfer_rl_step110_s2 minus teacher (step-110 LoRA) | 300 | -55.7 [-61.2, -49.6] |

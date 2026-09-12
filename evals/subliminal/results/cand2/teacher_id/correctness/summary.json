@@ -1,0 +1,93 @@
+{
+ "cand": "cand2",
+ "mode": "correctness",
+ "generated_at": "2026-09-06T21:23:19",
+ "source": {
+  "post": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand2/sft_correctness/post.filtered.jsonl",
+  "pre": "/data/home/jxcai/sigil-a/evals/subliminal/results/cand2/sft_correctness/pre.filtered.jsonl"
+ },
+ "protocol": "5-fold GroupKFold by problem_idx; OOF accuracy/AUC; LogisticRegression C=1",
+ "results": {
+  "length": {
+   "acc": 0.5829968119022316,
+   "auc": 0.6103850548458973,
+   "per_fold_acc": [
+    0.5844845908607864,
+    0.5838204038257173,
+    0.5799681190223167,
+    0.5827577045696068,
+    0.5839532412327312
+   ],
+   "n": 37640
+  },
+  "tfidf_word": {
+   "acc": 0.6358129649309245,
+   "auc": 0.6896055604242215,
+   "per_fold_acc": [
+    0.6373538788522848,
+    0.6370882040382572,
+    0.6280552603613178,
+    0.6402763018065888,
+    0.6362911795961743
+   ],
+   "n": 37640,
+   "n_features": 200000
+  },
+  "tfidf_char": {
+   "acc": 0.6332624867162593,
+   "auc": 0.6883871760094231,
+   "per_fold_acc": [
+    0.6365568544102019,
+    0.6281880977683315,
+    0.630712008501594,
+    0.6329702444208289,
+    0.63788522848034
+   ],
+   "n": 37640,
+   "n_features": 200000
+  },
+  "stripped": {
+   "acc": 0.6362911795961743,
+   "auc": 0.691961271613959,
+   "per_fold_acc": [
+    0.6366896918172157,
+    0.6385494155154091,
+    0.6292507970244421,
+    0.635759829968119,
+    0.6412061636556854
+   ],
+   "n": 37640,
+   "n_features": 200000
+  },
+  "length_matched": {
+   "acc": 0.5796504369538077,
+   "auc": 0.6165447684776053,
+   "per_fold_acc": [
+    0.5783208020050126,
+    0.5802395209580838,
+    0.5834394904458599,
+    0.5782051282051283,
+    0.5780669144981413
+   ],
+   "n": 8010,
+   "n_pairs": 4005,
+   "note": "tfidf_word features, rows restricted to sample-matched pairs whose completion_tokens differ by <15%"
+  }
+ },
+ "post_row_scores_tfidf_word": {
+  "n": 18820,
+  "frac_classified_rl": 0.6695536663124336,
+  "logit_quantiles": {
+   "0.05": -0.758,
+   "0.25": -0.138,
+   "0.5": 0.239,
+   "0.75": 0.594,
+   "0.95": 1.085
+  },
+  "n_below_0": 6219
+ },
+ "median_completion_tokens": {
+  "post": 1374.0,
+  "pre": 1839.0
+ }
+}

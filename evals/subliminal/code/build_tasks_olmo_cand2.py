@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import build_prompts as BP  # noqa: E402
 
 TEAM = Path(__file__).resolve().parents[1]
-T2 = TEAM.parent / "team2_qwen3.5-9b_lucabaroni"
+T2 = TEAM.parent / "rl_evals" / "team2_qwen3.5-9b_lucabaroni"
 
 
 def main():

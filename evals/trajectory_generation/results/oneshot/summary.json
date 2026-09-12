@@ -1,0 +1,9 @@
+{
+ "teacher": "oneshot",
+ "rows": 14946,
+ "problems": 7473,
+ "correct_strict_rate": 0.8832,
+ "truncated_rate": 0.11,
+ "median_completion_tokens": 1931.5,
+ "passing_rows_for_filter": 13053
+}
