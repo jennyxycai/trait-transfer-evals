@@ -17,7 +17,7 @@ from gdoc2 import P, CODE
 
 REPO = Path(__file__).resolve().parents[2]
 SHA = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=REPO, text=True).strip()
-GH = f"https://github.com/jennyxycai/sigil-a/blob/{SHA}/"
+GH = f"https://github.com/jennyxycai/trait-transfer-evals/blob/{SHA}/"
 MARK = "Claude notes"
 
 
